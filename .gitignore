@@ -1,0 +1,51 @@
+# --- Secrets / env ---
+.env
+.env.local
+.env.*.local
+web/.env
+web/.env.local
+web/.env.*.local
+
+# --- Node / Next.js ---
+node_modules/
+.pnpm-store/
+.pnp.*
+.yarn/
+.next/
+out/
+build/
+dist/
+.vercel/
+
+# --- Netlify ---
+.netlify/
+.netlify-cli/
+
+# --- Captured/derived media (regenerate via scripts/) ---
+screenshots/
+logos/
+.playwright-mcp/
+
+# Intermediate artifacts from the initial HTML bundle ingestion
+design.bin
+design.tar.gz
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Python (scripts/) ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/

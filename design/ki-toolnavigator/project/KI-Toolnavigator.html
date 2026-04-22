@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KI-Toolnavigator — Das kuratierte Verzeichnis für Künstliche Intelligenz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #FAF8F5;
+  --bg-alt: #F1EDE6;
+  --ink-strong: #17140F;
+  --ink: #5A5550;
+  --line: #DDD7CC;
+  --accent: #A01E78;
+  --accent-soft: #F5E3ED;
+  --content-max: 1240px;
+  --pad: 32px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink-strong); font-family: 'Inter Tight', sans-serif; -webkit-font-smoothing: antialiased; }
+body { font-size: 15px; }
+a { text-decoration: none; color: inherit; }
+button { font: inherit; }
+input, select { font: inherit; color: inherit; }
+::selection { background: var(--accent); color: #fff; }
+
+/* Tweak-Variationen */
+body[data-density="compact"] { --pad: 22px; }
+body[data-density="compact"] .page-content { padding-top: 32px; padding-bottom: 32px; }
+body[data-density="airy"] { --pad: 48px; }
+body[data-density="airy"] .page-content { padding-top: 64px; padding-bottom: 64px; }
+
+body[data-typo="sans"] h1, body[data-typo="sans"] h2, body[data-typo="sans"] h3, body[data-typo="sans"] h4 { font-family: 'Inter Tight', sans-serif !important; letter-spacing: -0.02em !important; }
+body[data-typo="mono"] h1, body[data-typo="mono"] h2, body[data-typo="mono"] h3, body[data-typo="mono"] h4 { font-family: 'JetBrains Mono', monospace !important; letter-spacing: -0.02em !important; font-weight: 500 !important; }
+body[data-typo="mono"] p { font-family: 'JetBrains Mono', monospace !important; font-size: 13px !important; }
+
+.top-banner {
+  background: var(--ink-strong); color: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 0; text-align: center;
+}
+.top-banner a { color: var(--accent-soft); border-bottom: 1px dotted var(--accent-soft); }
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 248, 245, 0.96);
+  backdrop-filter: blur(8px);
+}
+.site-header-inner {
+  max-width: var(--content-max); margin: 0 auto;
+  padding: 18px var(--pad);
+  display: flex; align-items: center; gap: 32px;
+}
+.site-nav { display: flex; gap: 24px; margin-left: auto; }
+.site-nav a { font-size: 13px; color: var(--ink); cursor: pointer; padding: 6px 0; border-bottom: 1.5px solid transparent; }
+.site-nav a:hover { color: var(--ink-strong); }
+.site-nav a.active { color: var(--ink-strong); border-bottom-color: var(--accent); }
+
+.page-content {
+  max-width: var(--content-max); margin: 0 auto;
+  padding: 48px var(--pad);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line); margin-top: 40px;
+  background: var(--bg-alt);
+}
+.site-footer-inner {
+  max-width: var(--content-max); margin: 0 auto;
+  padding: 56px var(--pad) 32px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+}
+.site-footer h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.08em;
+  color: #8a8580; text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { padding: 4px 0; font-size: 13px; color: var(--ink); }
+.site-footer li a { cursor: pointer; border-bottom: 1px dotted transparent; }
+.site-footer li a:hover { border-bottom-color: var(--ink); color: var(--ink-strong); }
+
+/* Tweaks-Panel */
+.tweaks-panel {
+  position: fixed; bottom: 20px; right: 20px;
+  width: 280px; background: var(--bg);
+  border: 1px solid var(--ink-strong);
+  padding: 18px 20px; z-index: 200;
+  box-shadow: 8px 8px 0 var(--ink-strong);
+}
+.tweaks-panel h6 {
+  margin: 0 0 4px; font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 500;
+}
+.tweaks-panel .tw-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.08em;
+  color: #8a8580; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.tw-group { margin-top: 14px; }
+.tw-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.06em;
+  color: #8a8580; text-transform: uppercase;
+  margin-bottom: 6px; display: block;
+}
+.tw-options { display: flex; gap: 4px; }
+.tw-options button {
+  flex: 1; padding: 6px 8px; background: transparent;
+  border: 1px solid var(--line); color: var(--ink);
+  font-size: 11px; cursor: pointer;
+  font-family: 'Inter Tight', sans-serif;
+}
+.tw-options button.active { background: var(--ink-strong); color: var(--bg); border-color: var(--ink-strong); }
+.tw-swatches { display: flex; gap: 6px; }
+.tw-swatches button {
+  width: 28px; height: 28px; border: 1px solid var(--line);
+  cursor: pointer; padding: 0;
+}
+.tw-swatches button.active { outline: 2px solid var(--ink-strong); outline-offset: 2px; }
+
+@media (max-width: 900px) {
+  .site-footer-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body data-density="normal" data-typo="serif">
+
+<div id="root"></div>
+
+<script>
+  // Tweaks state (persisted in localStorage — not file, to match simple scope)
+  window.TWEAKS = /*EDITMODE-BEGIN*/{
+    "accent": "#A01E78",
+    "density": "normal",
+    "typo": "sans",
+    "logoVariant": "B"
+  }/*EDITMODE-END*/;
+  try {
+    const saved = JSON.parse(localStorage.getItem('ki_tweaks') || 'null');
+    if (saved) window.TWEAKS = { ...window.TWEAKS, ...saved };
+  } catch (e) {}
+  document.documentElement.style.setProperty('--accent', window.TWEAKS.accent);
+  document.body.dataset.density = window.TWEAKS.density;
+  document.body.dataset.typo = window.TWEAKS.typo;
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="data.js"></script>
+<script type="text/babel" src="logo.jsx"></script>
+<script type="text/babel" src="ui.jsx"></script>
+<script type="text/babel" src="pages-1.jsx"></script>
+<script type="text/babel" src="pages-2.jsx"></script>
+
+<script type="text/babel">
+function App() {
+  const [route, setRoute] = React.useState(() => {
+    try { return JSON.parse(localStorage.getItem('ki_route')) || { page: 'home' }; }
+    catch (e) { return { page: 'home' }; }
+  });
+  const [search, setSearch] = React.useState('');
+  const [compareList, setCompareList] = React.useState(['chatgpt', 'claude', 'mistral']);
+  const [tweaksOpen, setTweaksOpen] = React.useState(false);
+  const [tw, setTw] = React.useState(window.TWEAKS);
+
+  const nav = React.useCallback((r) => {
+    setRoute(r);
+    try { localStorage.setItem('ki_route', JSON.stringify(r)); } catch (e) {}
+    window.scrollTo(0, 0);
+  }, []);
+
+  const toggleCompare = (slug) => {
+    setCompareList(prev => {
+      if (prev.includes(slug)) return prev.filter(s => s !== slug);
+      if (prev.length >= 4) return prev;
+      return [...prev, slug];
+    });
+  };
+
+  // Tweaks: postMessage handshake
+  React.useEffect(() => {
+    const handler = (e) => {
+      if (e.data?.type === '__activate_edit_mode') setTweaksOpen(true);
+      if (e.data?.type === '__deactivate_edit_mode') setTweaksOpen(false);
+    };
+    window.addEventListener('message', handler);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', handler);
+  }, []);
+
+  const updateTweak = (key, value) => {
+    const next = { ...tw, [key]: value };
+    setTw(next);
+    if (key === 'accent') document.documentElement.style.setProperty('--accent', value);
+    if (key === 'density') document.body.dataset.density = value;
+    if (key === 'typo') document.body.dataset.typo = value;
+    try { localStorage.setItem('ki_tweaks', JSON.stringify(next)); } catch (e) {}
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
+  };
+
+  const page = route.page || 'home';
+
+  let content;
+  if (page === 'directory')      content = <DirectoryPage nav={nav} search={search} setSearch={setSearch} compareList={compareList} toggleCompare={toggleCompare} />;
+  else if (page === 'tool')      content = <ToolPage nav={nav} slug={route.slug} compareList={compareList} toggleCompare={toggleCompare} />;
+  else if (page === 'compare')   content = <ComparePage nav={nav} compareList={compareList} toggleCompare={toggleCompare} />;
+  else if (page === 'article')   content = <ArticlePage nav={nav} slug={route.slug} />;
+  else if (page === 'category')  content = <CategoryPage nav={nav} slug={route.slug} compareList={compareList} toggleCompare={toggleCompare} />;
+  else                           content = <HomePage nav={nav} search={search} setSearch={setSearch} />;
+
+  return (
+    <div data-screen-label={(() => {
+      const map = { home: '01 Startseite', directory: '02 Verzeichnis', tool: '03 Tool-Detail', compare: '04 Vergleich', article: '05 Artikel', category: '06 Kategorie' };
+      return map[page] || page;
+    })()}>
+      <div className="top-banner">
+        Redaktioneller Stand: 19. April 2026 · ein Projekt von <a onClick={() => window.open('#', '_blank')}>ampunkt.technology</a> · Version 2026.4
+      </div>
+
+      <header className="site-header">
+        <div className="site-header-inner">
+          <a onClick={() => nav({ page: 'home' })} style={{ cursor: 'pointer' }}>
+            <Wordmark variant={tw.logoVariant} size={36} />
+          </a>
+          <nav className="site-nav">
+            <a className={page === 'home' ? 'active' : ''} onClick={() => nav({ page: 'home' })}>Start</a>
+            <a className={page === 'directory' || page === 'category' ? 'active' : ''} onClick={() => nav({ page: 'directory' })}>Verzeichnis</a>
+            <a className={page === 'compare' ? 'active' : ''} onClick={() => nav({ page: 'compare' })}>Vergleich</a>
+            <a className={page === 'article' ? 'active' : ''} onClick={() => nav({ page: 'article', slug: 'was-ist-ki' })}>Artikel</a>
+            <a onClick={() => nav({ page: 'directory' })}>Suche</a>
+          </nav>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <a onClick={() => nav({ page: 'directory' })} style={{ cursor: 'pointer', width: 34, height: 34, border: '1px solid var(--line)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" /><line x1="9.5" y1="9.5" x2="13" y2="13" stroke="currentColor" strokeLinecap="round" /></svg>
+            </a>
+            <Button variant="ghost">Anmelden</Button>
+          </div>
+        </div>
+      </header>
+
+      <main className="page-content">
+        {content}
+      </main>
+
+      <footer className="site-footer">
+        <div className="site-footer-inner">
+          <div>
+            <Wordmark variant={tw.logoVariant} size={34} />
+            <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--ink)', marginTop: 18, maxWidth: 360 }}>
+              Ein redaktionell gepflegtes Verzeichnis für Künstliche Intelligenz — kuratiert, verglichen, eingeordnet. Ein Projekt von <b>ampunkt.technology</b>.
+            </p>
+          </div>
+          <div>
+            <h5>Navigation</h5>
+            <ul>
+              <li><a onClick={() => nav({ page: 'home' })}>Startseite</a></li>
+              <li><a onClick={() => nav({ page: 'directory' })}>Tool-Verzeichnis</a></li>
+              <li><a onClick={() => nav({ page: 'compare' })}>Vergleich</a></li>
+              <li><a onClick={() => nav({ page: 'article', slug: 'was-ist-ki' })}>Artikel</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Kategorien</h5>
+            <ul>
+              {window.KI_DATA.categories.slice(0, 5).map(c => (
+                <li key={c.slug}><a onClick={() => nav({ page: 'category', slug: c.slug })}>{c.name}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h5>Redaktion</h5>
+            <ul>
+              <li><a>Über uns</a></li>
+              <li><a>Kontakt</a></li>
+              <li><a>Impressum</a></li>
+              <li><a>Datenschutz</a></li>
+              <li><a>Redaktionsrichtlinien</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style={{ borderTop: '1px solid var(--line)', padding: '20px var(--pad)', maxWidth: 'var(--content-max)', margin: '0 auto', fontFamily: 'JetBrains Mono, monospace', fontSize: 10, letterSpacing: '0.06em', color: '#8a8580', textTransform: 'uppercase', display: 'flex', justifyContent: 'space-between' }}>
+          <span>© 2026 ampunkt.technology GmbH — alle Rechte vorbehalten</span>
+          <span>www.ki-toolnavigator.com</span>
+        </div>
+      </footer>
+
+      {tweaksOpen && (
+        <div className="tweaks-panel">
+          <h6>Tweaks</h6>
+          <div className="tw-sub">Live-Anpassungen</div>
+
+          <div className="tw-group">
+            <span className="tw-label">Akzentfarbe</span>
+            <div className="tw-swatches">
+              {[
+                { name: 'Magenta', v: '#A01E78' },
+                { name: 'Violett', v: '#5D2A8C' },
+                { name: 'Tinte',   v: '#1F3A6B' },
+                { name: 'Olive',   v: '#5C6A2E' },
+                { name: 'Rost',    v: '#A04A1E' },
+              ].map(s => (
+                <button key={s.v} title={s.name} className={tw.accent === s.v ? 'active' : ''} style={{ background: s.v }} onClick={() => updateTweak('accent', s.v)} />
+              ))}
+            </div>
+          </div>
+
+          <div className="tw-group">
+            <span className="tw-label">Typografie</span>
+            <div className="tw-options">
+              {[['serif', 'Serif'], ['sans', 'Sans'], ['mono', 'Mono']].map(([v, l]) => (
+                <button key={v} className={tw.typo === v ? 'active' : ''} onClick={() => updateTweak('typo', v)}>{l}</button>
+              ))}
+            </div>
+          </div>
+
+          <div className="tw-group">
+            <span className="tw-label">Dichte</span>
+            <div className="tw-options">
+              {[['compact', 'Kompakt'], ['normal', 'Normal'], ['airy', 'Luftig']].map(([v, l]) => (
+                <button key={v} className={tw.density === v ? 'active' : ''} onClick={() => updateTweak('density', v)}>{l}</button>
+              ))}
+            </div>
+          </div>
+
+          <div className="tw-group">
+            <span className="tw-label">Logo-Variante</span>
+            <div className="tw-options">
+              {[['A', 'A · Kompass'], ['B', 'B · Nadel']].map(([v, l]) => (
+                <button key={v} className={tw.logoVariant === v ? 'active' : ''} onClick={() => updateTweak('logoVariant', v)}>{l}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+</body>
+</html>
