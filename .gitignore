@@ -11,7 +11,9 @@ node_modules/
 .pnpm-store/
 .pnp.*
 .yarn/
+.next
 .next/
+.next*/
 out/
 build/
 dist/
