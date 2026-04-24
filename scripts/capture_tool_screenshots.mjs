@@ -46,6 +46,19 @@ const TOOLS = [
   { slug: 'julius',           url: 'https://julius.ai/' },
   { slug: 'neuroflash',       url: 'https://neuroflash.com/de/' },
   { slug: 'elicit',           url: 'https://elicit.com/' },
+  // ---- April 2026 batch ----
+  { slug: 'llama',            url: 'https://llama.com/' },
+  { slug: 'cohere',           url: 'https://cohere.com/' },
+  { slug: 'recraft',          url: 'https://www.recraft.ai/' },
+  { slug: 'pika',             url: 'https://pika.art/' },
+  { slug: 'heygen',           url: 'https://www.heygen.com/' },
+  { slug: 'descript',         url: 'https://www.descript.com/' },
+  { slug: 'replit',           url: 'https://replit.com/' },
+  { slug: 'zapier',           url: 'https://zapier.com/' },
+  { slug: 'otter',            url: 'https://otter.ai/' },
+  { slug: 'hex',              url: 'https://hex.tech/' },
+  { slug: 'jasper',           url: 'https://www.jasper.ai/' },
+  { slug: 'consensus',        url: 'https://consensus.app/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

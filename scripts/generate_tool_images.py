@@ -66,6 +66,19 @@ TOOL_CUES = {
     'julius':           'A scatter plot of line-art dots with one larger magenta dot highlighted, and a thin trend line — data analysis at a glance.',
     'neuroflash':       'A lightning bolt emerging from an abstract ink pen, the bolts tip magenta — instant copy, thought-in-motion.',
     'elicit':           'A magnifying glass over an open book with multiple thin bookmarks, one bookmark magenta — structured literature review.',
+    # ---- April 2026 batch ----
+    'llama':            'A stylized llama silhouette with a tightly wound coil of string forming the body, a magenta dot as the eye — open, friendly, weaving.',
+    'cohere':           'A stylized graph with three concentric arcs meeting at a single magenta point — a quiet emblem of retrieval and ranking.',
+    'recraft':          'A stylized vector pen tool with three control-point handles, one tinted magenta, drawing a smooth curve — the essence of vector design.',
+    'pika':             'A small abstract film clip frame with a tiny magenta star bursting at one corner — playful, kinetic motion.',
+    'heygen':           'A simple human silhouette inside a thin rectangular frame, with a small magenta speech-glow at the mouth — a synthetic presenter, calm and clean.',
+    'descript':         'An abstract waveform morphing into typed text characters, the active cursor tinted magenta — text becoming sound.',
+    'replit':           'A small browser window outline with a thin curved arrow exiting to the right, a magenta dot at the arrow tip — code becoming live deploy.',
+    'zapier':           'Two small clouds connected by a thin lightning bolt, the bolt tinted magenta — connection across silos.',
+    'otter':            'A small abstract microphone with three short text-line segments rising from it, the topmost line tinted magenta — speech turned into structured note.',
+    'hex':              'A stylized hexagonal grid with three cells highlighted in line-art, one cell tinted magenta — modular analytics blocks.',
+    'jasper':           'A stylized speech-bubble with a thin frame around it (the brand boundary), one corner tinted magenta — voice with structure.',
+    'consensus':        'A stylized scale balance with three small dots on each pan, one central dot tinted magenta — measuring consensus.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
