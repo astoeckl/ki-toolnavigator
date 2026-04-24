@@ -61,7 +61,7 @@ export default async function ChangesPage() {
       when: a._updated_at ?? a.date,
       type: 'Artikel',
       title: a.title,
-      detail: `${a.author} · ${a.category}`,
+      detail: a.category,
       href: `/artikel/${a.slug}`,
     })),
     ...categories.map<Change>((c) => ({

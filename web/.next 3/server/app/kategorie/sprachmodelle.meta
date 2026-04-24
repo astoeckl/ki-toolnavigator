@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/kategorie/layout,_N_T_/kategorie/[slug]/layout,_N_T_/kategorie/[slug]/page,_N_T_/kategorie/sprachmodelle,cms:category,cms:tool"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/kategorie/$d$slug/__PAGE__",
+    "/kategorie/$d$slug",
+    "/kategorie",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <Chip>{a.category}</Chip>
           <h1 className="h-editorial-md" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, margin: '18px 0 18px', textWrap: 'balance' as const }}>{a.title}</h1>
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-            {a.author} · {new Date(a.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })} · {a.readTime} Min. Lesezeit
+            {new Date(a.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })} · {a.readTime} Min. Lesezeit
           </div>
 
           <figure style={{ margin: '32px 0', border: '1px solid var(--line)', padding: 0 }}>
@@ -122,7 +122,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <li key={x.slug} style={{ padding: '14px 0', borderBottom: '1px dotted var(--line)' }}>
                 <Link href={`/artikel/${x.slug}`}>
                   <h4 style={{ fontFamily: 'Fraunces, serif', fontSize: 16, fontWeight: 500, margin: 0, letterSpacing: '-0.01em', lineHeight: 1.25 }}>{x.title}</h4>
-                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase', marginTop: 4 }}>{x.author} · {x.readTime} Min.</div>
+                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase', marginTop: 4 }}>{x.readTime} Min. Lesezeit</div>
                 </Link>
               </li>
             ))}

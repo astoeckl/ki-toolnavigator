@@ -180,7 +180,7 @@ export default async function HomePage() {
                 der Künstlichen Intelligenz — mit besonderem Blick auf den europäischen Kontext.
               </p>
               <div style={{ marginTop: 16, fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                {articles[0].author} · {articles[0].readTime} Min. Lesezeit
+                {articles[0].readTime} Min. Lesezeit
               </div>
             </div>
           </Link>
@@ -202,7 +202,7 @@ export default async function HomePage() {
                     <div>
                       <Chip>{a.category}</Chip>
                       <h4 style={{ fontFamily: 'Fraunces, serif', fontSize: 17, fontWeight: 500, margin: '6px 0 4px', letterSpacing: '-0.01em', lineHeight: 1.2, textWrap: 'balance' as const }}>{a.title}</h4>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{a.author} · {a.readTime} Min.</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{a.readTime} Min. Lesezeit</div>
                     </div>
                   </Link>
                 </li>

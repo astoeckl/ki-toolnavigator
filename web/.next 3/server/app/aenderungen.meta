@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/aenderungen/layout,_N_T_/aenderungen/page,_N_T_/aenderungen,cms:category,cms:tool,cms:article"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/aenderungen/__PAGE__",
+    "/aenderungen",
+    "/_index",
+    "/_head"
+  ]
+}
