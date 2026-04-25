@@ -67,6 +67,14 @@ const TOOLS = [
   { slug: 'anyword',           url: 'https://anyword.com/' },
   { slug: 'typeface',          url: 'https://www.typeface.ai/' },
   { slug: 'canva-magic',       url: 'https://www.canva.com/magic/' },
+  // ---- Agenten batch April 2026 ----
+  { slug: 'manus',             url: 'https://manus.im/' },
+  { slug: 'devin',             url: 'https://devin.ai/' },
+  { slug: 'lindy',             url: 'https://www.lindy.ai/' },
+  { slug: 'crewai',            url: 'https://www.crewai.com/' },
+  { slug: 'langchain',         url: 'https://www.langchain.com/' },
+  { slug: 'relevance-ai',      url: 'https://relevanceai.com/' },
+  { slug: 'activepieces',      url: 'https://www.activepieces.com/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

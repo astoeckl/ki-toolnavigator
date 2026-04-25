@@ -87,6 +87,14 @@ TOOL_CUES = {
     'anyword':          'A simple bar-chart of three rising bars with a magenta dot crowning the tallest bar — performance-driven copy.',
     'typeface':         'A serif capital letter A inside a thin frame, with a small magenta brand mark in the corner — typography as enterprise identity.',
     'canva-magic':      'A wand outline with three sparkle marks emanating from its tip, the central sparkle tinted magenta — design conjured into being.',
+    # ---- Agenten batch April 2026 ----
+    'manus':            'A small line-drawn human hand reaching toward a single magenta dot at the end of a curved trajectory of small dots — autonomous reach.',
+    'devin':            'A stylized bracket pair containing three vertical lines (representing code), one tinted magenta — autonomous code assembly.',
+    'lindy':            'A small abstract bird silhouette with thin radiating connection lines, one line tinted magenta — agile, connected, helpful.',
+    'crewai':           'Three small triangular figures arranged in a coordinated formation, one tinted magenta — a crew of specialized agents.',
+    'langchain':        'A line of three interlocking ring-shapes, each ring drawn with thin contours, the middle ring tinted magenta — chained components.',
+    'relevance-ai':     'A stylized abstract figure with three branching arms each holding a tiny tool symbol, the central arm tinted magenta — a digital workforce of skills.',
+    'activepieces':     'Four interlocking puzzle-piece outlines arranged in a row, one piece tinted magenta — modular, open, composable.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
