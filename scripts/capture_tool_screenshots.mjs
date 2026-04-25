@@ -91,6 +91,14 @@ const TOOLS = [
   { slug: 'tabnine',           url: 'https://www.tabnine.com/' },
   { slug: 'continue',          url: 'https://www.continue.dev/' },
   { slug: 'aider',             url: 'https://aider.chat/' },
+  // ---- Wissenschaft & Forschung batch April 2026 ----
+  { slug: 'scispace',          url: 'https://typeset.io/' },
+  { slug: 'scite',             url: 'https://scite.ai/' },
+  { slug: 'researchrabbit',    url: 'https://www.researchrabbitapp.com/' },
+  { slug: 'connected-papers',  url: 'https://www.connectedpapers.com/' },
+  { slug: 'semantic-scholar',  url: 'https://www.semanticscholar.org/' },
+  { slug: 'litmaps',           url: 'https://www.litmaps.com/' },
+  { slug: 'scholarcy',         url: 'https://www.scholarcy.com/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

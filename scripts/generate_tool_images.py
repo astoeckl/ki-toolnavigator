@@ -111,6 +111,14 @@ TOOL_CUES = {
     'tabnine':          'Three stacked horizontal lines suggesting code, with a small magenta tab-key glyph hovering at the right edge — autocomplete on tap.',
     'continue':         'A sideways arrow built from short dashes that loops back into itself, the arrowhead tinted magenta — open extensible coding loop.',
     'aider':            'A small thin git-branch icon meeting a typed-prompt arrow, with a magenta dot at the merge node — pair-programming through commits.',
+    # ---- Wissenschaft & Forschung batch April 2026 ----
+    'scispace':         'An open book outline with a small magenta speech-bubble emerging from the spine — chat with research papers.',
+    'scite':            'Three short tally lines, the first green-check, the second magenta-cross, the third grey-dash — supports, contrasts, mentions.',
+    'researchrabbit':   'A small node-graph of three paper-rectangles connected by thin lines, the central paper tinted magenta — citation network discovery.',
+    'connected-papers': 'A constellation of six small dots arranged in a loose orbit, two dots tinted magenta and connected by a curved line — co-citation map.',
+    'semantic-scholar': 'A simple open book with a small thin search-magnifier hovering over the right page, the lens outlined in magenta — open academic search.',
+    'litmaps':          'A horizontal timeline of five thin tick marks, two marks growing into small magenta sparkline branches — living citation map over time.',
+    'scholarcy':        'A small flashcard rectangle with three thin horizontal lines and a magenta corner-fold — structured paper summary.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
