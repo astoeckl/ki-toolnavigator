@@ -75,6 +75,14 @@ const TOOLS = [
   { slug: 'langchain',         url: 'https://www.langchain.com/' },
   { slug: 'relevance-ai',      url: 'https://relevanceai.com/' },
   { slug: 'activepieces',      url: 'https://www.activepieces.com/' },
+  // ---- Daten & Analyse batch April 2026 ----
+  { slug: 'powerbi-copilot',   url: 'https://www.microsoft.com/en-us/power-platform/products/power-bi' },
+  { slug: 'thoughtspot',       url: 'https://www.thoughtspot.com/' },
+  { slug: 'databricks-genie',  url: 'https://www.databricks.com/product/ai-bi' },
+  { slug: 'rows',              url: 'https://rows.com/' },
+  { slug: 'akkio',             url: 'https://www.akkio.com/' },
+  { slug: 'vanna-ai',          url: 'https://vanna.ai/' },
+  { slug: 'dataiku',           url: 'https://www.dataiku.com/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

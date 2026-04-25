@@ -95,6 +95,14 @@ TOOL_CUES = {
     'langchain':        'A line of three interlocking ring-shapes, each ring drawn with thin contours, the middle ring tinted magenta — chained components.',
     'relevance-ai':     'A stylized abstract figure with three branching arms each holding a tiny tool symbol, the central arm tinted magenta — a digital workforce of skills.',
     'activepieces':     'Four interlocking puzzle-piece outlines arranged in a row, one piece tinted magenta — modular, open, composable.',
+    # ---- Daten & Analyse batch April 2026 ----
+    'powerbi-copilot':  'A clustered bar chart of three rising bars with a small magenta speech-bubble emerging from the tallest — analytics in conversation.',
+    'thoughtspot':      'A magnifying glass over a small pie-chart fragment, the lens outlined in magenta — search-driven analytics.',
+    'databricks-genie': 'A simple lamp outline with three rising thin lines that morph into bar shapes, one line tinted magenta — insight summoned from data.',
+    'rows':             'A small grid of five horizontal lines with a magenta dot at the right end of one row — spreadsheet meets AI.',
+    'akkio':            'A line chart trending upward with a magenta dot crowning the highest point and a faint forecast curve dotted ahead — predictive analytics.',
+    'vanna-ai':         'An open speech-bubble pointing into a small abstract database cylinder, a magenta dot inside the bubble — natural-language SQL.',
+    'dataiku':          'Three connected nodes (data, model, app) drawn with thin lines, the central node tinted magenta — end-to-end data flow.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
