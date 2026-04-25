@@ -83,6 +83,14 @@ const TOOLS = [
   { slug: 'akkio',             url: 'https://www.akkio.com/' },
   { slug: 'vanna-ai',          url: 'https://vanna.ai/' },
   { slug: 'dataiku',           url: 'https://www.dataiku.com/' },
+  // ---- Coding batch April 2026 ----
+  { slug: 'claude-code',       url: 'https://www.anthropic.com/claude-code' },
+  { slug: 'codex-cli',         url: 'https://developers.openai.com/codex/cli/' },
+  { slug: 'bolt',              url: 'https://bolt.new/' },
+  { slug: 'v0',                url: 'https://v0.app/' },
+  { slug: 'tabnine',           url: 'https://www.tabnine.com/' },
+  { slug: 'continue',          url: 'https://www.continue.dev/' },
+  { slug: 'aider',             url: 'https://aider.chat/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

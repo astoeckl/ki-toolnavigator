@@ -103,6 +103,14 @@ TOOL_CUES = {
     'akkio':            'A line chart trending upward with a magenta dot crowning the highest point and a faint forecast curve dotted ahead — predictive analytics.',
     'vanna-ai':         'An open speech-bubble pointing into a small abstract database cylinder, a magenta dot inside the bubble — natural-language SQL.',
     'dataiku':          'Three connected nodes (data, model, app) drawn with thin lines, the central node tinted magenta — end-to-end data flow.',
+    # ---- Coding batch April 2026 ----
+    'claude-code':      'A terminal-window outline with a thin blinking cursor inside and a small magenta chevron prompt — agentic command-line coding.',
+    'codex-cli':        'A pair of overlapping curly braces { } with a tiny magenta cloud floating between them — code in the cloud and the shell.',
+    'bolt':             'A lightning bolt outline split into two halves, the right half tinted magenta and resolving into a tiny browser-window glyph — instant full-stack apps.',
+    'v0':               'A bold lowercase letter v with a small numeral 0 nested inside, the 0 tinted magenta — design becomes code.',
+    'tabnine':          'Three stacked horizontal lines suggesting code, with a small magenta tab-key glyph hovering at the right edge — autocomplete on tap.',
+    'continue':         'A sideways arrow built from short dashes that loops back into itself, the arrowhead tinted magenta — open extensible coding loop.',
+    'aider':            'A small thin git-branch icon meeting a typed-prompt arrow, with a magenta dot at the merge node — pair-programming through commits.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
