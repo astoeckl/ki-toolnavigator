@@ -79,6 +79,14 @@ TOOL_CUES = {
     'hex':              'A stylized hexagonal grid with three cells highlighted in line-art, one cell tinted magenta — modular analytics blocks.',
     'jasper':           'A stylized speech-bubble with a thin frame around it (the brand boundary), one corner tinted magenta — voice with structure.',
     'consensus':        'A stylized scale balance with three small dots on each pan, one central dot tinted magenta — measuring consensus.',
+    # ---- Marketing batch April 2026 ----
+    'copy-ai':          'A small abstract document fanning out into three arrows pointing right, the longest arrow tinted magenta — workflow-driven copy.',
+    'writesonic':       'A stylized fountain pen nib with three small radiating sparks, one spark tinted magenta — energetic, multi-format writing.',
+    'surfer-seo':       'A minimal cresting wave with a tiny surfboard at the peak, the board rendered magenta — riding the search ranking curve.',
+    'frase':            'A stylized question-mark formed by an open book curve, a magenta dot as the question dot — research and answers.',
+    'anyword':          'A simple bar-chart of three rising bars with a magenta dot crowning the tallest bar — performance-driven copy.',
+    'typeface':         'A serif capital letter A inside a thin frame, with a small magenta brand mark in the corner — typography as enterprise identity.',
+    'canva-magic':      'A wand outline with three sparkle marks emanating from its tip, the central sparkle tinted magenta — design conjured into being.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----

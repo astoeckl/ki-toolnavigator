@@ -59,6 +59,14 @@ const TOOLS = [
   { slug: 'hex',              url: 'https://hex.tech/' },
   { slug: 'jasper',           url: 'https://www.jasper.ai/' },
   { slug: 'consensus',        url: 'https://consensus.app/' },
+  // ---- Marketing batch April 2026 ----
+  { slug: 'copy-ai',           url: 'https://www.copy.ai/' },
+  { slug: 'writesonic',        url: 'https://writesonic.com/' },
+  { slug: 'surfer-seo',        url: 'https://surferseo.com/' },
+  { slug: 'frase',             url: 'https://www.frase.io/' },
+  { slug: 'anyword',           url: 'https://anyword.com/' },
+  { slug: 'typeface',          url: 'https://www.typeface.ai/' },
+  { slug: 'canva-magic',       url: 'https://www.canva.com/magic/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };
