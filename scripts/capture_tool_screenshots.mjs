@@ -99,6 +99,14 @@ const TOOLS = [
   { slug: 'semantic-scholar',  url: 'https://www.semanticscholar.org/' },
   { slug: 'litmaps',           url: 'https://www.litmaps.com/' },
   { slug: 'scholarcy',         url: 'https://www.scholarcy.com/' },
+  // ---- Produktivität & Wissen batch April 2026 ----
+  { slug: 'mem',               url: 'https://get.mem.ai/' },
+  { slug: 'reflect',           url: 'https://reflect.app/' },
+  { slug: 'tana',              url: 'https://tana.inc/' },
+  { slug: 'glean',             url: 'https://www.glean.com/' },
+  { slug: 'motion',            url: 'https://www.usemotion.com/' },
+  { slug: 'reclaim',           url: 'https://reclaim.ai/' },
+  { slug: 'granola',           url: 'https://www.granola.ai/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

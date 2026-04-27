@@ -119,6 +119,14 @@ TOOL_CUES = {
     'semantic-scholar': 'A simple open book with a small thin search-magnifier hovering over the right page, the lens outlined in magenta — open academic search.',
     'litmaps':          'A horizontal timeline of five thin tick marks, two marks growing into small magenta sparkline branches — living citation map over time.',
     'scholarcy':        'A small flashcard rectangle with three thin horizontal lines and a magenta corner-fold — structured paper summary.',
+    # ---- Produktivität & Wissen batch April 2026 ----
+    'mem':              'A cluster of three small connected note-bubbles with thin auto-drawn arrows between them, the central bubble tinted magenta — self-organizing notes.',
+    'reflect':          'A small mirror-shaped oval reflecting two thin horizontal text lines, the lower line tinted magenta — daily journal with AI sparring.',
+    'tana':             'A nested outline of three indented dash-bullets, each carrying a tiny tag-shape, the deepest tag tinted magenta — supertags as living database.',
+    'glean':            'A magnifying glass over a small grid of nine dots representing scattered enterprise sources, the lens outlined in magenta — search across the company.',
+    'motion':           'A small calendar cell with a sweeping arrow that re-arranges three task-blocks inside it, one block tinted magenta — auto-scheduled day.',
+    'reclaim':          'A circular clock outline with two protected magenta-tinted time-blocks carved out and one floating habit-icon — protected focus and habits on the calendar.',
+    'granola':          'A small microphone shape with three rising soft sound-waves above it that morph into bullet-list lines, the top wave tinted magenta — augmented meeting notes.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
