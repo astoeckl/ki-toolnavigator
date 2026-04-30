@@ -135,6 +135,11 @@ TOOL_CUES = {
     'reve':             'A simple letter R drawn as a thin contour, with a tiny crisp magenta dot in its bowl and a faint reflection underneath — clean, photographic, precise.',
     'magnific':         'A magnifying glass over a small low-res grid that resolves into smooth pixels on the right side, the lens-rim tinted magenta — upscaling with new detail.',
     'freepik-ai':       'A grid of four small picture-tiles with a tiny magenta sparkle in the upper-right tile — design bundle of stock and AI generation.',
+    # ---- Misc batch April 2026 ----
+    'lovable':          'A small thin heart-shape made of two curved code-brackets, with a tiny magenta dot at its tip — apps born from a prompt.',
+    'google-stitch':    'A small grid of three thin connected screen-rectangles linked by a flowing magenta needle-line — UI screens stitched into one design.',
+    'miro-ai':          'A clustered cloud of seven tiny sticky-note squares with a single thin synthesizing line wrapping them, two stickies tinted magenta — clusters synthesized.',
+    'microsoft-designer': 'A small abstract design canvas with a thin pen-tip drawing a magenta sparkle and a tiny picture-tile beside it — generative design in Office.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----

@@ -115,6 +115,11 @@ const TOOLS = [
   { slug: 'reve',              url: 'https://reve.com/' },
   { slug: 'magnific',          url: 'https://magnific.ai/',          stealth: true },
   { slug: 'freepik-ai',        url: 'https://www.freepik.com/',       stealth: true },
+  // ---- Misc batch April 2026 ----
+  { slug: 'lovable',           url: 'https://lovable.dev/' },
+  { slug: 'google-stitch',     url: 'https://stitch.withgoogle.com/' },
+  { slug: 'miro-ai',           url: 'https://miro.com/ai/' },
+  { slug: 'microsoft-designer', url: 'https://designer.microsoft.com/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };
