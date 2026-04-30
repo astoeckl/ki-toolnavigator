@@ -108,7 +108,7 @@ const TOOLS = [
   { slug: 'reclaim',           url: 'https://reclaim.ai/' },
   { slug: 'granola',           url: 'https://www.granola.ai/' },
   // ---- Bildgenerierung batch April 2026 ----
-  { slug: 'gpt-image',         url: 'https://openai.com/index/introducing-4o-image-generation/' },
+  { slug: 'gpt-image',         url: 'https://platform.openai.com/docs/guides/image-generation' },
   { slug: 'nano-banana',       url: 'https://deepmind.google/models/gemini-image/' },
   { slug: 'leonardo-ai',       url: 'https://leonardo.ai/' },
   { slug: 'krea',              url: 'https://www.krea.ai/' },

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAll } from '@/lib/cms';
-import { EDITORIAL_DATE_LABEL } from '@/lib/site';
+import { getEditorialDates } from '@/lib/site';
 import { Chip, SectionLabel, Thumb } from '@/components/ui';
 import { HeroSearch } from './_home/HeroSearch';
 import type { Article, Tool } from '@/lib/types';
@@ -17,6 +17,7 @@ const toolCover = coverUrl;
 
 export default async function HomePage() {
   const { tools, categories, articles } = await getAll();
+  const editorial = await getEditorialDates();
   const featured = tools.slice(0, 3);
 
   // Last updates derived from each entity's CMS `_updated_at` timestamp —
@@ -51,7 +52,7 @@ export default async function HomePage() {
         <div className="layout-hero">
           <div>
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: '0.08em', color: '#8a8580', textTransform: 'uppercase', marginBottom: 20 }}>
-              Ausgabe Nr. 47 · {EDITORIAL_DATE_LABEL}
+              Ausgabe Nr. 47 · {editorial.label}
             </div>
             <h1 className="h-editorial-xl" style={{
               fontFamily: 'Fraunces, Georgia, serif',

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCategories, getTools } from '@/lib/cms';
+import { getEditorialDates } from '@/lib/site';
 import type { Tool } from '@/lib/types';
 import { Badge, Breadcrumb, Button, SectionLabel, Thumb } from '@/components/ui';
 import { CategoryToolActions } from './CategoryToolActions';
@@ -22,6 +23,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const cat = categories.find((c) => c.slug === slug);
   if (!cat) notFound();
   const items = tools.filter((t) => t.category === cat.slug);
+  const editorial = await getEditorialDates(cat.slug);
 
   return (
     <div>
@@ -36,7 +38,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <h1 className="h-editorial-md" style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, margin: 0, textWrap: 'balance' as const }}>{cat.name}</h1>
         <p style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(17px, 2.4vw, 20px)', lineHeight: 1.5, color: 'var(--ink)', marginTop: 20, maxWidth: 720 }}>{cat.desc}</p>
         <div style={{ marginTop: 20, fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: '#8a8580', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-          {items.length} Tools · zuletzt überprüft am 12. April 2026
+          {items.length} Tools · zuletzt überprüft am {editorial.label}
         </div>
       </div>
 

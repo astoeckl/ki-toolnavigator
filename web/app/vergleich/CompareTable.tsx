@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { Category, Tool } from '@/lib/types';
-import { EDITORIAL_DATE_SHORT } from '@/lib/site';
 import { Badge, Thumb } from '@/components/ui';
 import { useCompare } from '@/components/CompareContext';
 
@@ -13,9 +12,9 @@ function toolCover(t: Tool): string | null {
   return null;
 }
 
-type Props = { tools: Tool[]; categories: Category[] };
+type Props = { tools: Tool[]; categories: Category[]; editorialDate: string };
 
-export function CompareTable({ tools, categories }: Props) {
+export function CompareTable({ tools, categories, editorialDate }: Props) {
   const { compareList, remove } = useCompare();
   const items = compareList.length
     ? compareList.map((s) => tools.find((t) => t.slug === s)).filter(Boolean) as Tool[]
@@ -41,7 +40,7 @@ export function CompareTable({ tools, categories }: Props) {
         </h1>
         <p style={{ fontFamily: 'Fraunces, serif', fontSize: 18, lineHeight: 1.5, color: 'var(--ink)', marginTop: 16, maxWidth: 720 }}>
           Tabellarische Gegenüberstellung der wichtigsten Merkmale — gepflegt von der Redaktion am{' '}
-          {EDITORIAL_DATE_SHORT}.
+          {editorialDate}.
         </p>
       </div>
 
