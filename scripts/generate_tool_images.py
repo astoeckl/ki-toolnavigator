@@ -127,6 +127,14 @@ TOOL_CUES = {
     'motion':           'A small calendar cell with a sweeping arrow that re-arranges three task-blocks inside it, one block tinted magenta — auto-scheduled day.',
     'reclaim':          'A circular clock outline with two protected magenta-tinted time-blocks carved out and one floating habit-icon — protected focus and habits on the calendar.',
     'granola':          'A small microphone shape with three rising soft sound-waves above it that morph into bullet-list lines, the top wave tinted magenta — augmented meeting notes.',
+    # ---- Bildgenerierung batch April 2026 ----
+    'gpt-image':        'A small empty picture frame with a thin chat-bubble emerging from the lower-right corner, the bubble outlined in magenta — image born from a prompt.',
+    'nano-banana':      'A tiny banana-shaped curve drawn with a single thin line, the tip dotted in magenta, with three small sparkles around it — playful codename, fast model.',
+    'leonardo-ai':      'A geometric polygonal lion-head outline made of thin connected lines, one facet tinted magenta — broad model zoo for creators.',
+    'krea':             'A small canvas rectangle with a thin pencil tip pressing into it and three soft ripple lines spreading out, one ripple tinted magenta — realtime drawing.',
+    'reve':             'A simple letter R drawn as a thin contour, with a tiny crisp magenta dot in its bowl and a faint reflection underneath — clean, photographic, precise.',
+    'magnific':         'A magnifying glass over a small low-res grid that resolves into smooth pixels on the right side, the lens-rim tinted magenta — upscaling with new detail.',
+    'freepik-ai':       'A grid of four small picture-tiles with a tiny magenta sparkle in the upper-right tile — design bundle of stock and AI generation.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
