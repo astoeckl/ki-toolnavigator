@@ -113,30 +113,74 @@ const TOOLS = [
   { slug: 'leonardo-ai',       url: 'https://leonardo.ai/' },
   { slug: 'krea',              url: 'https://www.krea.ai/' },
   { slug: 'reve',              url: 'https://reve.com/' },
-  { slug: 'magnific',          url: 'https://magnific.ai/' },
-  { slug: 'freepik-ai',        url: 'https://www.freepik.com/ai' },
+  { slug: 'magnific',          url: 'https://magnific.ai/',          stealth: true },
+  { slug: 'freepik-ai',        url: 'https://www.freepik.com/',       stealth: true },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };
 
-async function captureOne(browser, tool) {
+// Some sites (Cloudflare-protected: freepik.com, magnific.ai, …) refuse the bundled
+// Playwright Chromium. The installed Chrome channel + a couple of stealth tweaks
+// pass them. Mark such tools with `stealth: true`.
+const COOKIE_BUTTONS = [
+  'button:has-text("Accept all cookies")',
+  'button:has-text("Accept All")',
+  'button:has-text("Accept all")',
+  'button:has-text("Reject all")',
+  'button:has-text("Alle akzeptieren")',
+  'button:has-text("Alle Cookies akzeptieren")',
+  'button:has-text("Alle ablehnen")',
+  '[aria-label="Accept all"]',
+];
+
+async function captureOne(browsers, tool) {
   const out = resolve(OUT, `${tool.slug}.jpg`);
   if (existsSync(out)) {
     console.log(`  ·  ${tool.slug.padEnd(20)} already exists, skipping`);
     return { ok: true, skipped: true };
   }
+  const browser = tool.stealth ? browsers.chrome : browsers.chromium;
   const ctx = await browser.newContext({
     viewport: VIEWPORT,
-    locale: 'de-DE',
+    locale: tool.stealth ? 'en-US' : 'de-DE',
     userAgent:
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
+    extraHTTPHeaders: tool.stealth ? {
+      'Accept-Language': 'en-US,en;q=0.9',
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+      'Referer': 'https://www.google.com/',
+    } : undefined,
   });
+  if (tool.stealth) {
+    await ctx.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+      Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+    });
+  }
   const page = await ctx.newPage();
   try {
-    console.log(`  →  ${tool.slug.padEnd(20)} ${tool.url}`);
-    await page.goto(tool.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    // Let lazy content render
+    console.log(`  →  ${tool.slug.padEnd(20)} ${tool.url}${tool.stealth ? '  [stealth]' : ''}`);
+    await page.goto(tool.url, {
+      waitUntil: 'domcontentloaded',
+      timeout: 30000,
+      referer: tool.stealth ? 'https://www.google.com/' : undefined,
+    });
     await page.waitForTimeout(3000);
+    if (tool.stealth) {
+      // Best-effort cookie banner dismissal
+      for (const sel of COOKIE_BUTTONS) {
+        try {
+          const btn = await page.$(sel);
+          if (btn) { await btn.click({ timeout: 2000 }); break; }
+        } catch {}
+      }
+      // Best-effort overlay close (e.g. "Freepik is now Magnific" promo box)
+      try {
+        const closes = await page.$$('button[aria-label="Close"]');
+        for (const c of closes) { try { await c.click({ timeout: 1000 }); } catch {} }
+      } catch {}
+      await page.waitForTimeout(2000);
+    }
     await page.screenshot({ path: out, type: 'jpeg', quality: 88, fullPage: false });
     console.log(`     ✓  saved ${out.split('/').slice(-2).join('/')}`);
     return { ok: true };
@@ -149,16 +193,32 @@ async function captureOne(browser, tool) {
 }
 
 (async () => {
-  const browser = await chromium.launch({ headless: true });
+  const chromiumBrowser = await chromium.launch({ headless: true });
+  // Chrome channel is optional — only launch if at least one tool wants stealth.
+  const wantsStealth = TOOLS.some((t) => t.stealth);
+  let chromeBrowser = null;
+  if (wantsStealth) {
+    try {
+      chromeBrowser = await chromium.launch({
+        headless: true,
+        channel: 'chrome',
+        args: ['--disable-blink-features=AutomationControlled'],
+      });
+    } catch (err) {
+      console.log(`(stealth disabled: 'chrome' channel not installed — ${err.message.split('\n')[0]})`);
+    }
+  }
+  const browsers = { chromium: chromiumBrowser, chrome: chromeBrowser ?? chromiumBrowser };
   console.log('Capturing screenshots into', OUT);
   let okCount = 0, skipCount = 0, failCount = 0;
   for (const tool of TOOLS) {
-    const r = await captureOne(browser, tool);
+    const r = await captureOne(browsers, tool);
     if (r.skipped) skipCount++;
     else if (r.ok) okCount++;
     else failCount++;
   }
-  await browser.close();
+  await chromiumBrowser.close();
+  if (chromeBrowser) await chromeBrowser.close();
   console.log(`\nDone: ${okCount} new · ${skipCount} skipped · ${failCount} failed`);
   if (failCount) process.exit(2);
 })();
