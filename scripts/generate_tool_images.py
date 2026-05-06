@@ -140,6 +140,14 @@ TOOL_CUES = {
     'google-stitch':    'A small grid of three thin connected screen-rectangles linked by a flowing magenta needle-line — UI screens stitched into one design.',
     'miro-ai':          'A clustered cloud of seven tiny sticky-note squares with a single thin synthesizing line wrapping them, two stickies tinted magenta — clusters synthesized.',
     'microsoft-designer': 'A small abstract design canvas with a thin pen-tip drawing a magenta sparkle and a tiny picture-tile beside it — generative design in Office.',
+    # ---- Bildgenerierung batch May 2026 ----
+    'playground':       'Three thin overlapping picture-frames stacked at slight angles like editor layers, the topmost one tinted magenta — layered image studio.',
+    'lexica':           'A magnifying glass over a small grid of nine tiny picture-tiles, the lens outlined in magenta — searchable prompt library.',
+    'whisk':            'Three tiny separate picture-cards on the left arranged as Subject + Scene + Style, a thin magenta whisking line spirals them into one new card on the right.',
+    'higgsfield':       'A small camera-aperture iris drawn with thin radial lines, with a magenta motion-blur arc sweeping around it — cinematic effect engine.',
+    'civitai':          'A small abstract community of seven tiny figure-icons clustered around a central node with a magenta pulse — open model commons.',
+    'openart':          'Three tiny portrait-silhouettes in a row, all wearing the same crown — drawn with hairline strokes, the central crown tinted magenta — character consistency.',
+    'luma-photon':      'A single soft photon ray drawn as a clean magenta hairline arrow passing through a thin photographic frame outline — fast image-to-video bridge.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----

@@ -120,6 +120,14 @@ const TOOLS = [
   { slug: 'google-stitch',     url: 'https://stitch.withgoogle.com/' },
   { slug: 'miro-ai',           url: 'https://miro.com/ai/' },
   { slug: 'microsoft-designer', url: 'https://designer.microsoft.com/' },
+  // ---- Bildgenerierung batch May 2026 ----
+  { slug: 'playground',        url: 'https://playground.com/' },
+  { slug: 'lexica',            url: 'https://lexica.art/' },
+  { slug: 'whisk',             url: 'https://blog.google/innovation-and-ai/models-and-research/google-labs/whisk/' },
+  { slug: 'higgsfield',        url: 'https://higgsfield.ai/',         stealth: true },
+  { slug: 'civitai',           url: 'https://civitai.com/' },
+  { slug: 'openart',           url: 'https://openart.ai/' },
+  { slug: 'luma-photon',       url: 'https://lumalabs.ai/photon' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };
