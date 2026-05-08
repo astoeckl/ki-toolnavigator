@@ -128,6 +128,14 @@ const TOOLS = [
   { slug: 'civitai',           url: 'https://civitai.com/' },
   { slug: 'openart',           url: 'https://openart.ai/' },
   { slug: 'luma-photon',       url: 'https://lumalabs.ai/photon' },
+  // ---- Agenten batch May 2026 ----
+  { slug: 'openai-agents-sdk', url: 'https://openai.github.io/openai-agents-python/' },
+  { slug: 'autogen',           url: 'https://microsoft.github.io/autogen/' },
+  { slug: 'agentforce',        url: 'https://www.salesforce.com/agentforce/',  stealth: true },
+  { slug: 'copilot-studio',    url: 'https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio' },
+  { slug: 'browser-use',       url: 'https://browser-use.com/' },
+  { slug: 'langgraph',         url: 'https://www.langchain.com/langgraph' },
+  { slug: 'gumloop',           url: 'https://www.gumloop.com/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

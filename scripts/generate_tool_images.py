@@ -148,6 +148,14 @@ TOOL_CUES = {
     'civitai':          'A small abstract community of seven tiny figure-icons clustered around a central node with a magenta pulse — open model commons.',
     'openart':          'Three tiny portrait-silhouettes in a row, all wearing the same crown — drawn with hairline strokes, the central crown tinted magenta — character consistency.',
     'luma-photon':      'A single soft photon ray drawn as a clean magenta hairline arrow passing through a thin photographic frame outline — fast image-to-video bridge.',
+    # ---- Agenten batch May 2026 ----
+    'openai-agents-sdk':'Three small connected nodes in a horizontal row drawn as thin circles, with a magenta hand-off arrow looping from one to the next — agents passing the baton.',
+    'autogen':          'A small structured chatroom of four tiny agent-bubbles arranged in a circle around a central conductor-symbol with a magenta accent — multi-agent conversation.',
+    'agentforce':       'A small abstract shield outline holding a tiny customer-record symbol inside, with a magenta agent-glyph hovering at the top — enterprise CRM agent.',
+    'copilot-studio':   'A small drag-and-drop canvas grid with three thin connected building-blocks, the central block tinted magenta — visual agent assembly.',
+    'browser-use':      'A clean browser-window outline with a tiny cursor inside being guided by a thin magenta pointer-line — LLM-driven web automation.',
+    'langgraph':        'Three thin connected nodes drawn as a small directed cycle, with an additional state-pill flowing through them and a magenta dot at the loop crossing — stateful graph workflow.',
+    'gumloop':          'A small abstract loop made of four thin connected nodes with a tiny magenta cog at one node — no-code workflow loop.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
