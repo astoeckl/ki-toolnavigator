@@ -136,6 +136,15 @@ const TOOLS = [
   { slug: 'browser-use',       url: 'https://browser-use.com/' },
   { slug: 'langgraph',         url: 'https://www.langchain.com/langgraph' },
   { slug: 'gumloop',           url: 'https://www.gumloop.com/' },
+  // ---- Video & Audio batch May 2026 ----
+  { slug: 'sora',              url: 'https://openai.com/sora/' },
+  { slug: 'veo',               url: 'https://deepmind.google/models/veo/' },
+  // Kling landing is heavy WebGL that doesn't render in screenshot — pricing page works.
+  { slug: 'kling',             url: 'https://app.klingai.com/global/membership/membership-plan' },
+  { slug: 'hailuo',            url: 'https://hailuoai.com/',          stealth: true },
+  { slug: 'dream-machine',     url: 'https://lumalabs.ai/dream-machine' },
+  { slug: 'opus-clip',         url: 'https://www.opus.pro/' },
+  { slug: 'adobe-podcast',     url: 'https://podcast.adobe.com/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

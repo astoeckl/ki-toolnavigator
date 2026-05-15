@@ -156,6 +156,14 @@ TOOL_CUES = {
     'browser-use':      'A clean browser-window outline with a tiny cursor inside being guided by a thin magenta pointer-line — LLM-driven web automation.',
     'langgraph':        'Three thin connected nodes drawn as a small directed cycle, with an additional state-pill flowing through them and a magenta dot at the loop crossing — stateful graph workflow.',
     'gumloop':          'A small abstract loop made of four thin connected nodes with a tiny magenta cog at one node — no-code workflow loop.',
+    # ---- Video & Audio batch May 2026 ----
+    'sora':             'A small thin film-strip outline curving across the canvas, with a magenta playhead-triangle on the leading frame and a tiny audio waveform sliver underneath — text-to-video with sound.',
+    'veo':              'A simple cinematic camera-aperture shape with a magenta hairline shutter-streak passing through it, plus three tiny rising audio bars beside it — Google text-to-video with native audio.',
+    'kling':            'A small thin running-figure silhouette mid-stride, with a magenta motion-blur arc trailing behind — realistic human motion in video.',
+    'hailuo':           'Three thin water-ripple rings spreading outward, the central ring tinted magenta, with a small leaf floating on top — physically realistic textures and motion.',
+    'dream-machine':    'A small clean photo-frame outline with a tiny magenta arrow looping into a film-strip beside it — fast image-to-video bridge.',
+    'opus-clip':        'A long horizontal film-strip outline cut into three smaller short-form rectangles by a thin magenta scissors-mark — long-form to short-form clipping.',
+    'adobe-podcast':    'A simple microphone outline with three thin sound-wave arcs around it, the outermost arc tinted magenta — studio-quality audio cleanup.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
