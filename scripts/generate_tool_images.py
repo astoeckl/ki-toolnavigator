@@ -164,6 +164,11 @@ TOOL_CUES = {
     'dream-machine':    'A small clean photo-frame outline with a tiny magenta arrow looping into a film-strip beside it — fast image-to-video bridge.',
     'opus-clip':        'A long horizontal film-strip outline cut into three smaller short-form rectangles by a thin magenta scissors-mark — long-form to short-form clipping.',
     'adobe-podcast':    'A simple microphone outline with three thin sound-wave arcs around it, the outermost arc tinted magenta — studio-quality audio cleanup.',
+    # ---- Google I/O 2026 batch ----
+    'antigravity':      'Three tiny agent-icons orbiting around a central code-bracket symbol, each on its own thin elliptical track, the closest track tinted magenta — multi-agent dev platform.',
+    'gemini-omni':      'A small abstract prism splitting one incoming hairline ray into four outgoing rays — image, video, audio, text — the middle ray tinted magenta — unified multimodal generation.',
+    'google-flow':      'A small thin film-strip curved into an S-shape with three tiny scene-frames visible, the central frame tinted magenta — multi-scene creative storyboarding.',
+    'gemini-spark':     'A small thin spark-glyph made of four short outward rays around a central dot, with a tiny calendar-icon and inbox-icon orbiting it, the central spark tinted magenta — always-on personal agent.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----

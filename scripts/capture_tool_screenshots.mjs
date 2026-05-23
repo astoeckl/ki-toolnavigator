@@ -145,6 +145,11 @@ const TOOLS = [
   { slug: 'dream-machine',     url: 'https://lumalabs.ai/dream-machine' },
   { slug: 'opus-clip',         url: 'https://www.opus.pro/' },
   { slug: 'adobe-podcast',     url: 'https://podcast.adobe.com/' },
+  // ---- Google I/O 2026 batch ----
+  { slug: 'antigravity',       url: 'https://antigravity.google/' },
+  { slug: 'gemini-omni',       url: 'https://deepmind.google/models/gemini/' },
+  { slug: 'google-flow',       url: 'https://labs.google/flow/about' },
+  { slug: 'gemini-spark',      url: 'https://gemini.google/overview/agent/spark/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };
