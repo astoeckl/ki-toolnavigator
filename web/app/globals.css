@@ -28,18 +28,6 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 900px) { :root { --pad: 22px; } }
 @media (max-width: 540px) { :root { --pad: 16px; } }
 
-/* ---- Top banner ---- */
-.top-banner {
-  background: var(--ink-strong); color: var(--bg);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 8px var(--pad); text-align: center;
-}
-.top-banner a { color: var(--accent-soft); border-bottom: 1px dotted var(--accent-soft); }
-@media (max-width: 540px) {
-  .top-banner { font-size: 9px; letter-spacing: 0.08em; line-height: 1.4; }
-}
-
 /* ---- Site header ---- */
 .site-header {
   border-bottom: 1px solid var(--line);

@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CompareProvider } from '@/components/CompareContext';
-import { getEditorialDates } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'KI-Toolnavigator — Das kuratierte Verzeichnis für Künstliche Intelligenz',
@@ -11,8 +10,7 @@ export const metadata: Metadata = {
     'KI-Tools, geprüft, verglichen und erklärt — auf Deutsch, nach DSGVO-Kriterien sortierbar. Ein Verzeichnis von ampunkt.technology.',
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const editorial = await getEditorialDates();
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
@@ -25,11 +23,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body suppressHydrationWarning>
         <CompareProvider>
-          <div className="top-banner">
-            Redaktioneller Stand: {editorial.label} · ein Projekt von{' '}
-            <a href="#" target="_blank" rel="noreferrer">ampunkt.technology</a>{' '}
-            · Inhalte aus Cognitor CMS · ISR 60s
-          </div>
           <Header />
           <main className="page-content">{children}</main>
           <Footer />
