@@ -150,6 +150,16 @@ const TOOLS = [
   { slug: 'gemini-omni',       url: 'https://deepmind.google/models/gemini/' },
   { slug: 'google-flow',       url: 'https://labs.google/flow/about' },
   { slug: 'gemini-spark',      url: 'https://gemini.google/overview/agent/spark/' },
+  // ---- Recherche batch May 2026 ----
+  { slug: 'chatpdf',           url: 'https://www.chatpdf.com/' },
+  { slug: 'inciteful',         url: 'https://inciteful.xyz/' },
+  { slug: 'open-knowledge-maps', url: 'https://openknowledgemaps.org/' },
+  { slug: 'orkg-ask',          url: 'https://ask.orkg.org/' },
+  { slug: 'scienceos',         url: 'https://www.scienceos.ai/' },
+  { slug: 'undermind',         url: 'https://www.undermind.ai/' },
+  // R Discovery (discovery.researcher.life) hits a hard Cloudflare human-check;
+  // the parent researcher.life page works and shows R Discovery prominently.
+  { slug: 'r-discovery',       url: 'https://researcher.life/' },
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };

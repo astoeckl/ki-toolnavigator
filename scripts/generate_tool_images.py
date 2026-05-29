@@ -169,6 +169,14 @@ TOOL_CUES = {
     'gemini-omni':      'A small abstract prism splitting one incoming hairline ray into four outgoing rays — image, video, audio, text — the middle ray tinted magenta — unified multimodal generation.',
     'google-flow':      'A small thin film-strip curved into an S-shape with three tiny scene-frames visible, the central frame tinted magenta — multi-scene creative storyboarding.',
     'gemini-spark':     'A small thin spark-glyph made of four short outward rays around a central dot, with a tiny calendar-icon and inbox-icon orbiting it, the central spark tinted magenta — always-on personal agent.',
+    # ---- Recherche batch May 2026 ----
+    'chatpdf':          'A small thin PDF-document outline tilted slightly, with a tiny speech-bubble emerging from its corner and a magenta question-mark dot inside the bubble — chat with documents.',
+    'inciteful':        'Five tiny connected dot-nodes forming a small constellation map, with thin lines linking them and one central node tinted magenta — citation graph exploration.',
+    'open-knowledge-maps': 'A small abstract topology of three soft cluster-bubbles drawn with hairline strokes, the central bubble tinted magenta, with tiny dots scattered inside each — research topic mapping.',
+    'orkg-ask':         'A small thin knowledge-graph triangle with three labeled nodes connected by directed arrows, the central edge tinted magenta — structured research contributions.',
+    'scienceos':        'A clean stylized atom-icon with three orbiting hairline ellipses around a central nucleus dot, the innermost orbit tinted magenta — European research assistant.',
+    'undermind':        'A small magnifying glass over a deep funnel-shape with multiple layers receding into the page, the deepest layer tinted magenta — deep-search recursion.',
+    'r-discovery':      'A small mobile phone outline with three tiny stacked paper-tiles inside, the top tile having a small magenta sparkle and a tiny play-triangle for audio — mobile research feed.',
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
