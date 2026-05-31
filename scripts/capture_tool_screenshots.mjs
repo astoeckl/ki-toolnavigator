@@ -176,6 +176,11 @@ const COOKIE_BUTTONS = [
   'button:has-text("Alle Cookies akzeptieren")',
   'button:has-text("Alle ablehnen")',
   '[aria-label="Accept all"]',
+  { slug: "qwen3-6-max", url: "https://chat.qwen.ai" },
+  { slug: "genspark", url: "https://www.genspark.ai/" },
+  { slug: "quadratic", url: "https://www.quadratichq.com/" },
+  { slug: "profound", url: "https://www.tryprofound.com/" },
+  { slug: "futurehouse", url: "https://www.futurehouse.org" },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 

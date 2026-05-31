@@ -177,6 +177,11 @@ TOOL_CUES = {
     'scienceos':        'A clean stylized atom-icon with three orbiting hairline ellipses around a central nucleus dot, the innermost orbit tinted magenta — European research assistant.',
     'undermind':        'A small magnifying glass over a deep funnel-shape with multiple layers receding into the page, the deepest layer tinted magenta — deep-search recursion.',
     'r-discovery':      'A small mobile phone outline with three tiny stacked paper-tiles inside, the top tile having a small magenta sparkle and a tiny play-triangle for audio — mobile research feed.',
+    'qwen3-6-max': 'A hand-drawn minimalist line-art chevron peak rising above a small terminal-prompt bracket, with a single magenta accent stroke marking the summit.',
+    'genspark': 'A hand-drawn spark or starburst branching into several connected task nodes, with a single magenta accent glowing at the central spark.',
+    'quadratic': 'A hand-drawn spreadsheet grid morphing on one side into flowing lines of code, with a single magenta accent marking the cell where the two worlds meet.',
+    'profound': 'A hand-drawn magnifying glass hovering over three stacked speech bubbles, one of them filled with a single magenta accent, sketched in loose editorial ink lines.',
+    'futurehouse': 'A hand-drawn flock of five minimalist bird silhouettes arranged around an open book, with one bird inked in a single magenta accent.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 
