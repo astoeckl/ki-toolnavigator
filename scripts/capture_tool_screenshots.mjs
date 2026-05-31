@@ -176,6 +176,7 @@ const COOKIE_BUTTONS = [
   'button:has-text("Alle Cookies akzeptieren")',
   'button:has-text("Alle ablehnen")',
   '[aria-label="Accept all"]',
+  // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
 async function captureOne(browsers, tool) {

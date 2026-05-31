@@ -177,6 +177,7 @@ TOOL_CUES = {
     'scienceos':        'A clean stylized atom-icon with three orbiting hairline ellipses around a central nucleus dot, the innermost orbit tinted magenta — European research assistant.',
     'undermind':        'A small magnifying glass over a deep funnel-shape with multiple layers receding into the page, the deepest layer tinted magenta — deep-search recursion.',
     'r-discovery':      'A small mobile phone outline with three tiny stacked paper-tiles inside, the top tile having a small magenta sparkle and a tiny play-triangle for audio — mobile research feed.',
+    # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 
 # ---- Step 1: ensure tool schema has media_id (idempotent) ----
