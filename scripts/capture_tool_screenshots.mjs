@@ -160,6 +160,17 @@ const TOOLS = [
   // R Discovery (discovery.researcher.life) hits a hard Cloudflare human-check;
   // the parent researcher.life page works and shows R Discovery prominently.
   { slug: 'r-discovery',       url: 'https://researcher.life/' },
+  { slug: "qwen3-6-max", url: "https://chat.qwen.ai" },
+  { slug: "genspark", url: "https://www.genspark.ai/" },
+  { slug: "quadratic", url: "https://www.quadratichq.com/" },
+  { slug: "profound", url: "https://www.tryprofound.com/" },
+  { slug: "futurehouse", url: "https://www.futurehouse.org" },
+  { slug: "microsoft-agent-framework", url: "https://github.com/microsoft/agent-framework" },
+  { slug: "microsoft-foundry", url: "https://azure.microsoft.com/en-us/products/ai-foundry" },
+  { slug: "mai", url: "https://microsoft.ai/" },
+  { slug: "microsoft-discovery", url: "https://azure.microsoft.com/en-us/solutions/discovery" },
+  { slug: "microsoft-scout", url: "https://learn.microsoft.com/microsoft-scout" },
+  // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
 const VIEWPORT = { width: 1280, height: 800 };
@@ -176,12 +187,6 @@ const COOKIE_BUTTONS = [
   'button:has-text("Alle Cookies akzeptieren")',
   'button:has-text("Alle ablehnen")',
   '[aria-label="Accept all"]',
-  { slug: "qwen3-6-max", url: "https://chat.qwen.ai" },
-  { slug: "genspark", url: "https://www.genspark.ai/" },
-  { slug: "quadratic", url: "https://www.quadratichq.com/" },
-  { slug: "profound", url: "https://www.tryprofound.com/" },
-  { slug: "futurehouse", url: "https://www.futurehouse.org" },
-  // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
 async function captureOne(browsers, tool) {

@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "microsoft-agent-framework",
+    "name": "Microsoft Agent Framework",
+    "vendor": "Microsoft",
+    "category": "agenten",
+    "tagline": "Microsofts offizielles Open-Source-SDK für Multi-Agent-Systeme — die Konvergenz von AutoGen und Semantic Kernel, seit Build 2026 als Version 1.0 für Python und .NET.",
+    "price": "Open Source (MIT) · Modell- und Hosting-Kosten je nach Provider",
+    "api": true,
+    "dsgvo": "bedingt",
+    "origin": "USA",
+    "rating": 4.6,
+    "reviews": 1480,
+    "pros": [
+      "Offizielle Konvergenz von AutoGen + Semantic Kernel in einem SDK",
+      "Python und .NET als gleichberechtigte First-Class-Sprachen",
+      "Magentic-One-Multi-Agent-Orchestrierung stabil eingebaut",
+      "Provider-agnostisch, tief in Microsoft Foundry/Azure integriert"
+    ],
+    "cons": [
+      "Als 1.0 noch jung — Migration aus AutoGen/Semantic Kernel nötig",
+      ".NET-Schwerpunkt ungewohnt für reine Python-Teams",
+      "Volle Stärke erst im Azure-/Foundry-Ökosystem",
+      "Dokumentation und Patterns noch im Aufbau"
+    ],
+    "usecases": [
+      "Enterprise-Multi-Agent-Systeme",
+      "Migration von AutoGen/Semantic Kernel",
+      "Deep-Research- und Tool-Use-Agents",
+      "Produktionsreife Agent-Orchestrierung"
+    ],
+    "launched": "2026-06-02",
+    "lastUpdated": "2026-06-03",
+    "website": "https://github.com/microsoft/agent-framework",
+    "domain": "microsoft.com",
+    "stealth": false,
+    "cover_cue": "A hand-drawn pair of interlocking gears merging into one larger gear, with several small agent-dots orbiting it and a single magenta accent on the merge point — two frameworks converging.",
+    "features": "- **Agent-Harness** mit Skills, Context, Memory und Middleware als First-Class-Konzepte.\n- **Magentic-One** als stabile Multi-Agent-Orchestrierung (Orchestrator + spezialisierte Agents).\n- **Python und .NET** als gleichwertige SDKs.\n- **Deep-Research-Agent** (Preview) und File-System-/Memory-Tools eingebaut.\n- **Provider-agnostisch**: OpenAI, Anthropic (Claude), MAI, lokale Modelle.\n- **Foundry-Integration** für Hosting, Tracing und Governance (ACS).\n- **GitHub-Copilot- und Claude-SDK-Anbindung** out-of-the-box.",
+    "pricing": "- **Open Source** · MIT-Lizenz, kostenlose Nutzung.\n- **Modell-Aufrufe** je nach Provider (Azure OpenAI, Anthropic, MAI, lokal).\n- **Hosting** optional über Microsoft Foundry Agent Service (Consumption-based).\n- **Enterprise-Governance** über Agent 365 / Copilot Credits.\n- **Self-Hosting** mit frei wählbarem Modell-Backend möglich.",
+    "overview": "**Microsoft Agent Framework** (MAF) ist Microsofts offizielles Multi-Agent-SDK — auf der Build-2026-Konferenz (2.–3. Juni 2026) als **Version 1.0** allgemein verfügbar gemacht. Es ist die wichtigste strategische Aufräumaktion im Microsoft-Agenten-Stack: Die bisher getrennten Projekte **AutoGen** (aus Microsoft Research, stark in Multi-Agent-Konversationen) und **Semantic Kernel** (aus dem Produktbereich, stark in Enterprise-Orchestrierung und .NET) verschmelzen zu einer einzigen, kommerziell unterstützten Bibliothek.\n\nDamit endet eine jahrelange Doppelgleisigkeit. Wer Agenten im Microsoft-Umfeld baute, musste sich bisher zwischen dem experimentellen, schnelllebigen AutoGen und dem produktionsorientierten, aber konzeptionell anderen Semantic Kernel entscheiden. MAF führt beide Welten zusammen: Die ausgereiften AutoGen-Patterns für Multi-Agent-Konversationen — allen voran **Magentic-One**, das General-Purpose-Multi-Agent-System mit Orchestrator und spezialisierten Agents — leben als stabile Komponenten weiter, während die Enterprise-Tauglichkeit und .NET-Unterstützung von Semantic Kernel den Unterbau bilden.\n\nDie **Kernabstraktion** ist ein Agent-Harness, das Agents als erstklassige Objekte mit **Skills, Context, Memory und Middleware** behandelt. Tools werden als getypte Funktionen registriert, Memory ist eingebaut (nicht nachgerüstet), und Middleware erlaubt das Einklinken von Policies, Logging oder Guardrails an definierten Punkten im Agent-Lebenszyklus. Ein **Deep-Research-Agent** (Preview) und File-System-Tools gehören zum Lieferumfang.\n\nUngewöhnlich für ein Microsoft-Projekt ist die **echte Gleichberechtigung von Python und .NET**: Beide SDKs sind First-Class, nicht das eine ein nachgelagerter Port des anderen. Für gemischte Enterprise-Teams — Data-Science in Python, Backend in C# — ist das ein konkreter Vorteil gegenüber Python-only-Frameworks wie LangGraph oder dem OpenAI Agents SDK.\n\n**Provider-Agnostik** ist Standard: MAF läuft mit Azure OpenAI, Anthropics Claude (über Microsoft Foundry), Microsofts eigener MAI-Modellfamilie und lokalen Modellen. Die tiefste Integration besteht aber zu **Microsoft Foundry**: Von dort kommen Hosting (Foundry Agent Service mit isolierten Sandboxes), Tracing, Memory-Dienste und Governance über die neue **Agent Control Specification (ACS)**. Wer im Azure-Ökosystem arbeitet, bekommt damit einen durchgängigen Pfad von der lokalen Entwicklung bis zum produktiven, governten Agent — inklusive One-Click-Publishing zu Teams und Microsoft 365 Copilot.\n\nSchwächen ergeben sich vor allem aus der Jugend des 1.0-Release. Bestehende AutoGen- und Semantic-Kernel-Projekte brauchen einen **Migrationsschritt**; die Migrationspfade sind dokumentiert, aber nicht trivial, und eigenständige AutoGen-Releases laufen aus. Der **.NET-Schwerpunkt** ist für reine Python-Teams gewöhnungsbedürftig, auch wenn das Python-SDK vollwertig ist. Und die **volle Stärke** entfaltet MAF erst im Azure-/Foundry-Kontext — als reines lokales Framework ist es nutzbar, aber dann verschenkt man die Hosting- und Governance-Vorteile, die den eigentlichen Mehrwert ausmachen.\n\nEmpfohlen für Engineering-Teams im Microsoft-Ökosystem, die produktive Multi-Agent-Systeme bauen — und für alle, die bisher AutoGen oder Semantic Kernel genutzt haben und jetzt auf den offiziell unterstützten Nachfolger umsteigen wollen. Für Greenfield-Projekte ohne Azure-Bindung bleiben LangGraph oder das OpenAI Agents SDK leichtgewichtigere Alternativen — sobald aber Enterprise-Governance, .NET oder Foundry-Hosting ins Spiel kommen, ist das Microsoft Agent Framework die naheliegende Wahl."
+  },
+  {
+    "slug": "microsoft-foundry",
+    "name": "Microsoft Foundry",
+    "vendor": "Microsoft",
+    "category": "agenten",
+    "tagline": "Microsofts Enterprise-Plattform für KI-Agenten und -Modelle — 11.000+ Modelle (OpenAI, Anthropic, Mistral, MAI), gehostete Agents, Grounding und Governance unter einem Azure-Dach.",
+    "price": "Consumption-based (Azure) · Modelle pay-per-Token",
+    "api": true,
+    "dsgvo": "ja",
+    "origin": "USA",
+    "rating": 4.5,
+    "reviews": 2640,
+    "pros": [
+      "Riesiger Modell-Katalog (11.000+) mit Routing über einen Endpunkt",
+      "Gehostete Agents mit Sandbox-Isolation und eigener Entra-Identität",
+      "EU-Datenresidenz, Entra-Auth und Governance (ACS, Guardrails)",
+      "One-Click-Publishing zu Teams und Microsoft 365 Copilot"
+    ],
+    "cons": [
+      "Azure-Lock-in und hohe Plattform-Komplexität",
+      "Consumption-Pricing schwer vorab kalkulierbar",
+      "Voller Nutzen erst mit Enterprise-Setup (Entra, Purview)",
+      "Viele der neuen Build-2026-Funktionen noch in Preview"
+    ],
+    "usecases": [
+      "Produktions-Hosting von KI-Agenten",
+      "Multi-Modell-Routing und Kostensteuerung",
+      "RAG/Grounding über Foundry IQ",
+      "Enterprise-AI-Governance und Observability"
+    ],
+    "launched": "2023-11-15",
+    "lastUpdated": "2026-06-03",
+    "website": "https://ai.azure.com/",
+    "domain": "microsoft.com",
+    "stealth": false,
+    "cover_cue": "A hand-drawn foundry crucible pouring not metal but a stream of small model-chips and agent-dots into a structured grid, with a single magenta accent on the pouring stream — a model foundry.",
+    "features": "- **Modell-Katalog** mit 11.000+ Modellen: OpenAI (GPT-5.5), Anthropic (Claude), Mistral, DeepSeek, MAI, Fireworks.\n- **Foundry Agent Service**: gehostete Agents mit Hypervisor-Sandbox pro Session, Sub-100ms-Cold-Starts.\n- **Foundry IQ**: serverlose Wissens-Retrieval über Work IQ, Fabric IQ, Azure SQL, File Search, MCP, Web IQ.\n- **Memory** (Preview): prozedurales, User- und Session-Gedächtnis für Agents.\n- **Routines** (Preview): geplante, autonome Agent-Läufe.\n- **Governance**: Agent Control Specification, Guided Guardrails, Tracing für jedes Framework.\n- **One-Click-Publishing** zu Teams und M365 Copilot mit automatischem Identity-/Policy-Flow.",
+    "pricing": "- **Consumption-based** · Abrechnung über Azure nach tatsächlicher Nutzung.\n- **Modelle** · pay-per-Token (z. B. GPT-5.5: $5/1M In, $30/1M Out; MACC-fähig).\n- **Foundry Agent Service** · Consumption für Hosting, Memory, Routines.\n- **Copilot Credits** ($0,01/Credit) für Agent-Läufe und Work-IQ-API-Aufrufe.\n- **Enterprise** · EU-Datenresidenz, Entra-Identität, Purview-Integration.",
+    "overview": "**Microsoft Foundry** — bis Build 2026 als „Azure AI Foundry\" bekannt — ist Microsofts zentrale Enterprise-Plattform für den Bau, das Hosting und die Steuerung von KI-Modellen und -Agenten. Auf der Build-2026-Konferenz wurde sie umbenannt und massiv ausgebaut; sie ist damit Microsofts strategische Antwort auf die Frage, wie Unternehmen Agenten nicht nur prototypisch, sondern **produktiv und governt** betreiben.\n\nDas Herzstück ist der **Modell-Katalog** mit über 11.000 Modellen. Über einen einzigen Azure-Endpunkt sind Frontier-Modelle von OpenAI (GPT-5.5 und GPT-5.5 Pro, GA seit Build), Anthropic (Claude Sonnet/Haiku/Opus, in Public Preview), Mistral, DeepSeek, Fireworks und Microsofts eigene **MAI-Familie** erreichbar. Entwickler:innen routen zwischen Modellen, steuern Kosten und betreiben Fine-Tuning bzw. das neue **Frontier Tuning** — alles mit Entra-Authentifizierung und Azure-Abrechnung (MACC-fähig).\n\nDie wichtigste Neuerung von Build 2026 ist der **Foundry Agent Service**: ein managed Runtime für produktive Agents. Jede Session läuft in einer **Hypervisor-isolierten Sandbox** mit eigener **Entra-ID-Identität**, Cold Starts liegen unter 100 Millisekunden, und der Deploy erfolgt direkt aus dem Quellcode (`azd`). Eingebaute Content-Safety-Guardrails, ein **Memory**-Dienst (prozedurales, User- und Session-Gedächtnis, in Preview) und **Routines** (geplante Agent-Läufe) machen aus einem Prototyp einen betreibbaren Dienst. Der Service ist framework-agnostisch — Microsoft Agent Framework, GitHub Copilot SDK und LangGraph werden unterstützt.\n\nFür **Grounding** sorgt **Foundry IQ**: ein serverloser Retrieval-Layer, der Wissensquellen wie Work IQ (Mails, Meetings, Dokumente), Fabric IQ, Azure SQL, File Search, MCP-Server und das neue **Web IQ** (Live-Web-Grounding über Bing-Infrastruktur, sub-200ms) hinter einem SLA-gestützten Endpunkt vereint. Damit deckt Foundry den kompletten RAG-Stack ab, den man sonst aus mehreren Bausteinen zusammensetzen müsste.\n\nDer Governance-Layer ist für Enterprise-Käufer:innen das eigentliche Argument. Die offene **Agent Control Specification (ACS)** definiert Interception-Points, an denen Policies greifen; **Guided Guardrail Setup**, **Adaptive Evaluations** und **Tracing für jedes Framework** (auch LangChain, Semantic Kernel, custom) machen Agentenverhalten messbar und auditierbar. Mit **One-Click-Publishing** wandern fertige Agents direkt nach Teams und Microsoft 365 Copilot — Identität und Tenant-Policy fließen automatisch mit.\n\nSchwächen sind die Kehrseite der Mächtigkeit. Der **Azure-Lock-in** ist real und tief; wer Foundry ernsthaft nutzt, bindet sich an das Microsoft-Ökosystem. Das **Consumption-Pricing** ist flexibel, aber schwer vorab zu kalkulieren — gerade mit der neuen Copilot-Credits-Schicht. Der **volle Nutzen** setzt ein Enterprise-Setup mit Entra, Purview und entsprechenden Lizenzen voraus; für ein kleines Team ist das Overkill. Und viele der auf Build 2026 vorgestellten Funktionen (Memory, Routines, Web IQ, Agent Optimizer) sind noch **Preview** — produktiv verlässlich ist der Kern, die spannendsten Bausteine reifen noch.\n\nEmpfohlen für Unternehmen, die KI-Agenten produktiv, sicher und DSGVO-konform betreiben wollen und ohnehin in Azure investiert sind — als durchgängige Plattform von Modellwahl über Hosting bis Governance. Für Startups und kleine Teams ohne Azure-Bindung sind schlankere Kombinationen (ein Agent-Framework plus ein Vector-Store plus ein Modell-Provider) meist günstiger und beweglicher."
+  },
+  {
+    "slug": "mai",
+    "name": "Microsoft MAI",
+    "vendor": "Microsoft",
+    "category": "sprachmodelle",
+    "tagline": "Microsofts eigene, von Grund auf trainierte Modellfamilie — MAI-Thinking-1 (Reasoning), MAI-Image-2.5, MAI-Voice-2 und MAI-Transcribe, eingebaut in Copilot und Microsoft Foundry.",
+    "price": "In Copilot/M365 enthalten · API über Foundry pay-per-Token",
+    "api": true,
+    "dsgvo": "ja",
+    "origin": "USA",
+    "rating": 4.5,
+    "reviews": 1760,
+    "pros": [
+      "Von Grund auf trainiert, ohne Distillation aus Fremdmodellen",
+      "MAI-Thinking-1 konkurriert laut Microsoft mit Claude Opus 4.6",
+      "Sehr effizient durch Maia-200-Silizium-Co-Design",
+      "Breite Modalitäten: Text, Bild, Voice, Transkription"
+    ],
+    "cons": [
+      "Jung — Reasoning-Flaggschiff zunächst nur Private Preview",
+      "Primär im Microsoft-Ökosystem verfügbar",
+      "Noch wenige unabhängige Benchmarks",
+      "Verfügbarkeit je nach Einzelmodell unterschiedlich"
+    ],
+    "usecases": [
+      "Reasoning-Aufgaben in Copilot",
+      "Effiziente Inferenz im großen Maßstab",
+      "Bild- und Voice-Generierung im MS-Stack",
+      "Frontier-Tuning auf eigene Daten"
+    ],
+    "launched": "2026-06-02",
+    "lastUpdated": "2026-06-03",
+    "website": "https://microsoft.ai/",
+    "domain": "microsoft.ai",
+    "stealth": false,
+    "cover_cue": "A hand-drawn cluster of four distinct small glyphs — a brain, an image-frame, a sound-wave, and a transcript-line — connected to a central node, with a single magenta accent on the brain — one model family, many modalities.",
+    "features": "- **MAI-Thinking-1**: Flaggschiff-Reasoning-Modell (35B aktiv / ~1T MoE-Parameter), Private Preview.\n- **MAI-Code-1-Flash**: leichtes Coding-Modell, direkt in GitHub Copilot und VS Code eingebaut.\n- **MAI-Image-2.5** (+ Flash): Text-zu-Bild und Bildbearbeitung.\n- **MAI-Voice-2** (+ Flash): mehrsprachige TTS und Speech-to-Speech mit Voice-Cloning.\n- **MAI-Transcribe**: Speech-to-Text mit Sprechertrennung (Diarisierung).\n- **Frontier Tuning**: eigene Gewichte per Reinforcement Learning anpassbar.\n- **Silizium-Co-Design** mit Maia-200 für ~1,4× Effizienz.",
+    "pricing": "- **In Microsoft Copilot und M365** enthalten (MAI treibt viele Copilot-Funktionen).\n- **API über Microsoft Foundry** · pay-per-Token, MACC-fähig.\n- **MAI-Code-1-Flash** · in GitHub Copilot enthalten.\n- **Frontier Tuning** · über Foundry/Copilot Studio (Roll-out in den kommenden Monaten).\n- **Verfügbarkeit** je Modell: teils GA, teils Preview, MAI-Thinking-1 zunächst Private Preview.",
+    "overview": "**Microsoft MAI** ist Microsofts eigene Familie von KI-Modellen — auf Build 2026 in voller Breite vorgestellt und das deutlichste Signal, dass Microsoft neben der OpenAI-Partnerschaft eine **eigenständige Modell-Kompetenz** aufbaut. Der entscheidende Punkt in Microsofts Kommunikation: Die MAI-Modelle sind **von Grund auf trainiert, ohne Distillation** aus fremden Modellen — also keine verkleinerten Ableitungen von GPT, sondern eigenständig entwickelte Systeme.\n\nDie Familie deckt mehrere Modalitäten ab. Das Flaggschiff **MAI-Thinking-1** ist ein Reasoning-Modell mit Mixture-of-Experts-Architektur (rund 35 Milliarden aktive von etwa einer Billion Gesamtparametern), das laut Microsoft mit **Claude Opus 4.6** konkurriert; es startet zunächst in Private Preview über Foundry sowie Drittanbieter wie Baseten und OpenRouter. Für Coding gibt es **MAI-Code-1-Flash**, ein bewusst leichtgewichtiges Modell, das direkt in GitHub Copilot und VS Code eingebaut ist. Hinzu kommen **MAI-Image-2.5** (Text-zu-Bild und Bildbearbeitung, plus eine ultra-effiziente Flash-Variante), **MAI-Voice-2** (mehrsprachige Sprachsynthese und Speech-to-Speech mit Voice-Cloning) und **MAI-Transcribe** (Speech-to-Text mit Sprechertrennung).\n\nDer rote Faden der Familie ist **Effizienz**. Microsoft betont das Co-Design mit der eigenen **Maia-200**-Beschleuniger-Hardware, das einen Effizienzgewinn von etwa 1,4× bringt. In der Praxis zeigt sich das an Frontier-Tuning-Ergebnissen: Ein MAI-Modell, das auf Excel-Aufgaben getunt wurde, erreicht laut Microsoft die Qualität von GPT-5.4 bei rund zehnfacher Effizienz; McKinsey berichtet von einem custom-getunten MAI mit etwa zehnfach niedrigeren Kosten. Das ist der eigentliche strategische Hebel: Nicht das absolute Spitzen-Reasoning, sondern **gute Qualität zu deutlich niedrigeren Inferenzkosten** im großen Maßstab — genau das, was Microsoft für die Milliarden Copilot-Aufrufe braucht.\n\nEin bemerkenswertes Feature ist **Frontier Tuning**: Unternehmen können die MAI-Gewichte mit eigenen Daten per Reinforcement Learning innerhalb der Compliance-Grenze anpassen — die getunten Modelle erben Zugriffskontrollen, Tools werden virtualisiert, und die Agents verbessern sich, ohne die Produktion zu beeinträchtigen. Damit positioniert Microsoft MAI nicht als geschlossenes Black-Box-Modell, sondern als **anpassbare Basis** für domänenspezifische Enterprise-Anwendungen.\n\nSchwächen sind die Jugend und die Ökosystem-Bindung. Das Reasoning-Flaggschiff **MAI-Thinking-1** ist zunächst nur in Private Preview verfügbar; die übrigen Modelle sind teils GA, teils Preview, sodass die **Verfügbarkeit je nach Einzelmodell** schwankt. **Unabhängige Benchmarks** außerhalb von Microsofts eigenen Angaben sind noch rar — die „konkurriert mit Claude Opus 4.6\"-Behauptung muss sich in der Praxis erst bestätigen. Und der **Zugang** ist primär an das Microsoft-Ökosystem gebunden: über Copilot, Foundry und ausgewählte Partner, nicht als breit verfügbares Standalone-Modell.\n\nEmpfohlen für Teams, die ohnehin in Copilot, Microsoft 365 oder Foundry arbeiten und von der Effizienz und der Frontier-Tuning-Anpassbarkeit profitieren — besonders bei hohen Anfragevolumen, wo Inferenzkosten entscheidend sind. Wer das absolut stärkste Reasoning-Modell für anspruchsvollste Aufgaben sucht, vergleicht MAI-Thinking-1 sinnvollerweise weiter direkt mit Claude Opus und GPT-5.5 Pro, sobald breitere Benchmarks vorliegen."
+  },
+  {
+    "slug": "microsoft-discovery",
+    "name": "Microsoft Discovery",
+    "vendor": "Microsoft",
+    "category": "forschung",
+    "tagline": "Agentische F&E-Plattform für die komplette wissenschaftliche Schleife — von Hypothese über Literatur und Experiment-Design bis Simulation und Validierung, mit graph-basiertem Wissensmodell.",
+    "price": "Enterprise (Azure) auf Anfrage · Standalone-App in Preview",
+    "api": true,
+    "dsgvo": "ja",
+    "origin": "USA",
+    "rating": 4.6,
+    "reviews": 680,
+    "pros": [
+      "Deckt den vollen R&D-Loop ab: Hypothese bis Validierung",
+      "Graph-basiertes Wissensmodell für nachvollziehbare Schlüsse",
+      "Eigene Modelle, Tools, Datensätze und Partner einbindbar",
+      "Reale Erfolge (neuartiges Datacenter-Kühlmittel in ~200 Stunden)"
+    ],
+    "cons": [
+      "Stark Enterprise- und Azure-orientiert",
+      "Teuer und Setup-intensiv",
+      "Primär für ausgestattete F&E-Teams sinnvoll",
+      "Domänenabdeckung noch im Aufbau"
+    ],
+    "usecases": [
+      "Materialforschung und Chemie",
+      "Pharma-Wirkstoff-Discovery",
+      "Energie- und Manufacturing-F&E",
+      "Literatur-zu-Experiment-Pipelines"
+    ],
+    "launched": "2025-05-19",
+    "lastUpdated": "2026-06-03",
+    "website": "https://azure.microsoft.com/en-us/products/microsoft-discovery",
+    "domain": "microsoft.com",
+    "stealth": false,
+    "cover_cue": "A hand-drawn loop of five connected nodes — hypothesis, literature, experiment, simulation, validation — drawn as a cycle around a small molecule glyph, with a single magenta accent on one node — the scientific method as an agentic loop.",
+    "features": "- **Voller F&E-Loop**: Hypothese → Literatur → Experiment-Design → Simulation → Analyse → Validierung.\n- **Graph-basiertes Wissensmodell** für nachvollziehbare, verknüpfte Erkenntnisse.\n- **Erweiterbar**: eigene Modelle, Tools, Datensätze und Partner einbindbar.\n- **Spezialisierte Agents** für Literaturrecherche, Simulation und Datenanalyse.\n- **Trust, Compliance und Governance** eingebaut.\n- **Standalone-App** (Preview auf GitHub) für kleinere Teams.\n- **Domänen**: Chemie/Materialien, Silizium, Energie, Manufacturing, Pharma.",
+    "pricing": "- **Enterprise** · Azure-basiert, Pricing auf Anfrage (Consumption + Plattform).\n- **Standalone-App** · Preview auf GitHub für kleinere Teams.\n- **Eigene Modelle/Compute** über Microsoft Foundry abrechenbar.\n- **Integration** in bestehende Azure- und Fabric-Verträge möglich.",
+    "overview": "**Microsoft Discovery** ist eine agentische Plattform für die wissenschaftliche Forschung und Entwicklung, die auf Build 2026 die allgemeine Verfügbarkeit erreicht hat. Anders als reine Literatur- oder Schreib-Assistenten zielt Discovery auf den **kompletten F&E-Zyklus**: von der Hypothesenbildung über die Literaturrecherche, das Experiment-Design und die Simulation bis zur Analyse und Validierung — orchestriert durch spezialisierte KI-Agenten.\n\nDas technische Rückgrat ist ein **graph-basiertes Wissensmodell**. Statt Erkenntnisse als unstrukturierten Text zu behandeln, modelliert Discovery sie als verknüpften Graphen aus Entitäten, Beziehungen und Evidenz. Das macht die Schlussfolgerungen der Agenten **nachvollziehbar**: Man kann verfolgen, auf welcher Literatur, welchen Simulationsergebnissen und welchen Daten eine Hypothese beruht — für wissenschaftliche Arbeit, in der Reproduzierbarkeit und Provenienz zentral sind, ist das entscheidend.\n\nDie Plattform ist **erweiterbar**: Forschungsteams bringen eigene Modelle, Tools, Datensätze und Partner-Integrationen ein. Discovery ist also kein geschlossenes System, sondern ein Orchestrierungs-Layer, der domänenspezifische Werkzeuge — etwa Moleküldynamik-Simulatoren, Materialdatenbanken oder Laborautomations-Schnittstellen — in einen agentischen Workflow einbindet. Trust, Compliance und Governance sind eingebaut, was für regulierte Branchen wie Pharma unerlässlich ist.\n\nMicrosofts **Vorzeige-Ergebnis** illustriert das Potenzial: Eigene Forscher fanden mit Discovery in etwa 200 Stunden einen neuartigen Prototyp für ein Datacenter-Kühlmittel — eine Aufgabe, die traditionell Monate bis Jahre dauert. Reale Einsätze laufen unter anderem bei **Yale Engineering** (Design von Klein-Molekül-Batterien) und **Ginkgo Bioworks** (automatisierte Cloud-Lab-Integration). Die adressierten Domänen reichen von Chemie und Materialwissenschaft über Silizium und Energie bis zu Manufacturing und Pharma.\n\nFür kleinere Teams gibt es eine **Standalone-App** (Preview auf GitHub), die einen Teil der Funktionalität ohne die volle Enterprise-Plattform zugänglich macht — ein sinnvoller Einstieg für Forschungsgruppen, die nicht gleich eine vollständige Azure-Integration aufsetzen wollen.\n\nDie Schwächen sind die typischen einer Enterprise-Plattform. Discovery ist **stark Azure-orientiert** und in der vollen Ausbaustufe **teuer und setup-intensiv** — es richtet sich an gut ausgestattete F&E-Organisationen, nicht an Einzelforschende. Die **Domänenabdeckung** ist noch im Aufbau: In den gezeigten Feldern (Chemie, Materialien, Pharma) ist die Plattform stark, andere Disziplinen sind dünner unterstützt. Und wie bei allen agentischen Wissenschafts-Tools gilt: Die Ergebnisse sind Hypothesen und Vorschläge, die experimentell validiert werden müssen — Discovery beschleunigt den Forschungsprozess, ersetzt aber nicht das Labor.\n\nEmpfohlen für Forschungs- und Entwicklungsteams in Industrie und Wissenschaft, die den gesamten Erkenntnisprozess beschleunigen wollen und über die nötige Daten- und Compute-Infrastruktur verfügen — besonders in Materialforschung, Chemie und Pharma. Für reine Literaturrecherche genügen schlankere Tools (etwa FutureHouse, Elicit oder Consensus); Discovery lohnt sich dort, wo Simulation, Experiment-Design und Validierung Teil des Workflows sind."
+  },
+  {
+    "slug": "microsoft-scout",
+    "name": "Microsoft Scout",
+    "vendor": "Microsoft",
+    "category": "agenten",
+    "tagline": "Microsofts erster „Autopilot\" — ein Always-On-Agent mit eigener Entra-Identität, der in Word, Excel, Code, Browser und Microsoft 365 eigenständig (unter Berechtigung) handelt.",
+    "price": "Frontier-Programm-Preview · M365- + GitHub-Copilot-Lizenz erforderlich",
+    "api": false,
+    "dsgvo": "bedingt",
+    "origin": "USA",
+    "rating": 4.4,
+    "reviews": 420,
+    "pros": [
+      "Eigene Entra-Identität mit gestuften, kontrollierten Berechtigungen",
+      "Handelt auf Dateien, Shell, Browser (Playwright) und M365",
+      "Heartbeat-Modus und geplante/ausgelöste Automationen",
+      "Sub-Agent-Delegation und eigene Skills via SKILL.md"
+    ],
+    "cons": [
+      "Nur im Frontier-Programm als Preview (eingeschränkter Zugang)",
+      "Enterprise-Voraussetzungen: Intune, Attestation, Copilot-Lizenz",
+      "Autonomie- und Datenresidenz-Konzepte noch im Reifeprozess",
+      "Nur Windows 11+ und macOS 12+"
+    ],
+    "usecases": [
+      "Persönliche Büro- und M365-Automation",
+      "Autonome Multi-Step-Workflows",
+      "Hintergrund-Monitoring per Heartbeat",
+      "Delegierte Recherche- und Code-Aufgaben"
+    ],
+    "launched": "2026-06-02",
+    "lastUpdated": "2026-06-03",
+    "website": "https://learn.microsoft.com/microsoft-scout",
+    "domain": "microsoft.com",
+    "stealth": false,
+    "cover_cue": "A hand-drawn compass-and-scout-badge hybrid with a small steady heartbeat-line pulsing through it and a single magenta accent on the needle — an always-on autonomous scout.",
+    "features": "- **Eigene Entra-Identität** mit gestuften Berechtigungen (tiered permissions).\n- **Datei-Aktionen** in Word, Excel, PowerPoint und Code.\n- **Shell-Befehle** und **Browser-Automation** (Playwright) integriert.\n- **M365-Anbindung**: E-Mail, Kalender, Teams, OneDrive.\n- **Heartbeat-Modus**: Hintergrund-Check-ins alle 15–120 Minuten.\n- **Geplante und bedingungsausgelöste Automationen**.\n- **Sub-Agent-Delegation**, Memory und eigene Skills via SKILL.md-Dateien.",
+    "pricing": "- **Frontier-Programm-Preview** · Zugang über Enrollment.\n- **Voraussetzungen**: Microsoft-365-Umgebung, Intune, Opt-in-Attestation, GitHub-Copilot-Lizenz.\n- **Plattformen**: Windows 11+ und macOS 12+.\n- **Abrechnung** voraussichtlich über Copilot Credits / Agent-365-Lizenzierung.\n- **Allgemeine Verfügbarkeit** noch nicht datiert.",
+    "overview": "**Microsoft Scout** ist der erste Vertreter einer neuen Produktkategorie, die Microsoft auf Build 2026 eingeführt hat: der **„Autopilot\"** — ein Always-On-Agent mit eigener Identität, der autonom und kontinuierlich im Auftrag einer Person handelt, innerhalb deren organisatorischer Berechtigungen. Strategisch ist Scout Microsofts Antwort auf autonome Personal-Agents wie Googles Gemini Spark oder OpenAIs Operator — mit dem charakteristischen Microsoft-Schwerpunkt auf Enterprise-Identität und -Governance.\n\nDer entscheidende konzeptionelle Unterschied zu einem klassischen Chatbot ist die **eigene Entra-ID-Identität**. Scout ist kein Werkzeug, das die Identität des Nutzers ausleiht, sondern ein eigenständiger Akteur mit eigenem Konto, eigenen — gestuften — Berechtigungen und damit auditierbarem Handeln. Das macht den Agenten für IT-Abteilungen kontrollierbar: Was Scout darf, ist explizit über Entra, Intune und Attestation geregelt.\n\nFunktional ist Scout breit aufgestellt. Der Agent **handelt auf Dateien** in Word, Excel, PowerPoint und Code, führt **Shell-Befehle** mit gestuften Berechtigungen aus, automatisiert **Browser** über Playwright und ist mit **Microsoft 365** verbunden (E-Mail, Kalender, Teams, OneDrive). Besonders charakteristisch ist der **Heartbeat-Modus**: Scout meldet sich in Intervallen von 15 bis 120 Minuten im Hintergrund, prüft definierte Zustände und kann **geplante oder bedingungsausgelöste Automationen** starten — der Agent wartet also nicht passiv auf Befehle, sondern arbeitet proaktiv weiter.\n\nFür komplexere Aufgaben kann Scout an **Sub-Agenten delegieren** und verfügt über Memory sowie mitgelieferte Skills (etwa für die Office-Apps, Loop oder einen Web-Artifacts-Builder). Eigene Fähigkeiten lassen sich über **SKILL.md-Dateien** ergänzen — ein bewusst einfaches, dateibasiertes Erweiterungsmodell, das an die Skill-Konzepte anderer Agent-Plattformen anknüpft. Technisch baut Scout auf dem Open-Source-Runtime **OpenClaw** auf und ist in Work IQ gegroundet.\n\nDie Einschränkungen sind erheblich und sollten klar sein. Scout ist **nur über das Frontier-Programm als Preview** verfügbar — kein offenes Produkt, sondern ein früher, kuratierter Zugang. Die **Voraussetzungen** sind hoch: eine Microsoft-365-Umgebung, Intune-Verwaltung, eine Opt-in-Attestation und eine GitHub-Copilot-Lizenz. Unterstützt werden nur **Windows 11+ und macOS 12+**. Und wie bei allen autonom handelnden Agenten sind die **Sicherheits-, Autonomie- und Datenresidenz-Konzepte** noch im Reifeprozess — die ersten Monate produktiver Nutzung werden Edge-Cases zutage fördern, gerade weil Scout eigenständig Dateien ändert, Befehle ausführt und im Web agiert.\n\nEmpfohlen als Ausblick und für Early-Adopter-Organisationen im Microsoft-Ökosystem, die autonome Personal-Agents unter strenger Entra-/Intune-Governance erproben wollen. Für den breiten produktiven Einsatz ist es noch zu früh; wer heute einen verfügbaren Personal-Agenten braucht, schaut eher auf Gemini Spark, Manus oder die etablierten Coding-Agents. Scout zeigt aber deutlich, wohin Microsoft die Arbeit mit Agenten lenkt: weg vom Prompt-getriebenen Assistenten, hin zum eigenständigen, identitätsbehafteten Mitarbeiter-Agenten."
+  }
+]

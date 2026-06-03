@@ -182,6 +182,11 @@ TOOL_CUES = {
     'quadratic': 'A hand-drawn spreadsheet grid morphing on one side into flowing lines of code, with a single magenta accent marking the cell where the two worlds meet.',
     'profound': 'A hand-drawn magnifying glass hovering over three stacked speech bubbles, one of them filled with a single magenta accent, sketched in loose editorial ink lines.',
     'futurehouse': 'A hand-drawn flock of five minimalist bird silhouettes arranged around an open book, with one bird inked in a single magenta accent.',
+    'microsoft-agent-framework': 'A hand-drawn pair of interlocking gears merging into one larger gear, with several small agent-dots orbiting it and a single magenta accent on the merge point — two frameworks converging.',
+    'microsoft-foundry': 'A hand-drawn foundry crucible pouring not metal but a stream of small model-chips and agent-dots into a structured grid, with a single magenta accent on the pouring stream — a model foundry.',
+    'mai': 'A hand-drawn cluster of four distinct small glyphs — a brain, an image-frame, a sound-wave, and a transcript-line — connected to a central node, with a single magenta accent on the brain — one model family, many modalities.',
+    'microsoft-discovery': 'A hand-drawn loop of five connected nodes — hypothesis, literature, experiment, simulation, validation — drawn as a cycle around a small molecule glyph, with a single magenta accent on one node — the scientific method as an agentic loop.',
+    'microsoft-scout': 'A hand-drawn compass-and-scout-badge hybrid with a small steady heartbeat-line pulsing through it and a single magenta accent on the needle — an always-on autonomous scout.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 
