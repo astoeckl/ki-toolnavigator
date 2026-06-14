@@ -187,6 +187,9 @@ TOOL_CUES = {
     'mai': 'A hand-drawn cluster of four distinct small glyphs — a brain, an image-frame, a sound-wave, and a transcript-line — connected to a central node, with a single magenta accent on the brain — one model family, many modalities.',
     'microsoft-discovery': 'A hand-drawn loop of five connected nodes — hypothesis, literature, experiment, simulation, validation — drawn as a cycle around a small molecule glyph, with a single magenta accent on one node — the scientific method as an agentic loop.',
     'microsoft-scout': 'A hand-drawn compass-and-scout-badge hybrid with a small steady heartbeat-line pulsing through it and a single magenta accent on the needle — an always-on autonomous scout.',
+    'apple-intelligence': 'A hand-drawn apple silhouette whose core is replaced by a small soft neural-glow of three concentric rings, with a single magenta accent dot at the center — privacy-first on-device intelligence.',
+    'apple-foundation-models': 'A hand-drawn building-block bracket {} containing a small on-device chip glyph, with a thin swappable plug-connector on the side and a single magenta accent on the chip — on-device models you build on.',
+    'image-playground': 'A hand-drawn child-like crayon and a small framed picture side by side, with three playful style-swatch squares and a single magenta accent on one swatch — playful on-device image generation.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 

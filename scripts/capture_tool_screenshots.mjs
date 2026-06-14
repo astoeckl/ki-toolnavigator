@@ -170,6 +170,9 @@ const TOOLS = [
   { slug: "mai", url: "https://microsoft.ai/" },
   { slug: "microsoft-discovery", url: "https://azure.microsoft.com/en-us/solutions/discovery" },
   { slug: "microsoft-scout", url: "https://learn.microsoft.com/microsoft-scout" },
+  { slug: "apple-intelligence", url: "https://www.apple.com/apple-intelligence/" },
+  { slug: "apple-foundation-models", url: "https://developer.apple.com/documentation/foundationmodels" },
+  { slug: "image-playground", url: "https://apps.apple.com/us/app/image-playground/id6479176117", stealth: true },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 

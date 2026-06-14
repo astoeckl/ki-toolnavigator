@@ -1,0 +1,124 @@
+[
+  {
+    "slug": "apple-intelligence",
+    "name": "Apple Intelligence",
+    "vendor": "Apple",
+    "category": "produktivitaet",
+    "tagline": "Apples systemweite KI über iPhone, iPad und Mac — mit der auf der WWDC 2026 runderneuerten, Gemini-gestützten Siri als eigenständiger Chatbot-App, On-Device-Modellen und Private Cloud Compute.",
+    "price": "Kostenlos auf unterstützten Apple-Geräten",
+    "api": false,
+    "dsgvo": "bedingt",
+    "origin": "USA",
+    "rating": 4.3,
+    "reviews": 9120,
+    "pros": [
+      "Tief und kostenlos ins Betriebssystem integriert",
+      "Privatsphäre-First: On-Device-Verarbeitung + Private Cloud Compute",
+      "Neue, deutlich gesprächigere Siri mit App-übergreifenden Aktionen",
+      "Schreibwerkzeuge, Foto-Editing und Live-Übersetzung systemweit"
+    ],
+    "cons": [
+      "Neue Siri nutzt Google Gemini in der Cloud — Datenschutz-Abwägung",
+      "Nur auf neueren Apple-Geräten mit genug Speicher",
+      "Deutsch teils später/eingeschränkt verfügbar",
+      "Funktionstiefe einzelner Features hinter spezialisierten Tools"
+    ],
+    "usecases": [
+      "Schreiben und Umformulieren systemweit",
+      "App-übergreifende Sprachsteuerung",
+      "Foto-Bearbeitung und Aufräumen",
+      "Live-Übersetzung und Zusammenfassungen"
+    ],
+    "launched": "2024-10-28",
+    "lastUpdated": "2026-06-09",
+    "website": "https://www.apple.com/apple-intelligence/",
+    "domain": "apple.com",
+    "stealth": false,
+    "cover_cue": "A hand-drawn apple silhouette whose core is replaced by a small soft neural-glow of three concentric rings, with a single magenta accent dot at the center — privacy-first on-device intelligence.",
+    "features": "- **Neue Siri** (WWDC 2026): eigenständige Chatbot-App mit Verlauf, Text- und Sprach-Eingabe, App-übergreifenden Aktionen und On-Screen-Awareness — unter der Haube Google Gemini.\n- **Writing Tools**: Umschreiben, Korrigieren, Zusammenfassen in jeder Text-App.\n- **Foto-Bearbeitung**: Cleanup, Reframe und Extend mit generativem Infill (in Fotos).\n- **Messages**: KI-Antwortvorschläge und Zusammenfassungen.\n- **Systemweite Diktierfunktion** mit Rechtschreib-/Zeichensetzungs-Korrektur.\n- **Shortcuts**: Workflows per natürlicher Sprache erstellen.\n- **Private Cloud Compute** für rechenintensive Anfragen ohne Daten-Preisgabe.",
+    "pricing": "- **Kostenlos** auf unterstützten Apple-Geräten (iPhone 15 Pro und neuer, Apple-Silicon-iPads/Macs).\n- **Keine Abogebühr** — Bestandteil von iOS 27 / iPadOS 27 / macOS 27.\n- **Private Cloud Compute** inklusive, ohne Zusatzkosten.\n- **Voraussetzung**: kompatibles Gerät, unterstützte System-Sprache/Region.",
+    "overview": "**Apple Intelligence** ist Apples systemweite KI-Schicht für iPhone, iPad und Mac — 2024 eingeführt und auf der **WWDC 2026** (8.–9. Juni 2026) grundlegend erweitert. Die mit Abstand wichtigste Neuerung ist die runderneuerte **Siri**: nach über einem Jahrzehnt bekommt Apples Assistent das größte Update seiner Geschichte und wird erstmals zu einem vollwertigen, gesprächigen Chatbot — mit eigener App, vollständigem Konversationsverlauf, Text- und Sprach-Eingabe und der Fähigkeit, App-übergreifende Aktionen auszuführen.\n\nDer bemerkenswerteste Teil ist die Architektur dahinter: Apple und Google haben eine **mehrjährige Zusammenarbeit** angekündigt, unter der die nächste Generation der Apple-Foundation-Modelle auf Googles **Gemini**-Architektur basiert. Die neue Siri ist damit Gemini-gestützt — ein pragmatischer Schritt, der Apples bisherigen Rückstand bei konversationeller KI adressiert, aber auch eine Datenschutz-Abwägung mit sich bringt: Anfragen, die in der Cloud verarbeitet werden, laufen über Googles Infrastruktur statt rein auf dem Gerät.\n\nAbseits von Siri bleibt Apple Intelligence dem **Privacy-First-Ansatz** treu. Viele Funktionen laufen weiterhin **on-device**, und für rechenintensivere Aufgaben kommt **Private Cloud Compute** zum Einsatz — Apples Ansatz, Cloud-Rechenleistung zu nutzen, ohne dass Daten beim Anbieter gespeichert oder eingesehen werden können. Das ist nach wie vor eines der durchdachtesten Datenschutz-Konzepte unter den großen KI-Plattformen.\n\nDas Funktionsspektrum ist breit und tief ins Betriebssystem gewoben. **Writing Tools** erlauben Umschreiben, Korrigieren und Zusammenfassen in jeder Text-App. Die **Fotos-App** bekommt mit Cleanup, Reframe und Extend generative Bearbeitungswerkzeuge, die Objekte entfernen, Perspektiven anpassen oder Bilder erweitern. **Messages** schlägt KI-Antworten vor und fasst Threads zusammen, die **systemweite Diktierfunktion** korrigiert Rechtschreibung und Zeichensetzung live, und **Shortcuts** lassen sich jetzt per natürlicher Sprachbeschreibung erstellen — Apple übersetzt die Beschreibung in ein visuelles Skript.\n\nDer strategische Vorteil von Apple Intelligence ist die **Integration und der Preis**: Es ist kostenlos, kommt automatisch mit dem Betriebssystem und ist überall dort verfügbar, wo man ohnehin arbeitet — kein zusätzliches Abo, kein separater Tab. Für die meisten Apple-Nutzer:innen ist es die KI mit der niedrigsten Einstiegshürde überhaupt.\n\nSchwächen gibt es dennoch. Die **Gemini-Cloud-Anbindung** der neuen Siri ist für besonders datenschutzsensible Nutzer:innen ein Abwägungspunkt — Apple kommuniziert die Grenze zwischen On-Device, Private Cloud Compute und Gemini-Cloud, aber sie ist erklärungsbedürftig. Apple Intelligence läuft nur auf **neueren Geräten** mit genügend Speicher (ab iPhone 15 Pro, Apple-Silicon-iPads und -Macs). Und die **Verfügbarkeit in Deutsch** sowie in bestimmten Regionen hinkt dem englischen Funktionsumfang traditionell hinterher. Bei der **Funktionstiefe** einzelner Bausteine — etwa Bildgenerierung oder Schreibassistenz — liegen spezialisierte Tools (Midjourney, ChatGPT, Claude) weiter vorn; Apple Intelligence punktet mit Breite und Integration, nicht mit Spitzenleistung im Einzelfall.\n\nEmpfohlen für alle, die im Apple-Ökosystem leben und eine kostenlose, datenschutzbewusste KI direkt im Betriebssystem wollen — besonders für die neue, endlich brauchbare Siri und die systemweiten Schreib- und Foto-Werkzeuge. Wer maximale Qualität bei einer bestimmten Disziplin braucht, kombiniert Apple Intelligence sinnvoll mit einem spezialisierten Tool."
+  },
+  {
+    "slug": "apple-foundation-models",
+    "name": "Apple Foundation Models",
+    "vendor": "Apple",
+    "category": "coding",
+    "tagline": "Apples Framework, um die On-Device-KI-Modelle von Apple Intelligence direkt in eigene Apps einzubauen — seit WWDC 2026 multimodal, mit Python-SDK und austauschbaren Cloud-Anbietern (Anthropic, Google).",
+    "price": "Kostenlos (Teil von Xcode / Apple-Developer-Tools)",
+    "api": true,
+    "dsgvo": "ja",
+    "origin": "USA",
+    "rating": 4.5,
+    "reviews": 1240,
+    "pros": [
+      "On-Device-Inferenz — Daten verlassen das Gerät nicht, offline-fähig",
+      "Multimodal seit WWDC 2026: Bilder zusätzlich zu Text",
+      "Neues Python-SDK neben Swift",
+      "LanguageModel-Protokoll: Cloud-Anbieter (Anthropic, Google) ohne Code-Änderung tauschbar"
+    ],
+    "cons": [
+      "Nur für das Apple-Ökosystem (Swift/Apple-Plattformen)",
+      "On-Device-Modell kleiner als Frontier-Cloud-Modelle",
+      "Volle Stärke nur auf Apple-Silicon-Geräten",
+      "Cloud-Anbieter-Nutzung verlässt die reine On-Device-Privatsphäre"
+    ],
+    "usecases": [
+      "KI-Features in iOS/macOS-Apps",
+      "Offline-fähige On-Device-Inferenz",
+      "Bild- und Text-Reasoning in Apps",
+      "Anbieter-flexible LLM-Anbindung"
+    ],
+    "launched": "2025-06-09",
+    "lastUpdated": "2026-06-09",
+    "website": "https://developer.apple.com/apple-intelligence/",
+    "domain": "apple.com",
+    "screenshot_url": "https://developer.apple.com/documentation/foundationmodels",
+    "stealth": false,
+    "cover_cue": "A hand-drawn building-block bracket {} containing a small on-device chip glyph, with a thin swappable plug-connector on the side and a single magenta accent on the chip — on-device models you build on.",
+    "features": "- **On-Device-Modell-Zugriff**: dasselbe Modell, das Apple Intelligence antreibt, in eigenen Apps.\n- **Multimodal** (WWDC 2026): Bilder zusätzlich zu Text-Prompts senden.\n- **Python-SDK** (WWDC 2026) neben dem Swift-API.\n- **LanguageModel-Protokoll**: öffentliches Swift-Interface, das Cloud-Anbieter (Anthropic, Google) implementieren — gleiche API für On-Device und Cloud.\n- **Guided Generation** mit typsicheren Swift-Strukturen.\n- **Tool Calling** für App-Funktionen.\n- **Private Cloud Compute** als datenschutzkonforme Eskalation.",
+    "pricing": "- **Kostenlos** — Teil von Xcode und den Apple-Developer-Tools.\n- **On-Device-Inferenz** ohne laufende Kosten (läuft auf dem Gerät der Nutzer:innen).\n- **Cloud-Anbieter** (Anthropic, Google) nach deren Tarifen, optional via LanguageModel-Protokoll.\n- **Voraussetzung**: Apple Developer Account, Apple-Silicon-Zielgeräte.",
+    "overview": "**Apple Foundation Models** ist Apples Framework, mit dem Entwickler:innen die KI-Modelle, die hinter Apple Intelligence stehen, direkt in eigene Apps einbauen können. 2025 eingeführt, wurde es auf der **WWDC 2026** zu einer hybriden KI-Plattform ausgebaut — und ist damit Apples eigentliches Angebot an die Developer-Community, jenseits der Consumer-Features.\n\nDer konzeptionelle Kern ist seit jeher **On-Device-Inferenz**: Das Foundation-Models-Framework gibt Apps Zugriff auf ein kompaktes, auf Apple-Silicon optimiertes Sprachmodell, das **direkt auf dem Gerät läuft**. Für Entwickler:innen heißt das: KI-Features ohne Server-Kosten, ohne Latenz durch Netzwerk-Hops, offline-fähig — und vor allem ohne dass Nutzerdaten das Gerät verlassen. Für datenschutzsensible Anwendungen (Gesundheit, Finanzen, Notizen) ist das ein konstitutiver Vorteil gegenüber Cloud-LLM-APIs.\n\nDie WWDC 2026 brachte drei wesentliche Erweiterungen. Erstens ist das Framework jetzt **multimodal**: Apps können Bilder zusätzlich zu Text-Prompts senden, sodass das On-Device-Modell visuelle Inhalte analysieren und über sie schließen kann. Zweitens gibt es ein neues **Python-SDK** neben dem bisherigen Swift-API — Entwickler:innen können Sessions erstellen und Prompts an dieselben On-Device-Modelle senden, die Apple Intelligence nutzt, was Prototyping und Tooling außerhalb von Xcode erleichtert.\n\nDrittens — und strategisch am interessantesten — ist das **LanguageModel-Protokoll**: ein öffentliches Swift-Interface, das Dritt-Anbieter implementieren, um ihre cloud-gehosteten Modelle über dieselbe API-Oberfläche wie Apples On-Device-Modelle bereitzustellen. Aktuell implementieren **Anthropic** (Claude) und **Google** (Gemini) dieses Protokoll. In der Praxis heißt das: Eine App bindet eine Swift-Package-Manager-Abhängigkeit ein und kann zwischen Apples On-Device-Modell und einem Cloud-Anbieter **wechseln, ohne den restlichen App-Code zu ändern**. Das ist ein eleganter Ansatz gegen Vendor-Lock-in — selten in der ansonsten geschlossenen Apple-Welt.\n\nErgänzend bietet das Framework **Guided Generation** (das Modell liefert typsichere Swift-Strukturen statt freiem Text), **Tool Calling** (das Modell ruft App-Funktionen auf) und **Private Cloud Compute** als datenschutzkonforme Eskalationsstufe für Anfragen, die das On-Device-Modell überfordern.\n\nDie Schwächen ergeben sich aus Apples Modell der geschlossenen Plattform. Das Framework ist **nur für das Apple-Ökosystem** nutzbar — Swift und Apple-Plattformen; wer plattformübergreifend baut, kann es nicht als universelles Backend verwenden. Das **On-Device-Modell** ist naturgemäß **kleiner** als Frontier-Cloud-Modelle (GPT-5.5, Claude Opus, Gemini 3) und eignet sich für fokussierte Aufgaben — Klassifikation, Zusammenfassung, Extraktion, strukturierte Generierung — nicht für anspruchsvollstes Reasoning. Die **volle Leistung** entfaltet sich nur auf Apple-Silicon-Geräten. Und sobald man die Cloud-Anbieter über das LanguageModel-Protokoll nutzt, verlässt man die reine On-Device-Privatsphäre.\n\nEmpfohlen für iOS- und macOS-Entwickler:innen, die KI-Features datenschutzkonform und ohne Server-Kosten in ihre Apps bringen wollen — besonders für On-Device-Aufgaben wie Zusammenfassen, Klassifizieren und strukturierte Generierung. Wer Frontier-Reasoning braucht, nutzt das LanguageModel-Protokoll, um bei Bedarf an Claude oder Gemini zu eskalieren, und behält für den Rest die schnelle, private On-Device-Variante."
+  },
+  {
+    "slug": "image-playground",
+    "name": "Image Playground",
+    "vendor": "Apple",
+    "category": "bildgenerierung",
+    "tagline": "Apples On-Device-Bildgenerator als Teil von Apple Intelligence — Bilder und Genmoji in kuratierten Stilen direkt auf dem Gerät, ohne Cloud und ohne Training auf den eigenen Fotos.",
+    "price": "Kostenlos auf unterstützten Apple-Geräten",
+    "api": false,
+    "dsgvo": "ja",
+    "origin": "USA",
+    "rating": 4.0,
+    "reviews": 5230,
+    "pros": [
+      "On-Device-Generierung — kostenlos, privat, offline",
+      "Tief in Messages, Notizen und Freeform integriert",
+      "Genmoji aus eigenen Beschreibungen und Fotos",
+      "Kein Training auf den im Tool erzeugten Bildern"
+    ],
+    "cons": [
+      "Stilauswahl bewusst begrenzt (Animation, Illustration, Sketch)",
+      "Qualität und Fotorealismus hinter Midjourney/Nano Banana",
+      "Nur auf Apple-Intelligence-fähigen Geräten",
+      "Wenig Feinsteuerung gegenüber Profi-Tools"
+    ],
+    "usecases": [
+      "Schnelle Bilder in Nachrichten und Notizen",
+      "Eigene Genmoji erstellen",
+      "Illustrationen für persönliche Projekte",
+      "Mood-Bilder ohne Cloud-Tool"
+    ],
+    "launched": "2024-12-11",
+    "lastUpdated": "2026-06-09",
+    "website": "https://apps.apple.com/us/app/image-playground/id6479176117",
+    "domain": "apple.com",
+    "screenshot_url": "https://apps.apple.com/us/app/image-playground/id6479176117",
+    "stealth": true,
+    "cover_cue": "A hand-drawn child-like crayon and a small framed picture side by side, with three playful style-swatch squares and a single magenta accent on one swatch — playful on-device image generation.",
+    "features": "- **On-Device-Bildgenerierung** in von Apple kuratierten Stilen (Animation, Illustration, Sketch).\n- **Genmoji**: eigene Emoji aus Textbeschreibung oder Foto.\n- **Personen aus der Fotomediathek** in Bilder einbeziehen.\n- **Integration** in Messages, Freeform, Notizen und mehr.\n- **Touch- und Text-Bearbeitung** der erzeugten Bilder.\n- **Kein Training** auf den in der App erzeugten Bildern (WWDC-2026-Zusage).\n- **Performance-Verbesserungen** mit dem Apple-Intelligence-Upgrade 2026.",
+    "pricing": "- **Kostenlos** auf unterstützten Apple-Geräten als Teil von Apple Intelligence.\n- **Keine Abogebühr**, keine Credits.\n- **Voraussetzung**: Apple-Intelligence-fähiges Gerät, unterstützte Sprache/Region.\n- **App** separat aus dem App Store nachinstallierbar.",
+    "overview": "**Image Playground** ist Apples Bildgenerierungs-App und Teil von Apple Intelligence — Ende 2024 eingeführt und mit der **WWDC 2026** im Zuge des Apple-Intelligence-Upgrades verfeinert. Der Ansatz unterscheidet sich bewusst von den großen Cloud-Bildgeneratoren: Image Playground erzeugt Bilder **on-device**, kostenlos, ohne Cloud-Anbindung und ohne Abo — und ist dafür bewusst auf eine begrenzte, kuratierte Stilpalette beschränkt.\n\nDie **On-Device-Generierung** ist der zentrale Charakterzug. Bilder entstehen direkt auf dem iPhone, iPad oder Mac, ohne dass Prompts oder Ergebnisse an einen Server gehen. Das macht Image Playground zur datenschutzfreundlichsten Variante unter den verbreiteten Bildgeneratoren — und Apple hat auf der WWDC 2026 zusätzlich bekräftigt, dass **nicht auf den in der App erzeugten Bildern trainiert** wird. Für Nutzer:innen, die KI-Bildgenerierung ohne Cloud-Datenfluss wollen, ist das ein klares Alleinstellungsmerkmal.\n\nDie **Stilpalette** ist Absicht, nicht Einschränkung im negativen Sinn: Apple bietet einige wenige, von Hand kuratierte Stile — **Animation, Illustration und Sketch** — die konsistent und „aufgeräumt\" wirken. Image Playground zielt nicht auf Fotorealismus oder grenzenlose künstlerische Freiheit, sondern auf schnelle, freundliche, teilbare Bilder im Alltag. **Genmoji** — eigene Emoji aus einer Textbeschreibung oder einem Foto — ist die populärste Funktion und integriert sich nahtlos in die Tastatur.\n\nDie **Integration** ist die eigentliche Stärke: Image Playground ist direkt in **Messages, Freeform, Notizen** und weitere Apps eingebaut. Ein Bild für eine Nachricht entsteht in Sekunden, ohne die App zu wechseln. Personen aus der eigenen **Fotomediathek** lassen sich einbeziehen, und erzeugte Bilder können per Touch oder Textbeschreibung weiter angepasst werden.\n\nDie Schwächen sind die Kehrseite des bewussten Scopes. Die **Qualität und der Fotorealismus** liegen deutlich hinter spezialisierten Cloud-Tools wie Midjourney, Nano Banana Pro 2 oder GPT Image 2 — wer professionelle, fotorealistische oder stilistisch freie Bilder braucht, ist dort besser bedient. Die **Stilauswahl** ist eng, die **Feinsteuerung** (Seitenverhältnisse, Negative Prompts, Referenzbilder im Profi-Sinn) minimal. Und Image Playground läuft nur auf **Apple-Intelligence-fähigen Geräten**.\n\nEmpfohlen für Apple-Nutzer:innen, die schnell und kostenlos freundliche Bilder und Genmoji für Nachrichten, Notizen und persönliche Projekte erstellen wollen — datenschutzfreundlich und ohne Cloud-Tool. Für anspruchsvolle kreative oder kommerzielle Bildarbeit bleibt es eine Ergänzung, kein Ersatz für die spezialisierten Generatoren."
+  }
+]
