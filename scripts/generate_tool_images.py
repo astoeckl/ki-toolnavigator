@@ -190,6 +190,13 @@ TOOL_CUES = {
     'apple-intelligence': 'A hand-drawn apple silhouette whose core is replaced by a small soft neural-glow of three concentric rings, with a single magenta accent dot at the center — privacy-first on-device intelligence.',
     'apple-foundation-models': 'A hand-drawn building-block bracket {} containing a small on-device chip glyph, with a thin swappable plug-connector on the side and a single magenta accent on the chip — on-device models you build on.',
     'image-playground': 'A hand-drawn child-like crayon and a small framed picture side by side, with three playful style-swatch squares and a single magenta accent on one swatch — playful on-device image generation.',
+    'hubspot-breeze': 'A hand-drawn central hub circle with several spokes ending in small task-icons (content, social, lead), one spoke tinted magenta — an AI layer woven through a CRM.',
+    'adcreative': 'A hand-drawn ad banner rectangle with a small upward conversion-arrow and a star-rating, the arrow tinted magenta — performance ad creative scored for conversion.',
+    'clay': 'A hand-drawn spreadsheet grid where several columns flow in from different source-pipes and merge into one enriched row, one cell tinted magenta — waterfall data enrichment.',
+    'mutiny': 'A hand-drawn browser window that splits into three tailored variants fanning out, each with a different small visitor-icon, one variant tinted magenta — website personalization by audience.',
+    'persado': 'A hand-drawn balance scale weighing two speech bubbles of words, the heavier winning bubble tinted magenta — language optimized for conversion within guardrails.',
+    'smartly': 'A hand-drawn fan of ad cards being auto-arranged across several channel-icons by a thin robotic arm, one card tinted magenta — automated cross-channel advertising.',
+    'brandwatch': 'A hand-drawn radar-circle picking up many small chat-bubble blips from across a network, one blip tinted magenta — listening to online conversations at scale.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 

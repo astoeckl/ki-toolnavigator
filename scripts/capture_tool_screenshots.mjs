@@ -173,6 +173,13 @@ const TOOLS = [
   { slug: "apple-intelligence", url: "https://www.apple.com/apple-intelligence/" },
   { slug: "apple-foundation-models", url: "https://developer.apple.com/documentation/foundationmodels" },
   { slug: "image-playground", url: "https://apps.apple.com/us/app/image-playground/id6479176117", stealth: true },
+  { slug: "hubspot-breeze", url: "https://www.hubspot.com/products/artificial-intelligence" },
+  { slug: "adcreative", url: "https://www.adcreative.ai/" },
+  { slug: "clay", url: "https://www.clay.com/" },
+  { slug: "mutiny", url: "https://www.mutinyhq.com/" },
+  { slug: "persado", url: "https://www.persado.com/" },
+  { slug: "smartly", url: "https://www.smartly.io/" },
+  { slug: "brandwatch", url: "https://www.brandwatch.com/" },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
