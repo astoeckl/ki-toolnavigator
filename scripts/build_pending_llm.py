@@ -1,0 +1,370 @@
+#!/usr/bin/env python3
+"""Build scripts/pending_tools.json with 7 additional language-model / chat tools."""
+import json
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
+TOOLS = [
+    {
+        'slug': 'kimi', 'name': 'Kimi',
+        'vendor': 'Moonshot AI', 'category': 'sprachmodelle',
+        'tagline': 'Moonshot AIs Chatbot und offene Modellfamilie aus China — die Kimi-K2-Reihe glänzt bei Coding und agentischen Aufgaben und ist als Open-Weight-Modell frei verfügbar.',
+        'price': 'Chat kostenlos · API pay-per-Token · Open Weights',
+        'api': True, 'dsgvo': 'nein', 'origin': 'China', 'rating': 4.5, 'reviews': 4210,
+        'pros': [
+            'Starke Coding- und Agent-Leistung (Kimi-K2-Reihe)',
+            'Open-Weight-Modelle frei nutzbar und self-hostbar',
+            'Sehr großer Kontext für lange Dokumente',
+            'Deutlich günstigere API als westliche Frontier-Modelle',
+        ],
+        'cons': [
+            'Datenresidenz China — kein DSGVO-Use-Case für sensible Daten',
+            'Inhaltsfilter mit chinesischen Sensibilitäten',
+            'UI und Doku teils chinesisch-zentriert',
+            'Deutsch schwächer als bei westlichen Top-Modellen',
+        ],
+        'usecases': [
+            'Coding und agentische Workflows', 'Analyse langer Dokumente',
+            'Kostengünstige API-Integration', 'Self-Hosting offener Modelle',
+        ],
+        'launched': '2023-10-09', 'lastUpdated': '2026-06-27',
+        'website': 'https://www.kimi.com/', 'domain': 'kimi.com',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn open scroll unrolling far to both sides to suggest a very long context window, with a small magenta key-glyph resting on it — an open-weight model with long memory.',
+        'features': """- **Kimi-K2-Reihe**: leistungsstarke Modelle mit Fokus auf Coding und Agents.
+- **Open Weights**: Modelle frei herunterladbar und self-hostbar.
+- **Sehr großer Kontext** für lange Dokumente und Codebasen.
+- **Agentische Fähigkeiten** mit Tool-Use.
+- **Chat-Weboberfläche** und Mobile-App.
+- **API** mit günstigem Pro-Token-Pricing.
+- **Multimodalität** (Bildverstehen) in neueren Versionen.""",
+        'pricing': """- **Chat** · kostenlos über kimi.com mit Tageslimits.
+- **API** · pay-per-Token, deutlich günstiger als westliche Frontier-Modelle.
+- **Open Weights** · kostenlos für Self-Hosting (Lizenzbedingungen beachten).
+- **Enterprise** · über Moonshot AI, primär chinesischer Markt.""",
+        'overview': """**Kimi** ist der Chatbot und die Modellfamilie des chinesischen Anbieters **Moonshot AI** — 2023 gestartet und seit der **Kimi-K2**-Generation international als ernstzunehmender Herausforderer der westlichen Frontier-Modelle wahrgenommen. Kimi steht für zwei Dinge: **starke Coding- und Agent-Leistung** und die Verfügbarkeit als **Open-Weight-Modell**, das jede:r herunterladen und selbst betreiben kann.
+
+Die **Kimi-K2-Reihe** hat Moonshot AI in mehreren Iterationen zur Spitze offener Modelle geführt. In Coding-Benchmarks und bei agentischen Aufgaben (Tool-Use, Multi-Step-Reasoning) liegt Kimi mit den besten offenen Modellen gleichauf und nähert sich in manchen Disziplinen den geschlossenen Frontier-Modellen. Für Entwickler:innen, die ein leistungsfähiges Modell ohne Bindung an einen westlichen Cloud-Anbieter suchen, ist das attraktiv.
+
+Der **Open-Weight-Charakter** ist der zentrale strategische Punkt. Anders als ChatGPT, Claude oder Gemini lassen sich die Kimi-Modelle herunterladen und auf eigener Infrastruktur betreiben — sei es für Datenschutz, für Kostenkontrolle bei hohem Volumen oder für Forschung und Fine-Tuning. Das reiht Kimi in die Bewegung offener Modelle ein, die 2025/26 durch DeepSeek, Qwen, Llama und GLM geprägt wird.
+
+Der **sehr große Kontext** macht Kimi besonders für die Analyse langer Dokumente und Codebasen geeignet — ganze Handbücher, umfangreiche Verträge oder mehrere Quelldateien passen in eine Anfrage. Kombiniert mit den agentischen Fähigkeiten ergibt das einen brauchbaren Assistenten für komplexe, kontextreiche Aufgaben.
+
+Über die **Chat-Weboberfläche** (kimi.com) und die Mobile-App ist Kimi kostenlos nutzbar; die **API** bietet ein Pro-Token-Pricing, das deutlich unter den westlichen Frontier-Modellen liegt — ein wiederkehrendes Muster bei chinesischen Anbietern, das für hochvolumige Anwendungen wirtschaftlich relevant ist.
+
+Die Schwächen sind die typischen chinesischer Modelle im westlichen Kontext. Die **Datenresidenz China** ist ein Ausschlusskriterium für DSGVO-sensible Anwendungen — personenbezogene oder vertrauliche Daten sollten nicht über die gehostete Kimi-Version laufen (Self-Hosting der offenen Gewichte umgeht das). Die **Inhaltsfilter** folgen chinesischen Sensibilitäten und blockieren bestimmte politische Themen. **UI und Dokumentation** sind teils chinesisch-zentriert, auch wenn eine englische Variante existiert. Und die **Deutsch-Leistung** liegt hinter den westlichen Top-Modellen.
+
+Empfohlen für Entwickler:innen und Forschende, die ein starkes, günstiges Modell für Coding und Agents suchen — und besonders für alle, die von den offenen Gewichten profitieren wollen, sei es durch Self-Hosting oder Fine-Tuning. Für DSGVO-sensible Produktivanwendungen mit der gehosteten Version ist Vorsicht geboten; dort spielen die offenen Gewichte auf eigener Infrastruktur ihre Stärke aus.""",
+    },
+    {
+        'slug': 'poe', 'name': 'Poe',
+        'vendor': 'Quora', 'category': 'sprachmodelle',
+        'tagline': 'Quoras Chat-Aggregator — ein Abo, Zugriff auf ChatGPT, Claude, Gemini, Grok und dutzende weitere Modelle plus eigene Bots, in einer App über alle Plattformen.',
+        'price': 'Free · Premium ab $20 / Mon. (Credits)',
+        'api': True, 'dsgvo': 'bedingt', 'origin': 'USA', 'rating': 4.4, 'reviews': 8630,
+        'pros': [
+            'Viele Top-Modelle unter einem Abo und einer Oberfläche',
+            'Modelle direkt vergleichen und im Chat wechseln',
+            'Eigene Bots und Prompt-Templates erstellen und teilen',
+            'Plattformübergreifend (Web, iOS, Android, Mac, Windows)',
+        ],
+        'cons': [
+            'Credit-System kann bei teuren Modellen schnell aufgebraucht sein',
+            'Neueste Modellversionen teils verzögert verfügbar',
+            'Keine tiefe Enterprise-Governance',
+            'Datenfluss über mehrere Modell-Anbieter',
+        ],
+        'usecases': [
+            'Modelle vergleichen ohne mehrere Abos', 'Ein Chat-Tool für alle LLMs',
+            'Eigene Bots und Workflows bauen', 'Schneller Modell-Wechsel je Aufgabe',
+        ],
+        'launched': '2022-12-04', 'lastUpdated': '2026-06-27',
+        'website': 'https://poe.com/', 'domain': 'poe.com',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn single chat bubble fed by several thin pipes coming from different small model-icons, one pipe tinted magenta — many models behind one chat.',
+        'features': """- **Multi-Modell-Zugang**: ChatGPT, Claude, Gemini, Grok, Llama, Mistral u.v.m.
+- **Modell-Wechsel** mitten im Chat, gleiche Anfrage an mehrere Modelle.
+- **Eigene Bots** mit System-Prompt, Wissen und gewähltem Basismodell.
+- **Bot-Verzeichnis** mit von der Community geteilten Bots.
+- **Bild- und Video-Modelle** integriert.
+- **Plattformübergreifend**: Web, iOS, Android, macOS, Windows.
+- **API** für den Zugriff auf Poe-Bots.""",
+        'pricing': """- **Free** · begrenzter Tageszugang zu Standard-Modellen.
+- **Premium** · ab $20 / Mon. — großes Credit-Kontingent für alle Modelle.
+- **Credits** werden je Modell unterschiedlich verbraucht (teure Modelle kosten mehr).
+- **Jährlich** günstiger; höhere Stufen für Power-User.
+- **API** für Bot-Zugriff in den Premium-Tarifen.""",
+        'overview': """**Poe** (von **Quora**) ist einer der bekanntesten **Chat-Aggregatoren** — ein einziges Abo und eine einzige Oberfläche für dutzende KI-Modelle. Statt separate Abos für ChatGPT, Claude, Gemini und Grok zu führen, bekommt man über Poe Zugriff auf all diese Modelle plus viele weitere, inklusive Bild- und Video-Modelle, über Web, iOS, Android, macOS und Windows.
+
+Der zentrale Nutzen ist **Modell-Vielfalt und -Vergleich**. Poe erlaubt es, mitten im Gespräch das Modell zu wechseln oder dieselbe Anfrage an mehrere Modelle zu schicken und die Antworten nebeneinander zu vergleichen. Für alle, die wissen wollen, welches Modell eine bestimmte Aufgabe am besten löst — oder die je nach Aufgabe das passende Modell wählen wollen — ist das ein echter Zeitgewinn gegenüber dem Jonglieren mehrerer Einzel-Abos.
+
+Die zweite Säule sind **eigene Bots**. Nutzer:innen erstellen mit einem System-Prompt, optionalem Wissen und einem gewählten Basismodell spezialisierte Assistenten — etwa einen „Rechts-Zusammenfasser" auf Claude-Basis oder einen „Marketing-Texter" auf GPT-Basis. Diese Bots lassen sich teilen, und das **Bot-Verzeichnis** bietet tausende von der Community erstellte Assistenten als Startpunkt. Das macht Poe zu einer Plattform, nicht nur zu einem Chat-Frontend.
+
+Das **Pricing** läuft über ein Credit-System: Ein Premium-Abo liefert ein monatliches Kontingent, das je nach genutztem Modell unterschiedlich schnell verbraucht wird — teure Frontier-Modelle kosten mehr Credits als günstige. Das ist fair, erfordert aber ein Auge auf den Verbrauch: Wer intensiv mit den teuersten Modellen arbeitet, kann das Kontingent schneller aufbrauchen als erwartet.
+
+Die **API** rundet das Angebot ab und erlaubt den programmatischen Zugriff auf Poe-Bots — nützlich, um eigene Anwendungen auf die Aggregator-Infrastruktur zu setzen.
+
+Die Schwächen sind die eines Aggregators. Die **neuesten Modellversionen** erscheinen manchmal mit Verzögerung, weil Poe sie erst integrieren muss — wer sofort das brandneue Modell will, ist beim jeweiligen Anbieter direkt schneller. Das **Credit-System** kann bei intensiver Nutzung teurer Modelle limitierend wirken. Eine tiefe **Enterprise-Governance** (SSO, Audit-Logs, Datenverträge) bietet Poe nicht in der Tiefe dedizierter Enterprise-Plattformen. Und der **Datenfluss** läuft über mehrere Modell-Anbieter, was datenschutzrechtlich zu bedenken ist.
+
+Empfohlen für Power-User, Berater:innen und neugierige Profis, die regelmäßig mit verschiedenen Modellen arbeiten und nicht mehrere Einzel-Abos führen wollen — und für alle, die eigene, teilbare Bots ohne Programmierung bauen möchten. Wer ausschließlich ein einziges Modell nutzt, fährt mit dessen Direkt-Abo günstiger.""",
+    },
+    {
+        'slug': 'ollama', 'name': 'Ollama',
+        'vendor': 'Ollama', 'category': 'sprachmodelle',
+        'tagline': 'Der einfachste Weg, offene Sprachmodelle lokal zu betreiben — Llama, Mistral, Qwen, DeepSeek, GPT-OSS und mehr mit einem Befehl, vollständig on-device und DSGVO-freundlich.',
+        'price': 'Open Source (kostenlos) · Cloud-Tier optional',
+        'api': True, 'dsgvo': 'ja', 'origin': 'USA', 'rating': 4.8, 'reviews': 9840,
+        'pros': [
+            'Modelle mit einem Befehl lokal starten — kein Cloud-Zwang',
+            'Vollständig on-device: Daten verlassen den Rechner nicht',
+            'Große Modell-Bibliothek (Llama, Mistral, Qwen, DeepSeek, GPT-OSS …)',
+            'OpenAI-kompatible API für einfache Integration',
+        ],
+        'cons': [
+            'Leistung durch lokale Hardware begrenzt',
+            'Große Modelle brauchen viel RAM/GPU',
+            'Kein integriertes Frontier-Modell-Niveau ohne starke Hardware',
+            'Einrichtung erfordert etwas technisches Verständnis',
+        ],
+        'usecases': [
+            'Lokale, private LLM-Nutzung', 'Offline-fähige KI-Anwendungen',
+            'Prototyping mit offenen Modellen', 'DSGVO-konforme On-Device-Verarbeitung',
+        ],
+        'launched': '2023-07-18', 'lastUpdated': '2026-06-27',
+        'website': 'https://ollama.com/', 'domain': 'ollama.com',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn friendly llama silhouette sitting on a small desktop computer, a thin power-cord looping into a magenta dot — open models running locally on your own machine.',
+        'features': """- **Ein-Befehl-Start**: `ollama run <modell>` lädt und startet ein Modell lokal.
+- **Große Modell-Bibliothek**: Llama, Mistral, Qwen, DeepSeek, Gemma, Phi, GPT-OSS u.v.m.
+- **Vollständig on-device** — keine Daten verlassen den Rechner.
+- **OpenAI-kompatible API** für nahtlose Integration.
+- **Modelfile** für eigene Modell-Konfigurationen und -Prompts.
+- **Multimodal**: Vision-Modelle unterstützt.
+- **macOS, Windows, Linux** und Docker; optionaler Cloud-Tier für große Modelle.""",
+        'pricing': """- **Open Source** · kostenlos, lokal auf eigener Hardware.
+- **Keine laufenden Kosten** für die On-Device-Nutzung.
+- **Ollama Cloud** (optional) · gehostete große Modelle nach Verbrauch.
+- **Enterprise** · Support-Optionen für Teams.
+- **Hardware** ist der eigentliche Kostenfaktor (RAM/GPU).""",
+        'overview': """**Ollama** ist der mit Abstand einfachste Weg, **offene Sprachmodelle lokal zu betreiben** — 2023 gestartet und seitdem zum De-facto-Standard für On-Device-LLMs geworden. Der Kern ist bestechend simpel: Ein Befehl wie `ollama run llama3.3` lädt das Modell herunter und startet einen lauffähigen Chat — ohne Cloud, ohne Account, ohne Konfigurations-Odyssee.
+
+Der entscheidende Vorteil ist **Privatsphäre und Kontrolle**. Weil die Modelle vollständig **on-device** laufen, verlassen weder Prompts noch Antworten den eigenen Rechner. Für datenschutzsensible Anwendungen — Gesundheitsdaten, Mandanten-Dokumente, interner Quellcode, personenbezogene Daten — ist das ein konstitutiver Vorteil: Es ist die DSGVO-freundlichste Art, mit einem LLM zu arbeiten, weil schlicht keine Daten zu einem Anbieter fließen.
+
+Die **Modell-Bibliothek** ist breit und stets aktuell: Llama, Mistral, Qwen, DeepSeek, Gemma, Phi, GPT-OSS und viele Community-Varianten sind mit einem Befehl verfügbar. Wann immer ein neues offenes Modell erscheint, ist es meist kurz darauf über Ollama nutzbar. Das macht Ollama zur natürlichen Heimat der Open-Weight-Bewegung, die 2025/26 durch DeepSeek, Qwen, Kimi, GLM und Llama getrieben wird.
+
+Für Entwickler:innen ist die **OpenAI-kompatible API** der Schlüssel: Bestehende Anwendungen, die gegen die OpenAI-API geschrieben sind, lassen sich mit minimaler Änderung auf ein lokales Ollama-Modell umstellen. In Kombination mit dem **Modelfile** (eine Art Dockerfile für Modell-Konfigurationen und System-Prompts) entsteht ein sauberer, reproduzierbarer lokaler LLM-Stack. Vision-Modelle für multimodale Aufgaben werden ebenfalls unterstützt.
+
+Ollama ist auf **macOS, Windows, Linux** und in Docker verfügbar; ein optionaler **Cloud-Tier** erlaubt es, sehr große Modelle, die lokale Hardware überfordern, gehostet auszuführen — ein pragmatischer Mittelweg für Teams, die lokal entwickeln, aber bei Bedarf skalieren wollen.
+
+Die Schwächen ergeben sich aus der lokalen Natur. Die **Leistung ist durch die eigene Hardware begrenzt**: Ein Frontier-Modell-Niveau erreicht man nur mit starker GPU und viel RAM, und große Modelle (70B+) brauchen entsprechende Ressourcen. Auf einem durchschnittlichen Laptop laufen kleinere Modelle flüssig, die ganz großen nicht. Und die **Einrichtung** — auch wenn sie einfach ist — setzt ein gewisses technisches Grundverständnis voraus; für nicht-technische Endnutzer:innen ist ein Cloud-Chat niedrigschwelliger.
+
+Empfohlen für Entwickler:innen, datenschutzbewusste Teams und alle, die offene Modelle privat, offline und kostenlos nutzen wollen — sei es für Prototyping, für DSGVO-konforme On-Device-Verarbeitung oder einfach, um die Open-Weight-Modelle ohne Cloud-Bindung auszuprobieren. Wer maximale Modell-Qualität ohne eigene Hardware braucht, kombiniert Ollama sinnvoll mit einem Cloud-Modell für die anspruchsvollsten Aufgaben.""",
+    },
+    {
+        'slug': 'openrouter', 'name': 'OpenRouter',
+        'vendor': 'OpenRouter', 'category': 'sprachmodelle',
+        'tagline': 'Eine API für hunderte Modelle — OpenRouter routet über OpenAI, Anthropic, Google, Meta, Mistral und viele weitere Anbieter, mit Fallbacks, Preisvergleich und einheitlicher Abrechnung.',
+        'price': 'Pay-per-Token (Anbieterpreise + kleine Marge) · kostenlose Modelle',
+        'api': True, 'dsgvo': 'bedingt', 'origin': 'USA', 'rating': 4.7, 'reviews': 5120,
+        'pros': [
+            'Ein API-Endpunkt für hunderte Modelle vieler Anbieter',
+            'Automatische Fallbacks und Anbieter-Routing bei Ausfall',
+            'Transparenter Preis- und Latenz-Vergleich pro Modell',
+            'Einheitliche Abrechnung statt vieler Einzelverträge',
+        ],
+        'cons': [
+            'Kleine Marge auf die Anbieterpreise',
+            'Zusätzlicher Vermittler im Datenfluss',
+            'Datenschutz hängt vom jeweils geroutetem Anbieter ab',
+            'Kein eigenes Modell — reine Vermittlungsschicht',
+        ],
+        'usecases': [
+            'Modell-agnostische App-Entwicklung', 'Kosten- und Latenz-Optimierung',
+            'Ausfallsicherheit durch Fallbacks', 'Schnelles Testen vieler Modelle',
+        ],
+        'launched': '2023-05-01', 'lastUpdated': '2026-06-27',
+        'website': 'https://openrouter.ai/', 'domain': 'openrouter.ai',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn central junction where one input line fans out through a small switch to many model-endpoints, one route tinted magenta — a router across many models.',
+        'features': """- **Ein Endpunkt** für hunderte Modelle (OpenAI, Anthropic, Google, Meta, Mistral, xAI u.v.m.).
+- **OpenAI-kompatible API** — bestehender Code funktioniert unverändert.
+- **Automatische Fallbacks** und Provider-Routing bei Ausfall oder Rate-Limit.
+- **Preis- und Latenz-Vergleich** je Modell und Anbieter.
+- **Kostenlose Modelle** zum Testen verfügbar.
+- **Nutzungs- und Kosten-Dashboard** über alle Modelle.
+- **BYOK** (eigene Anbieter-Keys) optional.""",
+        'pricing': """- **Pay-per-Token** · Anbieterpreise plus eine kleine Vermittlungsmarge.
+- **Kostenlose Modelle** · ausgewählte offene Modelle gratis testbar.
+- **Credits** aufladen und über alle Modelle hinweg nutzen.
+- **BYOK** · eigene Anbieter-Schlüssel einbinden (reduziert Marge).
+- **Keine Grundgebühr** — Abrechnung rein nach Verbrauch.""",
+        'overview': """**OpenRouter** ist die populärste **Router- und Aggregator-API für Sprachmodelle** — 2023 gestartet und für viele Entwickler:innen zum Standard geworden, um mit einem einzigen Endpunkt hunderte Modelle vieler Anbieter zu erreichen. Statt separate Verträge, SDKs und Abrechnungen für OpenAI, Anthropic, Google, Meta, Mistral und xAI zu führen, spricht man OpenRouter an — und wählt das Modell per Parameter.
+
+Der zentrale Nutzen ist **Modell-Agnostik**. Eine Anwendung, die gegen OpenRouter geschrieben ist, kann zwischen GPT-5.5, Claude Opus, Gemini 3, Llama, DeepSeek und dutzenden weiteren Modellen wechseln, indem sie nur den Modell-Namen ändert — der restliche Code bleibt gleich, weil OpenRouter eine **OpenAI-kompatible API** bietet. Das eliminiert Vendor-Lock-in auf der Modell-Ebene und macht das Experimentieren mit neuen Modellen trivial.
+
+Die **automatischen Fallbacks** sind ein oft unterschätzter Vorteil: Fällt ein Anbieter aus oder greift ein Rate-Limit, routet OpenRouter die Anfrage automatisch an einen alternativen Anbieter desselben Modells oder ein konfiguriertes Ersatzmodell. Für produktive Anwendungen, die Verfügbarkeit brauchen, ist diese Ausfallsicherheit wertvoll — sie ist mit Einzelverträgen nur mit erheblichem Eigenaufwand nachzubauen.
+
+Der **Preis- und Latenz-Vergleich** ist die dritte Stärke. OpenRouter zeigt für jedes Modell die Preise und die reale Latenz verschiedener Hosting-Anbieter — dasselbe offene Modell wird oft von mehreren Anbietern zu unterschiedlichen Preisen und Geschwindigkeiten gehostet. Entwickler:innen können so pro Anwendungsfall zwischen „schnell", „günstig" und „hochwertig" optimieren, und ein **Dashboard** bündelt Nutzung und Kosten über alle Modelle.
+
+Zum Einstieg bietet OpenRouter ausgewählte **kostenlose Modelle**, und über **BYOK** (Bring Your Own Key) lassen sich eigene Anbieter-Schlüssel einbinden, was die Vermittlungsmarge reduziert.
+
+Die Schwächen sind die eines Vermittlers. OpenRouter erhebt eine **kleine Marge** auf die Anbieterpreise — für die meisten ist das durch den Komfort und die Fallbacks gerechtfertigt, bei sehr hohem Volumen kann der Direktvertrag mit einem Anbieter günstiger sein. Als **zusätzlicher Vermittler** im Datenfluss ist OpenRouter datenschutzrechtlich zu bedenken, und der tatsächliche **Datenschutz hängt vom jeweils geroutetem Anbieter** ab — man sollte wissen, wohin eine Anfrage geht. Und OpenRouter hat **kein eigenes Modell**; es ist eine reine Vermittlungsschicht.
+
+Empfohlen für Entwickler:innen und Teams, die modell-agnostische Anwendungen bauen, Kosten und Latenz optimieren oder einfach schnell viele Modelle testen wollen — und für alle, die Ausfallsicherheit durch automatische Fallbacks brauchen. Wer dauerhaft nur ein einziges Modell in sehr großem Volumen nutzt, prüft, ob der Direktvertrag günstiger ist.""",
+    },
+    {
+        'slug': 'character-ai', 'name': 'Character.AI',
+        'vendor': 'Character.AI', 'category': 'sprachmodelle',
+        'tagline': 'Plattform für Konversationen mit KI-Charakteren — Millionen von Nutzer:innen erstellten Bots mit eigener Persönlichkeit für Rollenspiel, Unterhaltung, Sprachenlernen und Begleitung.',
+        'price': 'Free · c.ai+ ab $10 / Mon.',
+        'api': False, 'dsgvo': 'bedingt', 'origin': 'USA', 'rating': 4.2, 'reviews': 15200,
+        'pros': [
+            'Riesige Bibliothek von Community-erstellten Charakteren',
+            'Sehr konsistente, persönlichkeitsstarke Konversationen',
+            'Eigene Charaktere ohne Programmierung erstellen',
+            'Stark für Unterhaltung, Rollenspiel und Sprachpraxis',
+        ],
+        'cons': [
+            'Fokus auf Unterhaltung, weniger auf Produktivität/Fakten',
+            'Inhaltsfilter und Moderation teils kontrovers',
+            'Jugendschutz-Diskussionen rund um die Plattform',
+            'Kein API-Zugang für Entwickler',
+        ],
+        'usecases': [
+            'Rollenspiel und Unterhaltung', 'Sprachenlernen im Dialog',
+            'Kreatives Schreiben mit Figuren', 'Gesellschaft und Begleitung',
+        ],
+        'launched': '2022-09-16', 'lastUpdated': '2026-06-27',
+        'website': 'https://character.ai/', 'domain': 'character.ai',
+        'stealth': True,
+        'cover_cue': 'A hand-drawn set of three distinct theatrical masks in a row, each with a small speech bubble, one mask tinted magenta — many AI personalities to talk with.',
+        'features': """- **Charakter-Bibliothek**: Millionen von Community-erstellten Bots mit Persönlichkeit.
+- **Character-Editor**: eigene Figuren mit Beschreibung, Stimme und Verhalten.
+- **Konsistente Rollen** über lange Gespräche hinweg.
+- **Voice**: Sprach-Konversationen mit Charakteren.
+- **Gruppen-Chats** mit mehreren Charakteren.
+- **Mehrsprachig**, beliebt fürs Sprachenlernen.
+- **Mobile-Apps** für iOS und Android.""",
+        'pricing': """- **Free** · voller Zugang mit Wartezeiten zu Stoßzeiten.
+- **c.ai+** · ab $10 / Mon. — schnellere Antworten, Priority-Zugang, früher Zugang zu Features.
+- **Keine API** für externe Entwickler.
+- **Jährlich** günstiger.""",
+        'overview': """**Character.AI** ist die bekannteste Plattform für **Konversationen mit KI-Charakteren** — 2022 gegründet von ehemaligen Google-Forschern (u. a. den Erfindern der Transformer-Architektur) und zu einer der meistgenutzten Consumer-KI-Anwendungen überhaupt geworden. Der Ansatz unterscheidet sich grundlegend von faktenorientierten Assistenten wie ChatGPT: Bei Character.AI geht es um **Persönlichkeit, Rollenspiel und Unterhaltung**.
+
+Das Herzstück ist die **Charakter-Bibliothek**. Millionen von Nutzer:innen haben Bots mit eigener Persönlichkeit erstellt — historische Figuren, fiktive Charaktere, Sprachlehrer, Therapie-ähnliche Gesprächspartner, Fantasie-Begleiter. Jeder Charakter hat eine Beschreibung, ein Verhalten und oft eine Stimme, und die Modelle sind darauf trainiert, diese Rolle **konsistent über lange Gespräche** hinweg zu halten. Diese Rollentreue ist Character.AIs technische Stärke: Ein Charakter bleibt über hunderte Nachrichten in seiner Persönlichkeit.
+
+Der **Character-Editor** macht das Erstellen eigener Figuren ohne Programmierung möglich — eine Beschreibung, ein paar Beispiel-Dialoge, eine Stimme, fertig. Das niedrigschwellige Erstellen und Teilen hat den enormen Bibliotheks-Bestand erzeugt und eine sehr aktive Community geformt, die stark aus jüngeren Nutzer:innen besteht.
+
+Die **Anwendungsfälle** sind vielfältig: Rollenspiel und interaktives Geschichtenerzählen, **Sprachenlernen** im Dialog mit einem geduldigen Gesprächspartner (ein besonders beliebter, konstruktiver Use-Case), kreatives Schreiben mit Figuren, und schlicht Unterhaltung und Gesellschaft. **Voice**-Konversationen und **Gruppen-Chats** mit mehreren Charakteren erweitern das Erlebnis.
+
+Die Schwächen und Kontroversen sind allerdings real und sollten klar benannt werden. Character.AI ist auf **Unterhaltung fokussiert**, nicht auf Produktivität oder Faktentreue — für Recherche, Coding oder Arbeit ist es das falsche Werkzeug. Die **Inhaltsmoderation** ist ein Dauerthema: Filter werden mal als zu streng, mal als zu lasch kritisiert. Besonders die **Jugendschutz-Diskussion** rund um die Plattform ist ernst — die intensive Nutzung durch Minderjährige und Fragen der emotionalen Bindung an KI-Charaktere haben zu öffentlicher Debatte und regulatorischer Aufmerksamkeit geführt. Und es gibt **keinen API-Zugang** für Entwickler.
+
+Empfohlen für Unterhaltung, Rollenspiel, kreatives Schreiben und besonders für **Sprachpraxis** im Dialog. Als Produktivitäts- oder Faktenwerkzeug ist es ungeeignet. Bei der Nutzung durch Jugendliche ist — wie bei allen Companion-KI-Plattformen — Bewusstsein für die emotionalen und Jugendschutz-Aspekte angebracht.""",
+    },
+    {
+        'slug': 'glm', 'name': 'GLM (Z.ai)',
+        'vendor': 'Zhipu AI', 'category': 'sprachmodelle',
+        'tagline': 'Die GLM-Modellfamilie von Zhipu AI (Z.ai) aus China — leistungsstarke offene Modelle mit Fokus auf Coding, Agents und Reasoning, als Chat und günstige API verfügbar.',
+        'price': 'Chat kostenlos · API pay-per-Token · Open Weights',
+        'api': True, 'dsgvo': 'nein', 'origin': 'China', 'rating': 4.5, 'reviews': 3680,
+        'pros': [
+            'Starke Coding- und Agent-Leistung (GLM-Reihe)',
+            'Open-Weight-Modelle frei nutzbar und self-hostbar',
+            'Sehr günstige API im Vergleich zu westlichen Modellen',
+            'Aktive Entwicklung mit schnellen Modell-Iterationen',
+        ],
+        'cons': [
+            'Datenresidenz China — kein DSGVO-Use-Case für sensible Daten',
+            'Inhaltsfilter mit chinesischen Sensibilitäten',
+            'Weniger unabhängige Benchmarks als westliche Modelle',
+            'Deutsch schwächer als bei westlichen Top-Modellen',
+        ],
+        'usecases': [
+            'Coding und agentische Workflows', 'Kostengünstige API-Integration',
+            'Self-Hosting offener Modelle', 'Reasoning-Aufgaben',
+        ],
+        'launched': '2023-08-31', 'lastUpdated': '2026-06-27',
+        'website': 'https://z.ai/', 'domain': 'z.ai',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn abstract letter-Z formed from three connected reasoning-nodes with a small code-bracket, one node tinted magenta — an open reasoning-and-coding model family.',
+        'features': """- **GLM-Modellreihe**: leistungsstarke Modelle für Coding, Agents und Reasoning.
+- **Open Weights**: viele GLM-Modelle frei herunterladbar und self-hostbar.
+- **Chat-Oberfläche** (chat.z.ai) und Coding-Assistent.
+- **Agentische Fähigkeiten** mit Tool-Use und langen Kontexten.
+- **API** mit sehr günstigem Pro-Token-Pricing.
+- **Multimodalität** (Bildverstehen) in neueren Versionen.
+- **Coding-Plan** für hochvolumige Entwickler-Nutzung.""",
+        'pricing': """- **Chat** · kostenlos über chat.z.ai mit Limits.
+- **API** · pay-per-Token, deutlich günstiger als westliche Frontier-Modelle.
+- **Coding-Plan** · günstiges Abo für intensive Coding-Nutzung.
+- **Open Weights** · kostenlos für Self-Hosting (Lizenz beachten).
+- **Enterprise** · über Zhipu AI.""",
+        'overview': """**GLM** ist die Modellfamilie des chinesischen Anbieters **Zhipu AI**, international unter der Marke **Z.ai** vermarktet — einer der führenden chinesischen KI-Anbieter und ein wichtiger Treiber der Open-Weight-Bewegung. Wie DeepSeek, Qwen und Kimi kombiniert GLM zwei Eigenschaften, die 2025/26 die Landschaft offener Modelle prägen: **starke Leistung** — besonders bei Coding, Agents und Reasoning — und die Verfügbarkeit als **offene Gewichte**.
+
+Die **GLM-Reihe** hat sich über mehrere Generationen zu einem ernstzunehmenden Konkurrenten der westlichen Frontier-Modelle entwickelt. In Coding-Benchmarks und bei agentischen Aufgaben gehört GLM zu den stärksten offenen Modellen und wird von vielen Entwickler:innen gerade wegen der Coding-Qualität geschätzt. Zhipu AI hat einen speziellen **Coding-Plan** aufgelegt, der intensive Entwickler-Nutzung zu einem günstigen Festpreis erlaubt — ein Angebot, das in der Entwickler-Community viel Aufmerksamkeit bekommen hat.
+
+Der **Open-Weight-Charakter** ist auch hier der strategische Kern. Viele GLM-Modelle lassen sich herunterladen und selbst betreiben — für Datenschutz, Kostenkontrolle oder Forschung und Fine-Tuning. Damit reiht sich GLM neben DeepSeek, Qwen, Kimi und Llama in die Riege der offenen Modelle ein, die das Preis-Leistungs-Verhältnis im Markt kontinuierlich unter Druck setzen.
+
+Über die **Chat-Oberfläche** (chat.z.ai) ist GLM kostenlos nutzbar, inklusive eines Coding-Assistenten und agentischer Fähigkeiten mit Tool-Use und langen Kontexten. Die **API** bietet ein Pro-Token-Pricing, das — typisch für chinesische Anbieter — deutlich unter den westlichen Frontier-Modellen liegt, was GLM für hochvolumige Anwendungen wirtschaftlich attraktiv macht.
+
+Die Schwächen sind dieselben wie bei anderen chinesischen Modellen im westlichen Kontext. Die **Datenresidenz China** schließt DSGVO-sensible Anwendungen über die gehostete Version aus — vertrauliche Daten gehören nicht dorthin, es sei denn, man betreibt die offenen Gewichte selbst. Die **Inhaltsfilter** folgen chinesischen Sensibilitäten. Es gibt **weniger unabhängige Benchmarks** als bei westlichen Modellen, sodass Leistungsangaben teils aus Anbieter-Quellen stammen. Und die **Deutsch-Leistung** liegt hinter den westlichen Top-Modellen.
+
+Empfohlen für Entwickler:innen, die ein starkes, sehr günstiges Modell für Coding und Agents suchen — besonders über den Coding-Plan oder die offenen Gewichte. Für DSGVO-sensible Produktivanwendungen mit der gehosteten Version gilt dieselbe Vorsicht wie bei allen chinesischen Modellen; das Self-Hosting der offenen Gewichte ist der Weg, ihre Stärke datenschutzkonform zu nutzen.""",
+    },
+    {
+        'slug': 'groq', 'name': 'Groq',
+        'vendor': 'Groq', 'category': 'sprachmodelle',
+        'tagline': 'Ultraschnelle LLM-Inferenz auf eigener LPU-Hardware — Groq liefert offene Modelle wie Llama, Qwen und GPT-OSS mit branchenführender Geschwindigkeit über eine OpenAI-kompatible API.',
+        'price': 'Free-Tier · pay-per-Token · Enterprise',
+        'api': True, 'dsgvo': 'bedingt', 'origin': 'USA', 'rating': 4.6, 'reviews': 4470,
+        'pros': [
+            'Extrem hohe Inferenz-Geschwindigkeit (LPU-Hardware)',
+            'OpenAI-kompatible API — einfache Integration',
+            'Günstige Preise für offene Modelle',
+            'Ideal für Echtzeit- und Voice-Anwendungen',
+        ],
+        'cons': [
+            'Fokus auf offene Modelle — keine geschlossenen Frontier-Modelle',
+            'Modell-Auswahl kleiner als bei Aggregatoren',
+            'Datenresidenz USA',
+            'Sehr große Modelle nicht immer verfügbar',
+        ],
+        'usecases': [
+            'Echtzeit-Chat und Voice-Agenten', 'Latenz-kritische Anwendungen',
+            'Hochvolumige, günstige Inferenz', 'Schnelles Prototyping mit offenen Modellen',
+        ],
+        'launched': '2023-02-01', 'lastUpdated': '2026-06-27',
+        'website': 'https://groq.com/', 'domain': 'groq.com',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn speedometer needle pinned to the far right next to a small chip, a thin magenta motion-streak trailing the needle — record-fast inference hardware.',
+        'features': """- **LPU-Inferenz**: eigene Language-Processing-Unit-Hardware für höchste Geschwindigkeit.
+- **Offene Modelle**: Llama, Qwen, GPT-OSS, DeepSeek, Kimi u.v.m.
+- **OpenAI-kompatible API** — bestehender Code funktioniert unverändert.
+- **GroqCloud** mit Playground und Konsole.
+- **Sehr niedrige Latenz** für Time-to-First-Token.
+- **Voice-Modelle** und Transkription integriert.
+- **Batch-API** für hochvolumige Verarbeitung.""",
+        'pricing': """- **Free-Tier** · großzügiges Kontingent zum Entwickeln und Testen.
+- **Pay-per-Token** · günstige Preise pro offenem Modell.
+- **Batch-API** · reduzierte Preise für asynchrone Verarbeitung.
+- **Enterprise** · dedizierte Kapazität und SLAs.
+- **Keine Grundgebühr** — Abrechnung nach Verbrauch.""",
+        'overview': """**Groq** ist ein Anbieter für **ultraschnelle LLM-Inferenz** — und hebt sich durch einen fundamentalen Hardware-Ansatz vom Rest des Marktes ab. Statt auf GPUs setzt Groq auf eine selbst entwickelte **LPU** (Language Processing Unit), eine Chip-Architektur, die speziell für die sequenzielle Natur der Sprachmodell-Inferenz optimiert ist. Das Ergebnis ist eine **Geschwindigkeit, die deutlich über der GPU-basierter Anbieter liegt** — oft mehrere hundert Tokens pro Sekunde, mit sehr niedriger Time-to-First-Token.
+
+Diese Geschwindigkeit ist Groqs zentrales Verkaufsargument und eröffnet Anwendungsfälle, die mit langsamerer Inferenz nicht gut funktionieren. **Echtzeit-Chat** fühlt sich sofort an, **Voice-Agenten** können natürlich reagieren, weil die Antwortlatenz minimal ist, und **latenz-kritische Anwendungen** (interaktive Tools, Live-Assistenten) werden praktikabel. Wer schon einmal ein Modell auf Groq gegen dasselbe Modell auf einem GPU-Anbieter getestet hat, merkt den Unterschied sofort.
+
+Groq konzentriert sich auf **offene Modelle**: Llama, Qwen, GPT-OSS, DeepSeek, Kimi und weitere werden über **GroqCloud** bereitgestellt. Die **OpenAI-kompatible API** macht die Integration trivial — bestehender Code, der gegen die OpenAI-API geschrieben ist, läuft mit minimaler Änderung auf Groq. Ein Playground und eine Konsole erleichtern den Einstieg, und **Voice-Modelle** sowie Transkription runden das Angebot für Sprach-Anwendungen ab.
+
+Das **Pricing** ist wettbewerbsfähig: Ein großzügiger Free-Tier zum Entwickeln, günstige Pro-Token-Preise für offene Modelle und eine **Batch-API** mit reduzierten Preisen für asynchrone, hochvolumige Verarbeitung. Für Anwendungen, die sowohl Geschwindigkeit als auch niedrige Kosten brauchen, ist das eine attraktive Kombination.
+
+Die Schwächen ergeben sich aus dem Fokus. Groq bietet **offene Modelle**, keine geschlossenen Frontier-Modelle wie GPT-5.5, Claude Opus oder Gemini 3 — wer diese braucht, geht direkt zum Anbieter oder über einen Aggregator. Die **Modell-Auswahl** ist entsprechend kleiner als bei OpenRouter oder Poe. Sehr **große Modelle** sind nicht immer verfügbar, weil die LPU-Kapazität pro Modell bereitgestellt werden muss. Und die **Datenresidenz** liegt in den USA.
+
+Empfohlen für Entwickler:innen, die offene Modelle mit maximaler Geschwindigkeit brauchen — besonders für Echtzeit-Chat, Voice-Agenten und latenz-kritische Anwendungen — und für hochvolumige, kostensensible Inferenz. Wer geschlossene Frontier-Modelle oder die größtmögliche Modell-Auswahl braucht, kombiniert Groq mit einem direkten Anbieter oder einem Aggregator.""",
+    },
+]
+
+out = ROOT / 'scripts' / 'pending_tools.json'
+out.write_text(json.dumps(TOOLS, ensure_ascii=False, indent=2))
+print(f'wrote {len(TOOLS)} records to {out.relative_to(ROOT)}')
+for t in TOOLS:
+    print(f'  - {t["slug"]:14} ov={len(t["overview"])}c  origin={t["origin"]:16} stealth={t.get("stealth")}')

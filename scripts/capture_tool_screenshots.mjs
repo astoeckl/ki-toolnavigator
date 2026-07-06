@@ -180,6 +180,13 @@ const TOOLS = [
   { slug: "persado", url: "https://www.persado.com/" },
   { slug: "smartly", url: "https://www.smartly.io/" },
   { slug: "brandwatch", url: "https://www.brandwatch.com/" },
+  { slug: "kimi", url: "https://www.kimi.com/" },
+  { slug: "poe", url: "https://poe.com/" },
+  { slug: "ollama", url: "https://ollama.com/" },
+  { slug: "openrouter", url: "https://openrouter.ai/" },
+  { slug: "character-ai", url: "https://character.ai/", stealth: true },
+  { slug: "glm", url: "https://z.ai/" },
+  { slug: "groq", url: "https://groq.com/" },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 

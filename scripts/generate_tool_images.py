@@ -197,6 +197,13 @@ TOOL_CUES = {
     'persado': 'A hand-drawn balance scale weighing two speech bubbles of words, the heavier winning bubble tinted magenta — language optimized for conversion within guardrails.',
     'smartly': 'A hand-drawn fan of ad cards being auto-arranged across several channel-icons by a thin robotic arm, one card tinted magenta — automated cross-channel advertising.',
     'brandwatch': 'A hand-drawn radar-circle picking up many small chat-bubble blips from across a network, one blip tinted magenta — listening to online conversations at scale.',
+    'kimi': 'A hand-drawn open scroll unrolling far to both sides to suggest a very long context window, with a small magenta key-glyph resting on it — an open-weight model with long memory.',
+    'poe': 'A hand-drawn single chat bubble fed by several thin pipes coming from different small model-icons, one pipe tinted magenta — many models behind one chat.',
+    'ollama': 'A hand-drawn friendly llama silhouette sitting on a small desktop computer, a thin power-cord looping into a magenta dot — open models running locally on your own machine.',
+    'openrouter': 'A hand-drawn central junction where one input line fans out through a small switch to many model-endpoints, one route tinted magenta — a router across many models.',
+    'character-ai': 'A hand-drawn set of three distinct theatrical masks in a row, each with a small speech bubble, one mask tinted magenta — many AI personalities to talk with.',
+    'glm': 'A hand-drawn abstract letter-Z formed from three connected reasoning-nodes with a small code-bracket, one node tinted magenta — an open reasoning-and-coding model family.',
+    'groq': 'A hand-drawn speedometer needle pinned to the far right next to a small chip, a thin magenta motion-streak trailing the needle — record-fast inference hardware.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 
