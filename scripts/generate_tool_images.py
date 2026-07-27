@@ -204,6 +204,8 @@ TOOL_CUES = {
     'character-ai': 'A hand-drawn set of three distinct theatrical masks in a row, each with a small speech bubble, one mask tinted magenta — many AI personalities to talk with.',
     'glm': 'A hand-drawn abstract letter-Z formed from three connected reasoning-nodes with a small code-bracket, one node tinted magenta — an open reasoning-and-coding model family.',
     'groq': 'A hand-drawn speedometer needle pinned to the far right next to a small chip, a thin magenta motion-streak trailing the needle — record-fast inference hardware.',
+    'gardmi': 'A hand-drawn top-down garden plot with a dotted property boundary, a small house rectangle, a curved path and two tree circles, one tree tinted magenta — an editable scaled garden plan.',
+    'dooken': 'A hand-drawn product box on a small ad canvas with a headline bar and a price tag, a thin magenta target-arrow pointing at the product — a complete static ad, not just an image.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 

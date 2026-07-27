@@ -187,6 +187,8 @@ const TOOLS = [
   { slug: "character-ai", url: "https://character.ai/", stealth: true },
   { slug: "glm", url: "https://z.ai/" },
   { slug: "groq", url: "https://groq.com/" },
+  { slug: "gardmi", url: "https://gardmi.com/de/ai-landscape-design/" },
+  { slug: "dooken", url: "https://www.dooken.de/" },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
