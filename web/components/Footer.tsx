@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Wordmark } from './Logo';
+import { CookieSettingsLink } from './CookieSettingsLink';
 import { getCategories } from '@/lib/cms';
 
 export async function Footer() {
@@ -36,6 +37,7 @@ export async function Footer() {
           <ul>
             <li><Link href="/impressum">Impressum</Link></li>
             <li><Link href="/impressum#datenschutz">Datenschutz</Link></li>
+            <li><CookieSettingsLink /></li>
             <li><a href="mailto:andreas@stoeckl.ai">Kontakt</a></li>
           </ul>
         </div>
