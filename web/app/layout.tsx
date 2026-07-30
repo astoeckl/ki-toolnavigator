@@ -1,8 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CompareProvider } from '@/components/CompareContext';
+
+const GA_ID = 'G-SYFKP9HY66';
 
 export const metadata: Metadata = {
   title: 'KI-Toolnavigator — Das kuratierte Verzeichnis für Künstliche Intelligenz',
@@ -22,6 +25,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body suppressHydrationWarning>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
         <CompareProvider>
           <Header />
           <main className="page-content">{children}</main>
