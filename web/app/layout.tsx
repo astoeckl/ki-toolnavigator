@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CompareProvider } from '@/components/CompareContext';
+import { CookieConsent } from '@/components/CookieConsent';
 
 const GA_ID = 'G-SYFKP9HY66';
 
@@ -32,13 +33,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="ga4-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+// Consent Mode v2 — default to denied (EU-safe) BEFORE any measurement.
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  wait_for_update: 500
+});
+// Re-apply a previously stored opt-in before the first hit.
+try {
+  if (localStorage.getItem('ki-consent') === 'granted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted', ad_user_data: 'granted',
+      ad_personalization: 'granted', analytics_storage: 'granted'
+    });
+  }
+} catch (e) {}
 gtag('js', new Date());
+gtag('set', 'url_passthrough', true);
 gtag('config', '${GA_ID}');`}
         </Script>
         <CompareProvider>
           <Header />
           <main className="page-content">{children}</main>
           <Footer />
+          <CookieConsent />
         </CompareProvider>
       </body>
     </html>
