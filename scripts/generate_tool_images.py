@@ -206,6 +206,7 @@ TOOL_CUES = {
     'groq': 'A hand-drawn speedometer needle pinned to the far right next to a small chip, a thin magenta motion-streak trailing the needle — record-fast inference hardware.',
     'gardmi': 'A hand-drawn top-down garden plot with a dotted property boundary, a small house rectangle, a curved path and two tree circles, one tree tinted magenta — an editable scaled garden plan.',
     'dooken': 'A hand-drawn product box on a small ad canvas with a headline bar and a price tag, a thin magenta target-arrow pointing at the product — a complete static ad, not just an image.',
+    'schmeckts': 'A hand-drawn fork and knife whose handles curve into a small location-pin shape, with a tiny chat bubble beside it, the pin tip tinted magenta — an AI assistant for finding places to eat.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 

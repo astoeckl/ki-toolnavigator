@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "schmeckts",
+    "name": "Schmeckts?",
+    "vendor": "Andreas Stöckl",
+    "category": "produktivitaet",
+    "tagline": "Kostenloser KI-Restaurantfinder für Österreich — aggregiert täglich Menüs und Bewertungen und beantwortet Fragen über den Chatbot „Frag Schmeckts?\" auf Basis der Menü- und Rezensionsdaten.",
+    "price": "Kostenlos",
+    "api": false,
+    "dsgvo": "bedingt",
+    "origin": "Österreich",
+    "rating": 4.4,
+    "reviews": 60,
+    "pros": [
+      "KI-Chatbot „Frag Schmeckts?\" beantwortet Fragen aus Menü- und Bewertungsdaten",
+      "Täglich automatisch aktualisierte Menüs direkt von den Restaurant-Websites",
+      "Filter für alle 14 österreichischen Allergene (A–R)",
+      "Kostenlos, EU-Betreiber, consent-basiertes Analytics ohne Tracking-Cookies"
+    ],
+    "cons": [
+      "Regional begrenzt (Linz und Salzburg; Graz/Wien in Vorbereitung)",
+      "KI-Antworten „ohne Gewähr\" — nicht als verbindliche Auskunft gedacht",
+      "Allergen-Angaben ohne Gewähr, direkt beim Restaurant zu prüfen",
+      "Hosting bei Netlify (USA); Bewertungen teils aus Drittquellen"
+    ],
+    "usecases": [
+      "Restaurant in Linz/Salzburg finden",
+      "Tagesmenüs und Bewertungen vergleichen",
+      "Nach Allergenen und Küche filtern",
+      "Per Chatbot gezielt nach Gerichten fragen"
+    ],
+    "launched": "2025-06-01",
+    "lastUpdated": "2026-07-30",
+    "website": "https://schmeckts.online/",
+    "domain": "schmeckts.online",
+    "stealth": false,
+    "cover_cue": "A hand-drawn fork and knife whose handles curve into a small location-pin shape, with a tiny chat bubble beside it, the pin tip tinted magenta — an AI assistant for finding places to eat.",
+    "features": "- **„Frag Schmeckts?\"**: KI-Chatbot, der Fragen zu Restaurants aus Menü- und Rezensionsdaten beantwortet (KI-Antworten ohne Gewähr).\n- **Tägliche Menü-Aggregation**: Menüs werden automatisch von den Restaurant-Websites gezogen und täglich auf Änderungen geprüft.\n- **Allergen-Filter** für alle 14 österreichischen Allergene (A–R).\n- **Bewertungs-Aggregation** aus mehreren Quellen.\n- **Kartenansicht** (OpenStreetMap/CARTO) und Suche mit Filtern.\n- **Kuratierte Listen/Rankings** von Restaurants.\n- **Datenschutzbewusst**: keine Tracking-Cookies, Analytics nur mit Einwilligung.",
+    "pricing": "- **Kostenlos** · privater, nicht-kommerzieller Restaurantfinder.\n- **Keine Registrierung** zum Stöbern nötig; optionale E-Mail-Anmeldung für Updates.\n- **Affiliate-Links** (Awin, z. B. Lieferando/TheFork) sind als Werbung gekennzeichnet.",
+    "overview": "**Schmeckts?** ist ein kostenloser, KI-gestützter **Restaurantfinder für Österreich** — betrieben als privates, nicht-kommerzielles Projekt aus Unterweitersdorf. Der Fokus liegt auf zwei Dingen, die klassische Restaurant-Verzeichnisse selten verbinden: **tagesaktuelle Menüdaten** und ein **KI-Chatbot**, der auf genau diesen Daten Fragen beantwortet.\n\nDas Herzstück ist die **tägliche Menü-Aggregation**: Die Speisekarten werden automatisch von den Websites der Restaurants gezogen und täglich auf Änderungen geprüft. Dadurch zeigt Schmeckts? nicht bloß statische Einträge, sondern das, was heute tatsächlich auf der Karte steht — für Linz aktuell 179 Restaurants mit über 5.000 Gerichten, dazu Salzburg mit 86 Restaurants; Graz und Wien sind in Vorbereitung.\n\nDie KI-Komponente ist der Chatbot **„Frag Schmeckts?\"**. Statt sich durch Filter und Listen zu klicken, kann man in natürlicher Sprache fragen — etwa nach einem Gericht, einer Küche oder einer Eigenschaft — und bekommt eine Antwort, die aus den Menü- und Bewertungsdaten synthetisiert wird. Der Betreiber kennzeichnet diese Antworten transparent als **„KI-Antworten ohne Gewähr\"**: Sie sind ein Hilfsmittel zur Entdeckung, keine verbindliche Auskunft.\n\nPraktisch nützlich ist der **Allergen-Filter**, der alle 14 in Österreich kennzeichnungspflichtigen Allergene (A–R) abdeckt — kombiniert mit einer **Kartenansicht** (auf Basis von OpenStreetMap/CARTO), einer **Suche mit Filtern** und **aggregierten Bewertungen** aus mehreren Quellen. Kuratierte Listen und Rankings ergänzen das Angebot.\n\nBemerkenswert ist die **datenschutzbewusste Umsetzung**: Es werden keine Tracking- oder Werbe-Cookies gesetzt, Google Analytics läuft nur mit Einwilligung (mit gekürzter IP und deaktivierten Werbe-Signalen), und es werden minimale personenbezogene Daten erhoben. Als EU-Betreiber (Österreich) ist die Ausgangslage datenschutzfreundlich; das **Hosting läuft allerdings über Netlify (USA)**, und ein Teil der Bewertungen und Fotos stammt aus Drittquellen — weshalb der DSGVO-Status hier als „bedingt\" geführt wird, bei insgesamt positiver Grundhaltung.\n\nDie Grenzen sind klar und werden offen kommuniziert. Schmeckts? ist **regional begrenzt** — derzeit Linz und Salzburg — und damit außerhalb dieser Städte (noch) nicht nutzbar. Die **KI-Antworten** und die **Allergen-Angaben** sind ausdrücklich „ohne Gewähr\"; wer auf Allergene angewiesen ist, muss die Angaben direkt beim Restaurant prüfen. Als Nischen-Tool für den lokalen Gebrauch ist es kein Ersatz für die großen, international abdeckenden Plattformen — dafür bietet es in seinem Gebiet aktuellere Menüdaten und eine natürlichsprachliche Suche, die diese Plattformen so nicht haben.\n\nEmpfohlen für alle, die in **Linz oder Salzburg** essen gehen und schnell ein passendes Restaurant oder Gericht finden wollen — besonders mit Allergie-Anforderungen oder einer konkreten Frage, die sich per Chatbot bequemer beantworten lässt als über Filterlisten. Ein charmantes, datenschutzbewusstes Nischenprojekt, dessen Wert mit der geografischen Abdeckung wächst."
+  }
+]
