@@ -1,10 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Script from 'next/script';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CompareProvider } from '@/components/CompareContext';
 import { CookieConsent } from '@/components/CookieConsent';
+import { AnalyticsPageview } from '@/components/AnalyticsPageview';
 
 const GA_ID = 'G-SYFKP9HY66';
 
@@ -52,8 +54,13 @@ try {
 } catch (e) {}
 gtag('js', new Date());
 gtag('set', 'url_passthrough', true);
-gtag('config', '${GA_ID}');`}
+// send_page_view:false — page_views are sent by <AnalyticsPageview> on every
+// route change (initial + client-side), so SPA navigation is measured too.
+gtag('config', '${GA_ID}', { send_page_view: false });`}
         </Script>
+        <Suspense fallback={null}>
+          <AnalyticsPageview />
+        </Suspense>
         <CompareProvider>
           <Header />
           <main className="page-content">{children}</main>
