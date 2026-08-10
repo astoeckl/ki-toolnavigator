@@ -190,6 +190,7 @@ const TOOLS = [
   { slug: "gardmi", url: "https://gardmi.com/de/ai-landscape-design/" },
   { slug: "dooken", url: "https://www.dooken.de/" },
   { slug: "schmeckts", url: "https://schmeckts.online/" },
+  { slug: "brandlix", url: "https://brandlix.io" },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
