@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "bewerbunggpt",
+    "name": "BewerbungGPT",
+    "vendor": "CryptoAssets",
+    "category": "produktivitaet",
+    "tagline": "Deutscher KI-Bewerbungsassistent — erstellt aus persönlichen Angaben und Stellenanzeigen individuelle Anschreiben (DIN 5008), Lebensläufe und Bewerbungsfotos, speziell für den deutschsprachigen Bewerbungsmarkt.",
+    "price": "Kostenlos (begrenzt) · Einmalpaket 7,99 € · Premium 12,99 €/Mon. oder 79,99 €/Jahr",
+    "api": false,
+    "dsgvo": "ja",
+    "origin": "Deutschland",
+    "rating": 4.4,
+    "reviews": 150,
+    "pros": [
+      "Speziell für den deutschen Bewerbungsmarkt (DIN 5008, Ton, Konventionen)",
+      "Anschreiben, Lebenslauf (25 Vorlagen) und Bewerbungsfoto in einem Tool",
+      "Deutscher Anbieter, EU-Server, datensparsam (Selfie wird nicht gespeichert)",
+      "Kostenlose Variante mit fast allen Features (begrenztes Kontingent)"
+    ],
+    "cons": [
+      "KI-Generierung läuft über Anthropics API (US-Anbieter, ohne Training) — Drittland-Verarbeitung",
+      "Fokus auf den deutschsprachigen Raum — für internationale Bewerbungen weniger geeignet",
+      "KI-generierte Bewerbungsfotos ersetzen kein professionelles Shooting",
+      "Anschreiben sollten vor dem Versand geprüft und geschärft werden"
+    ],
+    "usecases": [
+      "Anschreiben passend zur Stellenanzeige",
+      "Lebenslauf gestalten und ATS-prüfen",
+      "Bewerbungsfoto aus einem Selfie erzeugen",
+      "Bewerbungen organisieren und nachverfolgen"
+    ],
+    "launched": "2024-09-01",
+    "lastUpdated": "2026-08-10",
+    "website": "https://bewerbunggpt.de",
+    "domain": "bewerbunggpt.de",
+    "stealth": false,
+    "cover_cue": "A hand-drawn document sheet with neat text lines and a small portrait-photo rectangle clipped to its corner, a single magenta accent on the photo frame — an AI-built job application.",
+    "features": "- **Anschreiben-Generator**: gleicht Stellenanzeige mit dem Profil ab, formatiert nach **DIN 5008**, Export als PDF/Word (erstes Anschreiben ohne Anmeldung).\n- **Lebenslauf-Editor**: 25 Vorlagen in fünf Stilrichtungen, 16 Akzentfarben, Live-Vorschau (Download frei mit Wasserzeichen, Premium ohne).\n- **Bewerbungsfotos**: Selfie hochladen, Kleidung/Hintergrund wählen, professionelles Foto erhalten — das **Selfie wird nicht gespeichert**, nur das Ergebnis.\n- **Lebenslauf-Check**: neun Kriterien inkl. ATS-Tauglichkeit im Ampelsystem.\n- **KI-Assistent** mit Firmen-Web-Recherche (Premium).\n- **Bewerbungs-Tracker**: Status, Sendedatum, Gesprächstermine.\n- **Eingabe** per Text-Einfügen oder Stellenanzeigen-URL.",
+    "pricing": "- **Kostenlos** · 1 Anschreiben als Gast, 3 weitere nach Anmeldung; 25 CV-Vorlagen (mit Wasserzeichen); 1 Lebenslauf-Check; KI-Assistent mit Monatskontingent.\n- **Einmalpaket** · 7,99 € einmalig — 5 Anschreiben mit Feinschliff + Export, 1 voller CV-Check, 1 Download ohne Wasserzeichen, 1 KI-Foto (12 Monate gültig).\n- **Premium** · 12,99 €/Mon. oder 79,99 €/Jahr — unbegrenzte Anschreiben, CV-Editor voll, unbegrenzte Checks, KI-Assistent unbegrenzt, 3 KI-Fotos/Mon.; jederzeit kündbar.",
+    "overview": "**BewerbungGPT** ist ein **deutscher KI-Bewerbungsassistent**, der den gesamten Kern einer Bewerbung abdeckt: **Anschreiben, Lebenslauf und Bewerbungsfoto** — speziell zugeschnitten auf den deutschsprachigen Arbeitsmarkt mit seinen eigenen Konventionen. Betrieben wird das Tool von einem Einzelunternehmer (CryptoAssets, Heusenstamm), was für ein Nischen-Tool dieser Art typisch ist.\n\nDer häufigste Einstieg ist der **Anschreiben-Generator**: Man fügt die Stellenanzeige ein (per Text oder URL) und seine persönlichen Angaben bzw. den Lebenslauf, und das Tool gleicht beides ab und schreibt ein Anschreiben — formatiert nach **DIN 5008**, dem in Deutschland üblichen Standard, exportierbar als PDF oder Word. Genau diese Marktspezifik ist der Kernvorteil gegenüber generischen, englischsprachig gedachten KI-Schreibtools: Ton, Aufbau und Formatierung passen zum deutschen Bewerbungskontext.\n\nDer **Lebenslauf-Editor** bietet 25 Vorlagen in fünf Stilrichtungen mit 16 Akzentfarben und Live-Vorschau. Ergänzend prüft ein **Lebenslauf-Check** neun Kriterien — von Vollständigkeit und Struktur über aktive Sprache bis zur **ATS-Tauglichkeit** (also der Lesbarkeit durch Bewerbermanagement-Systeme) — im Ampelsystem. Für die dritte Säule, die **Bewerbungsfotos**, lädt man ein Selfie hoch, wählt Kleidungsstil und Hintergrund und erhält ein professionell wirkendes Foto; bemerkenswert und datenschutzfreundlich: Das **Selfie selbst wird nicht gespeichert**, nur das erzeugte Ergebnis. Ein **KI-Assistent** (Premium) kann Zielunternehmen per Web-Recherche vorbereiten, und ein **Bewerbungs-Tracker** hält Status, Sendedaten und Gesprächstermine fest.\n\nBeim **Datenschutz** ist die Ausgangslage günstig und über die öffentlich zugänglichen Angaben gut nachvollziehbar: Es handelt sich um einen **deutschen Anbieter** (EU) mit Impressum und Datenschutzerklärung, die **Server liegen in der EU**, und es wird bewusst datensparsam gearbeitet (Selfie wird nicht behalten). Die KI-Generierung selbst läuft laut Anbieter über die **API von Anthropic (Claude)**, ohne dass Inhalte fürs Training verwendet werden. Diese Verarbeitung über einen US-Anbieter ist der einzige nennenswerte Drittland-Aspekt — für die meisten Nutzer:innen unter den üblichen Auftragsverarbeitungs-Bedingungen unkritisch, aber ein Punkt, den man bei besonders sensiblen Daten kennen sollte. In Summe ist das ein solide DSGVO-konform aufgestelltes deutsches Tool.\n\nDas **Preismodell** ist fair gestaffelt: Die **kostenlose Variante** bietet fast alle Funktionen mit begrenztem Kontingent (u. a. ein Anschreiben ohne Anmeldung, drei weitere nach Registrierung, 25 CV-Vorlagen mit Wasserzeichen) — genug, um sich das Tool in Ruhe anzusehen. Ein **Einmalpaket** für 7,99 € deckt eine konkrete Bewerbungsphase ab, das **Premium-Abo** (12,99 €/Mon. bzw. 79,99 €/Jahr) hebt die Limits auf.\n\nGrenzen: BewerbungGPT ist bewusst auf den **deutschsprachigen Raum** fokussiert — für internationale Bewerbungen in anderen Formaten ist es weniger geeignet. Die **KI-Bewerbungsfotos** sind praktisch, ersetzen aber kein echtes Fotoshooting und wirken je nach Ausgangsbild unterschiedlich überzeugend. Und wie bei allen KI-Anschreiben gilt: Der Entwurf ist ein **Ausgangspunkt** — er sollte vor dem Versand gelesen, individualisiert und auf Richtigkeit geprüft werden, nicht ungeprüft verschickt.\n\nEmpfohlen für Bewerber:innen im deutschsprachigen Raum, die schnell ein DIN-gerechtes Anschreiben, einen ordentlichen Lebenslauf und optional ein Bewerbungsfoto aus einer Hand erstellen wollen — mit einem datenschutzbewussten deutschen Anbieter und einer kostenlosen Variante, die sich zum Ausprobieren wirklich eignet."
+  }
+]
