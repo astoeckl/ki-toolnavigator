@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""Build scripts/pending_tools.json with NebenkostenPro (AI service-charge check)."""
+import json
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
+TOOLS = [
+    {
+        'slug': 'nebenkostenpro', 'name': 'NebenkostenPro',
+        'vendor': 'Julian Falk', 'category': 'produktivitaet',
+        'tagline': 'Deutscher KI-Dienst für Nebenkostenabrechnungen — prüft als Mieter hochgeladene Abrechnungen auf Auffälligkeiten entlang der BetrKV und erstellt sie als Vermieter strukturiert; kostenlose Vorprüfung, Premium-Report ab 14,90 €.',
+        'price': 'Kostenlose Vorprüfung · Schnell-Check 7,90 € · Premium-Report 14,90 € (einmalig)',
+        'api': False, 'dsgvo': 'bedingt', 'origin': 'Deutschland', 'rating': 4.5, 'reviews': 210,
+        'pros': [
+            'Kostenlose Vorprüfung zeigt Auffälligkeiten, bevor man zahlt',
+            'Von Finanztip als empfohlener KI-Dienstleister gelistet, im t-online-Ratgeber vorgestellt',
+            'Deutlich günstiger als Rechtsdienstleister (14,90 € statt 49–99,90 €)',
+            'Prüfrahmen an BetrKV, HeizkostenV und CO₂-Aufteilung orientiert, inkl. Klärungsentwurf',
+        ],
+        'cons': [
+            'Keine Rechtsberatung im Sinne des RDG — schematische Hinweise ohne Gewähr',
+            'Dokumenteninhalte gehen laut Datenschutzerklärung an Google- und OpenAI-APIs (auch US-Gesellschaften genannt)',
+            'KI kann Positionen falsch einordnen — Ergebnisse vor dem Widerspruch selbst prüfen',
+            'Junges Angebot (seit 2025) eines Einzelunternehmers',
+        ],
+        'usecases': [
+            'Nebenkostenabrechnung als Mieter prüfen',
+            'Klärungsschreiben an den Vermieter vorbereiten',
+            'Kosten mit dem Betriebskostenspiegel vergleichen',
+            'Als Vermieter eine BetrKV-orientierte Abrechnung erstellen',
+        ],
+        'launched': '2025-04-01', 'lastUpdated': '2026-08-26',
+        'website': 'https://nebenkostenpro.de/', 'domain': 'nebenkostenpro.de',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn utility-bill sheet with a column of line items, a thin magnifying glass hovering over one row and a small magenta circle marking that row — checking a service-charge statement.',
+        'features': """- **Zwei Modi**: Mieter prüfen lassen, Vermieter an BetrKV-Struktur orientiert erstellen.
+- **Dokumenten-Upload mit OCR**: liest Abrechnungen, Wirtschaftspläne, Heizkostenabrechnungen und Rechnungen, auch eingescannt.
+- **Prüfrahmen** entlang der **17 BetrKV-Kostenarten**, Fristen, Verteilerschlüssel, **HeizkostenV** und **CO₂-Kostenaufteilung**.
+- **Kostenlose Vorprüfung** mit markierten Auffälligkeiten und — wo bezifferbar — geschätztem Prüfpotenzial.
+- **PDF-Prüfbericht** und **vorbefüllter Klärungsentwurf** an den Vermieter (Premium).
+- **Vergleich mit dem Betriebskostenspiegel** der eigenen Stadt bzw. bundesweit.
+- **Export** als PDF/DOC/XLS; Zahlung über Stripe.""",
+        'pricing': """- **Kostenlose Vorprüfung** · Upload und Vorschau mit markierten Auffälligkeiten, ohne Zahlung.
+- **Schnell-Check** · 7,90 € einmalig — vollständiger Prüfbericht, alle 17 BetrKV-Positionen, Fristen und Verteilerschlüssel.
+- **Premium-Report** · 14,90 € einmalig — zusätzlich PDF-Bericht, vorbefüllter Klärungsentwurf, Städtevergleich, 12-seitiges Mieter-eBook.
+- **Vermieter-Pakete** · für die Erstellung von Abrechnungen, mit jährlicher Verlängerung, zum Laufzeitende kündbar.
+- Zum Vergleich: Finanztip nennt für dieselbe Aufgabe Mineko mit 49 € und Yourxpert mit 99,90 € (bis 50 m²).""",
+        'overview': """**NebenkostenPro** ist ein deutscher KI-Dienst rund um die **Nebenkostenabrechnung** — und ein gutes Beispiel für KI mit unmittelbarem Alltagsnutzen: Statt einen Text zu generieren, prüft das Tool ein Dokument, das fast jeder Haushalt einmal im Jahr bekommt und das notorisch schwer zu kontrollieren ist.
+
+Das Angebot hat **zwei Seiten**. Für **Mieter:innen** lädt man die Abrechnung hoch — auch als Foto oder Scan, eine OCR-Stufe liest sie aus — und bekommt eine Auswertung: Welche Positionen sind auffällig, welche Kostenarten sind überhaupt umlagefähig, stimmen Fristen und Verteilerschlüssel? Der Prüfrahmen orientiert sich an den **17 Kostenarten der Betriebskostenverordnung (BetrKV)**, ergänzt um Heizkostenverordnung und CO₂-Kostenaufteilung. Für **Vermieter:innen** dreht sich der Ablauf um: Aus hochgeladenen Unterlagen entsteht eine strukturierte, an der BetrKV-Systematik orientierte Abrechnung.
+
+Kommerziell interessant ist das **Freemium-Modell**: Die **Vorprüfung ist kostenlos**. Man sieht die markierten Auffälligkeiten und, wo bezifferbar, ein geschätztes Prüfpotenzial — und entscheidet erst dann, ob sich der Report lohnt. Der **Schnell-Check** kostet 7,90 €, der **Premium-Report** 14,90 €; letzterer enthält den PDF-Prüfbericht, einen **vorbefüllten Klärungsentwurf** an den Vermieter und einen Vergleich mit dem **Betriebskostenspiegel** der eigenen Stadt.
+
+Für die Einordnung hilfreich ist die **unabhängige Rezeption**: **Finanztip** führt NebenkostenPro in seinem Ratgeber zur Nebenkostenabrechnung als empfohlenen **KI-Dienstleister** — neben Mineko (Rechtsdienstleister, 49 €) und Yourxpert (anwaltliche Beratung, 99,90 €), die andere Bedürfnisse abdecken. Auch **t-online** hat das Angebot im August 2026 in einem Ratgeber zur Abrechnungsprüfung als eine der Optionen vorgestellt. Das ist für ein junges Tool eine ordentliche Bestätigung — wobei anzumerken ist, dass Finanztip solche Empfehlungen teils über Affiliate-Links monetarisiert, was dort transparent ausgewiesen wird.
+
+Bei den **Grenzen** ist der Anbieter selbst erfreulich deutlich: NebenkostenPro liefert **automatisiert erzeugte, schematische Hinweise** und ausdrücklich **keine Rechtsdienstleistung oder Rechtsberatung im Sinne des RDG**; eine Gewähr für Richtigkeit oder Vollständigkeit wird nicht übernommen, die Einzelfallprüfung wird nicht ersetzt. Praktisch heißt das: Das Ergebnis ist eine **gut vorstrukturierte Arbeitsgrundlage** für ein Gespräch, einen Beleg-Einsichtswunsch oder einen Widerspruch — kein Rechtsurteil. Wer daraus einen Widerspruch baut, sollte die markierten Punkte selbst nachvollziehen.
+
+Beim **Datenschutz** ist das Bild gemischt und verdient einen genauen Blick. Positiv: deutscher Anbieter (Einzelunternehmer aus Fürth) mit Impressum und Datenschutzerklärung, Werbung mit „Made in Germany" und Servern in Deutschland. Einschränkend: Laut Datenschutzerklärung werden zur Texterkennung und inhaltlichen Strukturierung die Schnittstellen von **Google (Gemini API)** und **OpenAI** eingesetzt — die **Inhalte der hochgeladenen Dokumente werden also an diese Anbieter übermittelt**, wobei jeweils auch die US-Gesellschaften genannt sind. Eine Nebenkostenabrechnung enthält Name, Anschrift, Wohnungsgröße und Verbrauchsdaten. Das ist unter Auftragsverarbeitung üblich und rechtlich gangbar, steht aber in einem gewissen Spannungsverhältnis zur „Server in Deutschland"-Auslobung — deshalb hier die Einstufung **„bedingt"** statt „ja". Wer besonders sensibel ist, sollte vorab entscheiden, ob er das Dokument in dieser Kette verarbeiten lassen möchte.
+
+Empfohlen für Mieter:innen, die eine Abrechnung schnell und günstig auf Auffälligkeiten sichten wollen, bevor sie Zeit oder Geld in Mieterverein, Rechtsdienstleister oder Anwalt investieren — die kostenlose Vorprüfung macht den Einstieg risikolos. Wer eine belastbare rechtliche Bewertung oder Vertretung braucht, ist bei den teureren, aber rechtsdienstleistenden Alternativen richtig; NebenkostenPro ist die schnelle Vorstufe davor.""",
+    },
+]
+
+out = ROOT / 'scripts' / 'pending_tools.json'
+out.write_text(json.dumps(TOOLS, ensure_ascii=False, indent=2))
+print(f'wrote {len(TOOLS)} record(s) to {out.relative_to(ROOT)}')
+for t in TOOLS:
+    print(f'  - {t["slug"]:16} {t["category"]:14} ov={len(t["overview"])}c  dsgvo={t["dsgvo"]}  origin={t["origin"]}')
