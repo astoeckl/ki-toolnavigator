@@ -8,7 +8,7 @@ const NAV = [
   { href: '/',          label: 'Start',       match: (p: string) => p === '/' },
   { href: '/verzeichnis', label: 'Verzeichnis', match: (p: string) => p.startsWith('/verzeichnis') || p.startsWith('/kategorie') },
   { href: '/vergleich', label: 'Vergleich',   match: (p: string) => p.startsWith('/vergleich') },
-  { href: '/artikel/was-ist-ki', label: 'Artikel', match: (p: string) => p.startsWith('/artikel') },
+  { href: '/artikel',   label: 'Artikel',     match: (p: string) => p.startsWith('/artikel') },
   { href: '/suche', label: 'Suche',     match: (p: string) => p.startsWith('/suche') },
 ];
 

@@ -1,8 +1,10 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { Category, Tool } from '@/lib/types';
 import { Badge, Button, Thumb } from '@/components/ui';
+import { CoverImage } from '@/components/CoverImage';
 import { useCompare } from '@/components/CompareContext';
 
 /** Resolve tool cover URL from media_id (public endpoint returns a string). */
@@ -145,7 +147,14 @@ export function DirectoryClient({ tools, categories, initialSearch, initialCateg
               <li key={t.slug} className="directory-list-row">
                 <div style={{ width: 80 }}>
                   {cover ? (
-                    <img src={cover} alt={t.name} style={{ display: 'block', width: 80, height: 60, objectFit: 'cover', border: '1px solid var(--line)' }} />
+                    <Image
+                      src={cover}
+                      alt={`${t.name} — Vorschaubild`}
+                      width={80}
+                      height={60}
+                      sizes="80px"
+                      style={{ display: 'block', width: 80, height: 60, objectFit: 'cover', border: '1px solid var(--line)' }}
+                    />
                   ) : (
                     <Thumb name={t.name} slug={t.slug} aspect="4/3" label="" />
                   )}
@@ -180,7 +189,13 @@ export function DirectoryClient({ tools, categories, initialSearch, initialCateg
               return (
               <Link key={t.slug} href={`/tool/${t.slug}`} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {cover ? (
-                  <img src={cover} alt={t.name} style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '4 / 3', objectFit: 'cover', border: '1px solid var(--line)' }} />
+                  <CoverImage
+                    src={cover}
+                    alt={`${t.name} — Vorschaubild`}
+                    aspect="4 / 3"
+                    sizes="(max-width: 540px) 92vw, (max-width: 900px) 47vw, (max-width: 1303px) calc((100vw - 384px) / 3), 277px"
+                    bordered
+                  />
                 ) : (
                   <Thumb name={t.name} slug={t.slug} aspect="4/3" />
                 )}

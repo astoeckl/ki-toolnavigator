@@ -1,15 +1,56 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getCategories, getPost, getTool, getTools } from '@/lib/cms';
 import { renderMarkdown } from '@/lib/markdown';
 import { Badge, Breadcrumb, DataRow, SectionLabel, Thumb } from '@/components/ui';
 import { ScrollSpyTOC } from '@/components/ScrollSpyTOC';
+import { CoverImage } from '@/components/CoverImage';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, reviewLd, softwareApplicationLd, summarize } from '@/lib/seo';
+import type { Tool } from '@/lib/types';
 import { ToolActions } from './ToolActions';
 import { ToolTabs } from './ToolTabs';
 
 export async function generateStaticParams() {
   const tools = await getTools();
   return tools.map((t) => ({ slug: t.slug }));
+}
+
+/** Prefer the real website screenshot as the share image, then the cover, then the logo. */
+function shareImage(t: Tool): string | null {
+  const pick = (v: Tool['media_id']): string | null => {
+    if (typeof v === 'string') return v || null;
+    if (v && typeof v === 'object') return v.url ?? null;
+    return null;
+  };
+  return pick(t.screenshot_id) ?? pick(t.media_id) ?? pick(t.logo_id);
+}
+
+const dsgvoLabel = { ja: 'DSGVO-konform', bedingt: 'DSGVO bedingt', nein: 'DSGVO ungeklärt' } as const;
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const t = await getTool(slug);
+  if (!t) return { title: 'Tool nicht gefunden', robots: { index: false, follow: false } };
+
+  const categories = await getCategories();
+  const cat = categories.find((c) => c.slug === t.category);
+
+  // Front-load the queries people actually type: "<Tool> Preise", "<Tool> DSGVO".
+  const title = `${t.name} — Funktionen, Preise & DSGVO`;
+  // Keep the tagline short enough that the DSGVO/CTA tail still fits in ~158 chars.
+  const description = `${summarize(t.tagline, 95)} ${dsgvoLabel[t.dsgvo]} · Preise, Funktionen & Alternativen im Steckbrief.`;
+
+  return pageMetadata({
+    title,
+    description,
+    path: `/tool/${t.slug}`,
+    image: shareImage(t),
+    imageAlt: `${t.name} — Screenshot`,
+    keywords: [t.name, `${t.name} Preise`, `${t.name} Alternative`, t.vendor, cat?.name, 'KI-Tool', 'DSGVO']
+      .filter(Boolean) as string[],
+  });
 }
 
 export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -33,8 +74,28 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   const featuresHtml = t.features ? renderMarkdown(t.features) : null;
   const pricingHtml  = t.pricing  ? renderMarkdown(t.pricing)  : null;
 
+  const seoDescription = summarize(
+    overviewPost?.short_description ?? overviewPost?.content ?? t.tagline,
+    300,
+  );
+
   return (
     <div>
+      <JsonLd data={[
+        softwareApplicationLd(t, {
+          categoryName: cat?.name,
+          image: shareImage(t),
+          description: seoDescription,
+        }),
+        reviewLd(t, { description: seoDescription, pros: t.pros, cons: t.cons }),
+        breadcrumbLd([
+          { name: 'Start', path: '/' },
+          { name: 'Verzeichnis', path: '/verzeichnis' },
+          ...(cat ? [{ name: cat.name, path: `/kategorie/${cat.slug}` }] : []),
+          { name: t.name, path: `/tool/${t.slug}` },
+        ]),
+      ]} />
+
       <Breadcrumb items={[
         { label: 'Start', href: '/' },
         { label: 'Verzeichnis', href: '/verzeichnis' },
@@ -94,18 +155,15 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   return <Thumb name={t.name} slug={t.slug + '-info'} aspect="4/3" label="Produkt · Logo" />;
                 }
                 return (
-                  <div style={{
-                    aspectRatio: '4 / 3',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: 'var(--bg-alt)', border: '1px solid var(--line)',
-                    padding: 24,
-                  }}>
-                    <img
-                      src={logo}
-                      alt={`${t.name} Logo`}
-                      style={{ maxWidth: '70%', maxHeight: '70%', width: 'auto', height: 'auto', objectFit: 'contain' }}
-                    />
-                  </div>
+                  <CoverImage
+                    src={logo}
+                    alt={`Logo von ${t.name}`}
+                    aspect="4 / 3"
+                    sizes="(max-width: 900px) 90vw, 264px"
+                    fit="contain"
+                    padding={34}
+                    bordered
+                  />
                 );
               })()}
               <div style={{ marginTop: 14 }}>

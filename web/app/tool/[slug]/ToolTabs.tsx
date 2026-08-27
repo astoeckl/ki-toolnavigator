@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { Tool } from '@/lib/types';
 import { Chip, SectionLabel, Thumb } from '@/components/ui';
 import { Prose } from '@/components/Prose';
+import { CoverImage } from '@/components/CoverImage';
 
 type Props = {
   t: Tool;
@@ -24,39 +25,68 @@ export function ToolTabs({ t, catName, related, overviewHtml, featuresHtml, pric
   const [tab, setTab] = useState('uebersicht');
   return (
     <>
-      <nav style={{ marginTop: 48, display: 'flex', gap: 0, borderBottom: '1px solid var(--line)' }}>
+      <div role="tablist" aria-label="Tool-Details" style={{ marginTop: 48, display: 'flex', gap: 0, borderBottom: '1px solid var(--line)' }}>
         {TABS.map((tb) => (
-          <a key={tb.id} onClick={() => setTab(tb.id)} style={{
-            padding: '12px 18px', cursor: 'pointer',
-            fontFamily: 'Inter Tight, sans-serif', fontSize: 13,
-            color: tab === tb.id ? 'var(--ink-strong)' : '#8a8580',
-            borderBottom: tab === tb.id ? '2px solid var(--accent)' : '2px solid transparent',
-            marginBottom: -1, fontWeight: tab === tb.id ? 600 : 400,
-          }}>{tb.label}</a>
+          <button
+            key={tb.id}
+            type="button"
+            role="tab"
+            id={`tab-${tb.id}`}
+            aria-selected={tab === tb.id}
+            aria-controls={`panel-${tb.id}`}
+            onClick={() => setTab(tb.id)}
+            style={{
+              padding: '12px 18px', cursor: 'pointer',
+              background: 'none', border: 'none', borderRadius: 0,
+              fontFamily: 'Inter Tight, sans-serif', fontSize: 13,
+              color: tab === tb.id ? 'var(--ink-strong)' : '#8a8580',
+              borderBottom: tab === tb.id ? '2px solid var(--accent)' : '2px solid transparent',
+              marginBottom: -1, fontWeight: tab === tb.id ? 600 : 400,
+            }}
+          >{tb.label}</button>
         ))}
-      </nav>
+      </div>
 
-      {tab === 'funktionen' ? (
-        <div style={{ paddingTop: 36 }}>
-          {featuresHtml ? (
-            <Prose html={featuresHtml} />
-          ) : (
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--ink)', fontStyle: 'italic' }}>
-              Funktionsliste folgt in Kürze.
-            </p>
-          )}
-        </div>
-      ) : tab === 'preise' ? (
-        <div style={{ paddingTop: 36 }}>
-          {pricingHtml ? (
-            <Prose html={pricingHtml} />
-          ) : (
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--ink)', fontStyle: 'italic' }}>
-              Preisangaben folgen in Kürze.
-            </p>
-          )}
-        </div>
-      ) : tab === 'uebersicht' ? (
+      <div
+        role="tabpanel"
+        id="panel-funktionen"
+        aria-labelledby="tab-funktionen"
+        hidden={tab !== 'funktionen'}
+        style={{ paddingTop: 36 }}
+      >
+        <h2 className="sr-only">Funktionen von {t.name}</h2>
+        {featuresHtml ? (
+          <Prose html={featuresHtml} />
+        ) : (
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--ink)', fontStyle: 'italic' }}>
+            Funktionsliste folgt in Kürze.
+          </p>
+        )}
+      </div>
+
+      <div
+        role="tabpanel"
+        id="panel-preise"
+        aria-labelledby="tab-preise"
+        hidden={tab !== 'preise'}
+        style={{ paddingTop: 36 }}
+      >
+        <h2 className="sr-only">Preise von {t.name}</h2>
+        {pricingHtml ? (
+          <Prose html={pricingHtml} />
+        ) : (
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--ink)', fontStyle: 'italic' }}>
+            Preisangaben folgen in Kürze.
+          </p>
+        )}
+      </div>
+
+      <div
+        role="tabpanel"
+        id="panel-uebersicht"
+        aria-labelledby="tab-uebersicht"
+        hidden={tab !== 'uebersicht'}
+      >
         <div id="zusammenfassung" style={{ paddingTop: 36, scrollMarginTop: 100 }}>
           {overviewHtml ? (
             <Prose html={overviewHtml} dropCap />
@@ -87,10 +117,12 @@ export function ToolTabs({ t, catName, related, overviewHtml, featuresHtml, pric
               <>
                 <SectionLabel id="screenshot">Screenshot</SectionLabel>
                 <figure style={{ margin: 0, border: '1px solid var(--line)', padding: 0 }}>
-                  <img
+                  <CoverImage
                     src={sshot}
                     alt={`Screenshot der ${t.name}-Website`}
-                    style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top center' }}
+                    aspect="16 / 10"
+                    sizes="(max-width: 900px) 94vw, (max-width: 1303px) calc(100vw - 660px), 580px"
+                    objectPosition="top center"
                   />
                   <figcaption style={{
                     padding: '8px 14px',
@@ -139,7 +171,7 @@ export function ToolTabs({ t, catName, related, overviewHtml, featuresHtml, pric
             ))}
           </div>
         </div>
-      ) : null}
+      </div>
     </>
   );
 }

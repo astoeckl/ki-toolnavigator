@@ -1,9 +1,23 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAll } from '@/lib/cms';
 import { getEditorialDates } from '@/lib/site';
 import { Chip, SectionLabel, Thumb } from '@/components/ui';
+import { CoverImage } from '@/components/CoverImage';
+import { JsonLd } from '@/components/JsonLd';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, itemListLd, pageMetadata } from '@/lib/seo';
 import { HeroSearch } from './_home/HeroSearch';
 import type { Article, Tool } from '@/lib/types';
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
+    path: '/',
+  }),
+  // Root title must not get the "· KI-Toolnavigator" suffix from the template.
+  title: { absolute: `${SITE_NAME} — ${SITE_TAGLINE}` },
+};
 
 /** Extract the resolved cover URL from any entity that carries a `media_id`
  *  reference (the public CMS endpoint resolves it to a URL string). */
@@ -47,6 +61,11 @@ export default async function HomePage() {
 
   return (
     <div>
+      <JsonLd data={itemListLd(
+        categories.map((c) => ({ name: c.name, path: `/kategorie/${c.slug}` })),
+        'Kategorien im KI-Toolnavigator',
+      )} />
+
       {/* Hero */}
       <section style={{ padding: 'clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 56px)', borderBottom: '1px solid var(--line)' }}>
         <div className="layout-hero">
@@ -122,10 +141,12 @@ export default async function HomePage() {
               return (
                 <Link key={t.slug} href={`/tool/${t.slug}`} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {cover ? (
-                    <img
+                    <CoverImage
                       src={cover}
-                      alt={t.name}
-                      style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', border: '1px solid var(--line)' }}
+                      alt={`${t.name} — Vorschaubild`}
+                      aspect="3 / 2"
+                      sizes="(max-width: 540px) 92vw, (max-width: 900px) 47vw, (max-width: 1303px) 31vw, 376px"
+                      bordered
                     />
                   ) : (
                     <Thumb name={t.name} slug={t.slug} aspect="3/2" />
@@ -165,10 +186,12 @@ export default async function HomePage() {
         <div className="layout-editorial">
           <Link href={`/artikel/${articles[0].slug}`} className="layout-editorial-lead">
             {articleCover(articles[0]) ? (
-              <img
+              <CoverImage
                 src={articleCover(articles[0])!}
                 alt={articles[0].title}
-                style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '4 / 3', objectFit: 'cover', border: '1px solid var(--line)' }}
+                aspect="4 / 3"
+                sizes="(max-width: 900px) 94vw, (max-width: 1303px) 31vw, 359px"
+                bordered
               />
             ) : (
               <Thumb name={articles[0].title} slug={articles[0].slug} aspect="4/3" label="Titelbild · Illustration" />
@@ -192,10 +215,12 @@ export default async function HomePage() {
                 <li key={a.slug} style={{ padding: '18px 0', borderBottom: '1px solid var(--line)' }}>
                   <Link href={`/artikel/${a.slug}`} className="grid-cover-row">
                     {cover ? (
-                      <img
+                      <CoverImage
                         src={cover}
                         alt={a.title}
-                        style={{ display: 'block', width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', border: '1px solid var(--line)' }}
+                        aspect="4 / 3"
+                        sizes="(max-width: 540px) 72px, 88px"
+                        bordered
                       />
                     ) : (
                       <div style={{ width: '100%', aspectRatio: '4 / 3', border: '1px solid var(--line)', background: 'var(--bg-alt)' }} />
@@ -210,6 +235,17 @@ export default async function HomePage() {
               );
             })}
           </ul>
+          <Link
+            href="/artikel"
+            style={{
+              display: 'inline-block', marginTop: 20,
+              fontFamily: 'JetBrains Mono, monospace', fontSize: 11,
+              letterSpacing: '0.06em', textTransform: 'uppercase',
+              color: 'var(--accent)', borderBottom: '1px dotted var(--accent)',
+            }}
+          >
+            Alle {articles.length} Artikel →
+          </Link>
         </div>
       </section>
     </div>

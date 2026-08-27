@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { Category, Tool } from '@/lib/types';
 import { Badge, Thumb } from '@/components/ui';
+import { CoverImage } from '@/components/CoverImage';
 import { useCompare } from '@/components/CompareContext';
 
 /** Resolve tool cover URL from media_id (public endpoint returns a string). */
@@ -54,7 +55,13 @@ export function CompareTable({ tools, categories, editorialDate }: Props) {
                 return (
                 <th key={t.slug} style={{ padding: 16, textAlign: 'left', borderBottom: '1px solid var(--ink-strong)', verticalAlign: 'bottom', borderLeft: '1px solid var(--line)' }}>
                   {cover ? (
-                    <img src={cover} alt={t.name} style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '4 / 3', objectFit: 'cover', border: '1px solid var(--line)' }} />
+                    <CoverImage
+                      src={cover}
+                      alt={`${t.name} — Vorschaubild`}
+                      aspect="4 / 3"
+                      sizes="(max-width: 900px) 45vw, 260px"
+                      bordered
+                    />
                   ) : (
                     <Thumb name={t.name} slug={`${t.slug}-cmp`} aspect="4/3" label="" />
                   )}

@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCategories, getTools } from '@/lib/cms';
 import { getEditorialDates } from '@/lib/site';
 import type { Tool } from '@/lib/types';
 import { Badge, Breadcrumb, Button, SectionLabel, Thumb } from '@/components/ui';
+import { CoverImage } from '@/components/CoverImage';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, collectionPageLd, pageMetadata, summarize } from '@/lib/seo';
 import { CategoryToolActions } from './CategoryToolActions';
 
 function toolCover(t: Tool): string | null {
@@ -17,6 +21,37 @@ export async function generateStaticParams() {
   return cats.map((c) => ({ slug: c.slug }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const [categories, tools] = await Promise.all([getCategories(), getTools()]);
+  const cat = categories.find((c) => c.slug === slug);
+  if (!cat) return { title: 'Kategorie nicht gefunden', robots: { index: false, follow: false } };
+
+  const items = tools.filter((t) => t.category === cat.slug);
+  const names = items.slice(0, 4).map((t) => t.name).join(', ');
+
+  return pageMetadata({
+    // Kept short so the "· KI-Toolnavigator" suffix still fits in a SERP title.
+    title: `${cat.name}: die besten KI-Tools`,
+    description: summarize(
+      `${cat.desc} ${items.length} Tools redaktionell geprüft${names ? ` — u. a. ${names}` : ''}. Mit Preisen, Funktionen und DSGVO-Einschätzung.`,
+    ),
+    path: `/kategorie/${cat.slug}`,
+    image: firstCover(items),
+    imageAlt: cat.name,
+    keywords: [cat.name, `${cat.name} KI-Tools`, 'KI-Tools Vergleich', 'DSGVO', ...items.slice(0, 6).map((t) => t.name)],
+  });
+}
+
+/** First tool cover in the category, used as the share image. */
+function firstCover(items: Tool[]): string | null {
+  for (const t of items) {
+    const c = toolCover(t);
+    if (c) return c;
+  }
+  return null;
+}
+
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const [categories, tools] = await Promise.all([getCategories(), getTools()]);
@@ -27,6 +62,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   return (
     <div>
+      <JsonLd data={[
+        collectionPageLd(cat, items, { description: summarize(cat.desc, 300) }),
+        breadcrumbLd([
+          { name: 'Start', path: '/' },
+          { name: 'Verzeichnis', path: '/verzeichnis' },
+          { name: cat.name, path: `/kategorie/${cat.slug}` },
+        ]),
+      ]} />
+
       <Breadcrumb items={[
         { label: 'Start', href: '/' },
         { label: 'Verzeichnis', href: '/verzeichnis' },
@@ -56,7 +100,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 return (
                 <article key={t.slug} style={{ border: '1px solid var(--line)', padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {cover ? (
-                    <img src={cover} alt={t.name} style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', border: '1px solid var(--line)' }} />
+                    <CoverImage
+                      src={cover}
+                      alt={`${t.name} — Vorschaubild`}
+                      aspect="3 / 2"
+                      sizes="(max-width: 540px) 92vw, (max-width: 900px) 47vw, (max-width: 1303px) calc((100vw - 424px) / 2), 408px"
+                      bordered
+                    />
                   ) : (
                     <Thumb name={t.name} slug={t.slug} aspect="3/2" />
                   )}

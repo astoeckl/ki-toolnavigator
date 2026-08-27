@@ -18,10 +18,12 @@ Live: **https://ki-toolnavigator.com**
 ```
 .
 ├── web/                 Next.js App (App Router + Server Components)
-│   ├── app/             Routes: / · /verzeichnis · /tool/[slug] · /artikel/[slug]
+│   ├── app/             Routes: / · /verzeichnis · /tool/[slug] · /artikel · /artikel/[slug]
 │   │                    · /kategorie/[slug] · /vergleich · /suche · /aenderungen · /impressum
-│   ├── components/      UI (Wordmark, SearchBar, ScrollSpyTOC, Prose, …)
-│   ├── lib/             cms.ts (fetch helpers), markdown.ts, types.ts
+│   │                    + sitemap.ts, robots.ts (aus dem CMS generiert)
+│   ├── components/      UI (Wordmark, SearchBar, ScrollSpyTOC, Prose, CoverImage, JsonLd, …)
+│   ├── lib/             cms.ts (fetch helpers), markdown.ts, types.ts, seo.ts
+│   ├── public/          og-default.png (Share-Karte, generiert)
 │   └── app/api/         Route Handlers: /api/search, /api/suggest (Cognitor-Proxy)
 ├── scripts/             Python + Node helpers for CMS seeding & asset generation
 ├── design/              original HTML/JSX prototype (see design/ki-toolnavigator/README.md)
@@ -79,6 +81,25 @@ Alle Skripte sind idempotent (überspringen Elemente, die bereits gepatcht sind)
 | `scripts/upload_tool_logos.py` | Offizielle Logos via Google-Favicon-Service, ins Cognitor-Media-Library |
 | `scripts/capture_tool_screenshots.mjs` | Playwright-Headless für echte Website-Screenshots |
 | `scripts/upload_screenshots.py` | Upload + Patch `screenshot_id` |
+| `scripts/generate_og_image.mjs` | Rendert die Default-Share-Karte nach `web/public/og-default.png` (nur bei Marken-/Claim-Änderung nötig) |
+
+## SEO
+
+Zentral in `web/lib/seo.ts`:
+
+- `pageMetadata()` baut Title, Description, Canonical, OpenGraph und Twitter-Card in einem Aufruf — jede Route ruft es in `generateMetadata()` auf.
+- Titel-Template (`%s · KI-Toolnavigator`) und `metadataBase` liegen im Root-Layout, Canonicals bewusst **nicht** (sonst erben sie alle Unterseiten als `/`).
+- JSON-LD über `<JsonLd>`: site-weit `Organization` + `WebSite` (inkl. `SearchAction`), pro Route `SoftwareApplication` + `Review` (Pro/Contra), `Article`, `CollectionPage`, `ItemList`, `BreadcrumbList`.
+- `sitemap.xml` und `robots.txt` werden aus dem CMS erzeugt (stündliches Revalidate, `lastmod` aus `_updated_at`).
+- `/suche` ist `noindex, follow`; `/verzeichnis` kanonisiert Filter-Parameter auf den nackten Pfad.
+
+### Bilder
+
+Alle CMS-Assets laufen über `next/image` — Wrapper ist `components/CoverImage.tsx` (fixes Seitenverhältnis, kein Layout-Shift, `fill` + AVIF/WebP, lazy außer beim Artikel-Aufmacher). Die erlaubten Remote-Hosts stehen in `next.config.js`.
+
+Wichtig beim Ändern von Layouts: **`sizes` muss den echten Slot beschreiben.** Die Content-Spalte ist auf `1240px − 2 × 32px = 1176px` gedeckelt, der Pixel-Zweig greift also ab 1304px Viewport. Eine zu grobe Angabe kostet direkt Bandbreite — mit `33vw` statt `376px` lud der Browser 1080px-Varianten für einen 374px-Slot. Gemessen: 10 Kategorie-Cover 1619 KB → 69 KB (−96 %).
+
+**Bewusst nicht ausgezeichnet:** `aggregateRating`. Die Felder `rating`/`reviews` im CMS sind redaktionelle Schätzwerte, werden nirgends auf der Seite angezeigt und dürften nach Googles Review-Snippet-Richtlinie nicht als Nutzerbewertungen ausgegeben werden. Ebenso kein `Offer` — die Preise liegen als Fließtext vor und lassen sich nicht verlässlich in Zahlen parsen.
 
 ## Deploy
 

@@ -4,7 +4,14 @@ import type { SearchHit } from '@/lib/types';
 import { Breadcrumb, Chip } from '@/components/ui';
 import { SearchBar } from '@/components/SearchBar';
 
-export const metadata = { title: 'Suche · KI-Toolnavigator' };
+// Internal search results are thin/duplicate content: crawlable (so the links
+// are followed) but explicitly kept out of the index.
+export const metadata = {
+  title: 'Suche',
+  description: 'Volltextsuche über alle Tools, Kategorien und Artikel im KI-Toolnavigator.',
+  alternates: { canonical: '/suche' },
+  robots: { index: false, follow: true },
+};
 
 /**
  * Map a Cognitor search hit to an internal route. We rely on:

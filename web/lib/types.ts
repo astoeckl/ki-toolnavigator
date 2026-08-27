@@ -70,7 +70,8 @@ export type Post = {
   title: string;
   content: string;
   short_description?: string | null;
-  keywords?: string[] | null;
+  /** Array on some records, comma-separated string on others — see keywordList(). */
+  keywords?: string[] | string | null;
   published?: boolean;
   locale?: string;
   author_id?: number | null;

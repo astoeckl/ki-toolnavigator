@@ -1,14 +1,67 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticle, getArticles, getMedia, getPost, mediaUrl } from '@/lib/cms';
 import { renderMarkdown, toSlug } from '@/lib/markdown';
 import { Breadcrumb, Chip, Thumb } from '@/components/ui';
 import { Prose } from '@/components/Prose';
+import { CoverImage } from '@/components/CoverImage';
 import { ScrollSpyTOC } from '@/components/ScrollSpyTOC';
+import { JsonLd } from '@/components/JsonLd';
+import { articleLd, breadcrumbLd, keywordList, pageMetadata, summarize } from '@/lib/seo';
+import type { Article, Post } from '@/lib/types';
 
 export async function generateStaticParams() {
   const articles = await getArticles();
   return articles.map((a) => ({ slug: a.slug }));
+}
+
+/** Resolve `post_id` — the public endpoint inlines the Post, the auth API returns an id. */
+async function resolvePost(a: Article): Promise<Post | null> {
+  if (a.post_id && typeof a.post_id === 'object') return a.post_id;
+  if (typeof a.post_id === 'number') return getPost(a.post_id);
+  return null;
+}
+
+/** Resolve `media_id` to a usable cover URL across all three shapes the CMS may return. */
+async function resolveCover(a: Article): Promise<string | null> {
+  if (typeof a.media_id === 'string' && a.media_id) return a.media_id;
+  if (a.media_id && typeof a.media_id === 'object') {
+    return a.media_id.url ?? (a.media_id.id ? mediaUrl(a.media_id.id) : null);
+  }
+  if (typeof a.media_id === 'number') {
+    const media = await getMedia(a.media_id);
+    return media?.url ?? mediaUrl(a.media_id);
+  }
+  return null;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const a = await getArticle(slug);
+  if (!a) return { title: 'Artikel nicht gefunden', robots: { index: false, follow: false } };
+
+  const post = await resolvePost(a);
+  const cover = await resolveCover(a);
+  // Some articles carry no lead text yet — fall back to a constructed sentence so
+  // the page never ships without a meta description.
+  const description =
+    summarize(post?.short_description ?? post?.content)
+    || summarize(`${a.title} — Hintergrundartikel im KI-Toolnavigator${a.category ? ` zum Thema ${a.category}` : ''}. `
+        + `${a.readTime} Minuten Lesezeit, redaktionell recherchiert.`);
+
+  return pageMetadata({
+    title: a.title,
+    description,
+    path: `/artikel/${a.slug}`,
+    image: cover,
+    imageAlt: a.title,
+    type: 'article',
+    keywords: keywordList(post?.keywords),
+    publishedTime: a.date ? new Date(a.date).toISOString() : undefined,
+    modifiedTime: new Date(a._updated_at ?? a.date).toISOString(),
+    authors: [a.author].filter(Boolean),
+  });
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -16,37 +69,30 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const a = await getArticle(slug);
   if (!a) notFound();
   const articles = await getArticles();
-
-  // The public elements endpoint resolves `post_id` (a reference field) into the
-  // full Post object inline. If the API ever returns just an integer (e.g. auth
-  // endpoint, or unresolved), fall back to fetching it via getPost().
-  let post: Awaited<ReturnType<typeof getPost>> = null;
-  if (a.post_id && typeof a.post_id === 'object') {
-    post = a.post_id; // already resolved
-  } else if (typeof a.post_id === 'number') {
-    post = await getPost(a.post_id);
-  }
+  const post = await resolvePost(a);
   const lead = post?.short_description ?? null;
-
-  // Resolve cover image — Cognitor's public elements endpoint resolves a
-  // `format: media_id` reference to the asset URL string directly.
-  // Auth API may return the integer id or an inlined Media object instead.
-  let coverUrl: string | null = null;
+  const coverUrl = await resolveCover(a);
   const coverAlt = a.title;
-  if (typeof a.media_id === 'string' && a.media_id) {
-    coverUrl = a.media_id;
-  } else if (a.media_id && typeof a.media_id === 'object') {
-    coverUrl = a.media_id.url ?? (a.media_id.id ? mediaUrl(a.media_id.id) : null);
-  } else if (typeof a.media_id === 'number') {
-    const media = await getMedia(a.media_id);
-    coverUrl = media?.url ?? mediaUrl(a.media_id);
-  }
 
   return (
     <div>
+      <JsonLd data={[
+        articleLd(a, {
+          description: summarize(post?.short_description ?? post?.content, 300) || a.title,
+          image: coverUrl,
+          post,
+          wordCount: post?.content ? post.content.trim().split(/\s+/).length : undefined,
+        }),
+        breadcrumbLd([
+          { name: 'Start', path: '/' },
+          { name: 'Artikel', path: '/artikel' },
+          { name: a.title, path: `/artikel/${a.slug}` },
+        ]),
+      ]} />
+
       <Breadcrumb items={[
         { label: 'Start', href: '/' },
-        { label: 'Artikel' },
+        { label: 'Artikel', href: '/artikel' },
         { label: a.title },
       ]} />
 
@@ -71,10 +117,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
           <figure style={{ margin: '32px 0', border: '1px solid var(--line)', padding: 0 }}>
             {coverUrl ? (
-              <img
+              <CoverImage
                 src={coverUrl}
                 alt={coverAlt}
-                style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '16 / 9', objectFit: 'cover' }}
+                aspect="16 / 9"
+                sizes="(max-width: 900px) 94vw, (max-width: 1303px) calc(100vw - 640px), 600px"
+                priority
               />
             ) : (
               <Thumb name={a.title} slug={a.slug} aspect="16/9" label="Illustration · Aufmacherbild" />
@@ -127,6 +175,17 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               </li>
             ))}
           </ul>
+          <Link
+            href="/artikel"
+            style={{
+              display: 'inline-block', marginTop: 18,
+              fontFamily: 'JetBrains Mono, monospace', fontSize: 11,
+              letterSpacing: '0.06em', textTransform: 'uppercase',
+              color: 'var(--accent)', borderBottom: '1px dotted var(--accent)',
+            }}
+          >
+            Alle Artikel ansehen →
+          </Link>
         </aside>
       </div>
     </div>

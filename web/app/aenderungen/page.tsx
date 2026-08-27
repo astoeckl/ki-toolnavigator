@@ -2,7 +2,13 @@ import Link from 'next/link';
 import { getArticles, getCategories, getTools } from '@/lib/cms';
 import { Breadcrumb, Chip } from '@/components/ui';
 
-export const metadata = { title: 'Letzte Änderungen · KI-Toolnavigator' };
+export const metadata = {
+  title: 'Letzte Änderungen im Verzeichnis',
+  description:
+    'Änderungsprotokoll des KI-Toolnavigators: neu aufgenommene Tools, überarbeitete Steckbriefe '
+    + 'und aktualisierte Artikel — chronologisch.',
+  alternates: { canonical: '/aenderungen' },
+};
 
 type Change = {
   when: string;        // ISO timestamp

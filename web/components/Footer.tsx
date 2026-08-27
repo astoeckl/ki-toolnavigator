@@ -21,7 +21,7 @@ export async function Footer() {
             <li><Link href="/">Startseite</Link></li>
             <li><Link href="/verzeichnis">Tool-Verzeichnis</Link></li>
             <li><Link href="/vergleich">Vergleich</Link></li>
-            <li><Link href="/artikel/was-ist-ki">Artikel</Link></li>
+            <li><Link href="/artikel">Artikel</Link></li>
           </ul>
         </div>
         <div>

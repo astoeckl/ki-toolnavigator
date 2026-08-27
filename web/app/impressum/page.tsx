@@ -1,6 +1,11 @@
 import { Breadcrumb } from '@/components/ui';
 
-export const metadata = { title: 'Impressum · KI-Toolnavigator' };
+export const metadata = {
+  title: 'Impressum & Offenlegung',
+  description: 'Medieninhaber, Offenlegung nach § 25 Mediengesetz und § 5 ECG sowie Datenschutzhinweise.',
+  alternates: { canonical: '/impressum' },
+  robots: { index: true, follow: true },
+};
 
 export default function ImpressumPage() {
   return (
