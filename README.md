@@ -82,6 +82,7 @@ Alle Skripte sind idempotent (überspringen Elemente, die bereits gepatcht sind)
 | `scripts/capture_tool_screenshots.mjs` | Playwright-Headless für echte Website-Screenshots |
 | `scripts/upload_screenshots.py` | Upload + Patch `screenshot_id` |
 | `scripts/generate_og_image.mjs` | Rendert die Default-Share-Karte nach `web/public/og-default.png` (nur bei Marken-/Claim-Änderung nötig) |
+| `scripts/unify_article_bylines.py` | Setzt `author` auf allen Artikeln auf „Redaktion" (Dry Run ohne `--apply`) |
 
 ## SEO
 
@@ -92,6 +93,10 @@ Zentral in `web/lib/seo.ts`:
 - JSON-LD über `<JsonLd>`: site-weit `Organization` + `WebSite` (inkl. `SearchAction`), pro Route `SoftwareApplication` + `Review` (Pro/Contra), `Article`, `CollectionPage`, `ItemList`, `BreadcrumbList`.
 - `sitemap.xml` und `robots.txt` werden aus dem CMS erzeugt (stündliches Revalidate, `lastmod` aus `_updated_at`).
 - `/suche` ist `noindex, follow`; `/verzeichnis` kanonisiert Filter-Parameter auf den nackten Pfad.
+
+### Autorschaft
+
+Alle Inhalte stammen aus einer einheitlichen Redaktion — es gibt keine Einzel-Bylines. Im CMS steht auf jedem Artikel `author: "Redaktion"`; `lib/seo.ts#isEditorial()` bildet das auf die Site-`Organization` ab (die eine `url` trägt, was Googles Article-Markup als optionales Feld erwartet). Ein echter Gastautor bekäme weiterhin einen `Person`-Knoten. Vereinheitlichen per `python3 scripts/unify_article_bylines.py --apply` (idempotent, ohne Flag Dry Run).
 
 ### Bilder
 

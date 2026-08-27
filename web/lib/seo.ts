@@ -10,6 +10,8 @@ export const SITE_DESCRIPTION =
   'KI-Tools, geprüft, verglichen und erklärt — auf Deutsch, nach DSGVO-Kriterien sortierbar. '
   + 'Redaktionelle Steckbriefe zu Preisen, Funktionen und Datenschutz.';
 export const OG_LOCALE = 'de_DE';
+/** All content is produced by one editorial team; there are no individual bylines. */
+export const EDITORIAL_BYLINE = `${SITE_NAME} Redaktion`;
 export const DEFAULT_OG_IMAGE = '/og-default.png';
 
 export const PUBLISHER = {
@@ -152,6 +154,11 @@ export function websiteLd() {
   };
 }
 
+/** True for the house byline (or a missing one) as opposed to a named guest author. */
+export function isEditorial(author?: string | null): boolean {
+  return /^\s*(redaktion)?\s*$/i.test(author ?? '');
+}
+
 export type Crumb = { name: string; path?: string };
 
 export function breadcrumbLd(items: Crumb[]) {
@@ -233,10 +240,10 @@ export function articleLd(a: Article, opts: { description: string; image?: strin
     ...(opts.image ? { image: [absolute(opts.image)] } : {}),
     ...(a.date ? { datePublished: new Date(a.date).toISOString() } : {}),
     dateModified: new Date(a._updated_at ?? a.date).toISOString(),
-    // "Redaktion" is the publication itself — reference the Organization, which
-    // carries a url. Named bylines get a bare Person: the site has no author
-    // pages, and pointing them at /impressum would claim it identifies them.
-    author: /^\s*(redaktion)?\s*$/i.test(a.author ?? '')
+    // The editorial team is the publication itself, so reference the Organization
+    // (which carries a url and sameAs). A genuine named guest author would still
+    // get a Person — but without an author page on the site, so no url.
+    author: isEditorial(a.author)
       ? { '@id': `${SITE_URL}/#organization` }
       : { '@type': 'Person', name: a.author },
     publisher: { '@id': `${SITE_URL}/#organization` },

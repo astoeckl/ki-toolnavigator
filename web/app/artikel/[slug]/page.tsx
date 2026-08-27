@@ -8,7 +8,9 @@ import { Prose } from '@/components/Prose';
 import { CoverImage } from '@/components/CoverImage';
 import { ScrollSpyTOC } from '@/components/ScrollSpyTOC';
 import { JsonLd } from '@/components/JsonLd';
-import { articleLd, breadcrumbLd, keywordList, pageMetadata, summarize } from '@/lib/seo';
+import {
+  EDITORIAL_BYLINE, articleLd, breadcrumbLd, isEditorial, keywordList, pageMetadata, summarize,
+} from '@/lib/seo';
 import type { Article, Post } from '@/lib/types';
 
 export async function generateStaticParams() {
@@ -60,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: keywordList(post?.keywords),
     publishedTime: a.date ? new Date(a.date).toISOString() : undefined,
     modifiedTime: new Date(a._updated_at ?? a.date).toISOString(),
-    authors: [a.author].filter(Boolean),
+    authors: [isEditorial(a.author) ? EDITORIAL_BYLINE : a.author],
   });
 }
 
