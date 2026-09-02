@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+"""Build scripts/pending_tools.json with Klang (Swedish AI transcription/meeting tool)."""
+import json
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
+TOOLS = [
+    {
+        'slug': 'klang', 'name': 'Klang',
+        'vendor': 'Klang AI AB', 'category': 'produktivitaet',
+        'tagline': 'Schwedisches Werkzeug für Gespräche: aufnehmen oder hochladen, automatisch transkribieren mit Sprechererkennung, zusammenfassen — und über alle je aufgenommenen Gespräche hinweg durchsuchen. Europäisch gehostet, ohne Training auf Kundeninhalten.',
+        'price': 'Freemium 0 € · Pro 17,50 € / Person / Monat · Team & Enterprise auf Anfrage',
+        'api': True, 'dsgvo': 'ja', 'origin': 'Schweden', 'rating': 4.5, 'reviews': 190,
+        'pros': [
+            'Kompletter Ablauf: Aufnahme/Upload → Transkript mit Sprechererkennung → Zusammenfassung → Suche über alle Gespräche',
+            'Durchgehend europäische LLM-Kette (Scaleway, Mistral, Azure EU Data Boundary, AWS EU, Berget AI) mit Zero-Retention',
+            'Kundeninhalte werden vertraglich nicht fürs Modelltraining genutzt — laut Datenschutzerklärung belegt',
+            'Sehr großzügiger Free-Tarif: unbegrenzte Transkription für eine Person',
+        ],
+        'cons': [
+            'Sprach-KI nutzt in bestimmten Fällen ElevenLabs (USA) — Zero-Retention, aber nicht rein europäisch',
+            'Sprechererkennung, API/MCP und Integrationen erst ab Pro (17,50 € / Person / Monat)',
+            'Private Cloud, On-Premise und BYOK nur im Enterprise-Tarif auf Anfrage',
+            'Referenzen bislang stark skandinavisch/öffentlicher Sektor — wenig unabhängige Reviews',
+        ],
+        'usecases': [
+            'Meeting-Protokolle und Aufgaben aus Besprechungen',
+            'Interviews transkribieren (Forschung, Journalismus, Sozialarbeit)',
+            'Audit- und Behördendokumentation mit belastbarem Wortlaut',
+            'Verkaufsgespräche auswerten und durchsuchbar machen',
+        ],
+        'launched': '2022-01-01', 'lastUpdated': '2026-09-02',
+        'website': 'https://klang.ai/de', 'domain': 'klang.ai',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn microphone at the left whose sound waves resolve into a stack of overlapping conversation cards to the right, each card a few text lines, with a thin magenta search-ring drawn across the whole stack — spoken conversations turned into a searchable archive.',
+        'features': """- **Aufnehmen oder hochladen**: Vor-Ort-Gespräche per App (iOS/Android), digitale Meetings (Teams, Google Meet, Zoom) und optional Telefongespräche.
+- **Automatische Transkription** mit **Sprechererkennung**, Fehlerkorrektur, Wortlisten und Editor.
+- **Zusammenfassungen und Analysen**: Entscheidungen, Aufgaben, Einwände; geplante Auswertungen und ein tägliches Briefing über Muster und Trends.
+- **Suche über alle Gespräche** hinweg — der eigentliche Mehrwert gegenüber einzelnen Transkripten.
+- **50+ Integrationen**, dazu **API und MCP**-Anbindung für eigene Agenten und Tools.
+- **Europäisches Hosting** mit nutzerindividuellen Verschlüsselungs-Keys.
+- **Enterprise**: Private Cloud (single-tenant, EU), frei wählbare EU-Datenresidenz, BYOK, SSO/IdP, Prüfprotokolle, konfigurierbare Aufbewahrung — bis hin zu **On-Premise inklusive Air-Gap und eigenem LLM**.""",
+        'pricing': """- **Freemium** · 0 € dauerhaft, 1 Nutzer — unbegrenzte Transkription, unbegrenzte digitale Meetings, App für Präsenzgespräche, Zusammenfassungen und Chat.
+- **Pro** · 17,50 € pro Person / Monat (bis 50 Nutzer) — Sprechererkennung, Integrationen, Wortlisten, geplante Analysen, Transkription von Telefongesprächen, API und MCP, höhere Geschwindigkeit; 7 Tage kostenlos testen.
+- **Team / Enterprise** · Preis auf Anfrage, unbegrenzte Nutzerzahl — SSO und IdP, Private Cloud, BYOK, On-Premises, Prüfprotokolle, individuelle Aufbewahrung, AVV, SLA und Customer-Success.
+- Jahres- oder Monatsabrechnung; Preise laut Anbieter inklusive Mehrwertsteuer.""",
+        'overview': """**Klang** ist ein schwedisches Werkzeug für gesprochene Inhalte — und deckt den kompletten Ablauf ab, der im Büroalltag anfällt: **aufnehmen oder hochladen, automatisch transkribieren, Sprecher erkennen, zusammenfassen** — und, das ist der eigentliche Unterschied, **über alles hinweg suchen, was jemals aufgenommen wurde**. Wo Otter.ai und Granola vor allem das einzelne Meeting gut abbilden, positioniert sich Klang als durchsuchbares Gedächtnis über alle Gespräche.
+
+Praktisch heißt das: Präsenzgespräche über die App (iOS und Android), digitale Meetings in Teams, Google Meet oder Zoom, auf Wunsch auch Telefongespräche. Aus der Aufnahme entsteht ein Transkript mit **Sprechererkennung**, Fehlerkorrektur und Editor, darauf setzen **Zusammenfassungen und Analysen** auf — Entscheidungen, Aufgaben, Einwände — bis hin zu einem **täglichen Briefing** über Muster und Trends aus allen Gesprächen. Über **50 Integrationen** sowie **API und MCP** lässt sich Klang an eigene Werkzeuge und Agenten anbinden.
+
+Das **Preismodell** ist bemerkenswert offen: Der **Freemium-Tarif** kostet dauerhaft nichts und bietet einer Person **unbegrenzte Transkription** samt unbegrenzter digitaler Meetings und Zusammenfassungen — genug, um den Nutzen ernsthaft zu beurteilen. **Pro** (17,50 € pro Person und Monat, bis 50 Nutzer) schaltet Sprechererkennung, Integrationen, geplante Analysen, Telefon-Transkription sowie API und MCP frei. Für Organisationen gibt es **Team/Enterprise** mit SSO, Private Cloud, BYOK und On-Premises.
+
+Beim **Datenschutz** ist Klang ungewöhnlich gut aufgestellt — und, was seltener ist, ungewöhnlich transparent. Betreiber ist die **Klang AI AB** (Schweden), die Daten werden **in Europa gespeichert**, mit nutzerindividuellen Verschlüsselungs-Keys. Bemerkenswert ist die Modell-Kette: Die eingesetzten **LLM-Anbieter sind durchgehend europäisch** — Scaleway und Mistral (Frankreich), Microsoft Ireland über die Azure-AI-Foundry-EU-Data-Boundary, AWS Europe über Bedrock in der EU-Region sowie Berget AI (Schweden) — jeweils mit **Zero-Retention-Vereinbarungen**, und die Inhalte werden **nicht fürs Training verwendet**. Diese vom Anbieter zugesagte Trainingsfreiheit ist in der Datenschutzerklärung ausdrücklich dokumentiert und damit nachprüfbar, nicht bloß beworben.
+
+Eine **Einschränkung** gehört zur Vollständigkeit dazu: Bei der Sprach-KI setzt Klang neben Pyannote (Frankreich) auch **ElevenLabs (USA)** ein — für Sprachen, in denen keine eigenen Modelle trainiert wurden, für Echtzeit-Transkription bei bestimmten Kunden und für die Sprechererkennung. Auch hier gilt laut Anbieter Zero-Retention, das Audio wird unmittelbar nach der Verarbeitung gelöscht und nicht fürs Training genutzt. Die Aussage „vollständig in Europa betrieben" trifft damit auf die Speicherung und die LLM-Kette zu, für die Sprachverarbeitung aber nur mit dieser Fußnote. Wer das ausschließen muss, hat mit **On-Premise inklusive Air-Gap und eigenem LLM** eine Option, die kaum ein Wettbewerber bietet — dann verlässt nichts das eigene Netz.
+
+Die **Referenzen** stammen bislang überwiegend aus Skandinavien und dem öffentlichen Sektor — Stadtrechnungsprüfung, Museen, Kanzleien, Sozialdienste. Das passt zum Profil: Klang zielt weniger auf schnelle Notizen als auf Gespräche, bei denen der genaue Wortlaut später zählt. Entsprechend dünn ist die Lage bei unabhängigen Reviews aus dem deutschsprachigen Raum.
+
+Empfohlen für Teams, die regelmäßig Besprechungen, Interviews oder Beratungsgespräche dokumentieren und dabei Wert auf europäische Verarbeitung legen — besonders im öffentlichen Sektor, in Kanzleien, Forschung und Sozialarbeit. Der kostenlose Tarif macht den Einstieg risikolos; wer Sprechererkennung oder Integrationen braucht, landet schnell bei Pro.""",
+    },
+]
+
+out = ROOT / 'scripts' / 'pending_tools.json'
+out.write_text(json.dumps(TOOLS, ensure_ascii=False, indent=2))
+print(f'wrote {len(TOOLS)} record(s) to {out.relative_to(ROOT)}')
+for t in TOOLS:
+    print(f'  - {t["slug"]:8} {t["category"]:14} ov={len(t["overview"])}c  dsgvo={t["dsgvo"]}  origin={t["origin"]}')

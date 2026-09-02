@@ -191,6 +191,9 @@ const TOOLS = [
   { slug: "dooken", url: "https://www.dooken.de/" },
   { slug: "schmeckts", url: "https://schmeckts.online/" },
   { slug: "brandlix", url: "https://brandlix.io" },
+  { slug: "bewerbunggpt", url: "https://bewerbunggpt.de" },
+  { slug: "nebenkostenpro", url: "https://nebenkostenpro.de/" },
+  { slug: "klang", url: "https://klang.ai/de", stealth: true },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
@@ -200,6 +203,12 @@ const VIEWPORT = { width: 1280, height: 800 };
 // Playwright Chromium. The installed Chrome channel + a couple of stealth tweaks
 // pass them. Mark such tools with `stealth: true`.
 const COOKIE_BUTTONS = [
+  // Prefer declining non-essential cookies where a site offers it.
+  'button:has-text("Alle ablehnen")',
+  'button:has-text("Ablehnen")',
+  'button:has-text("Reject all")',
+  'button:has-text("Decline")',
+  '#CybotCookiebotDialogBodyButtonDecline',
   'button:has-text("Accept all cookies")',
   'button:has-text("Accept All")',
   'button:has-text("Accept all")',
