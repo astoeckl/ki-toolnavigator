@@ -194,6 +194,7 @@ const TOOLS = [
   { slug: "bewerbunggpt", url: "https://bewerbunggpt.de" },
   { slug: "nebenkostenpro", url: "https://nebenkostenpro.de/" },
   { slug: "klang", url: "https://klang.ai/de", stealth: true },
+  { slug: "vozo", url: "https://www.vozo.ai/", stealth: true },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
@@ -204,6 +205,12 @@ const VIEWPORT = { width: 1280, height: 800 };
 // pass them. Mark such tools with `stealth: true`.
 const COOKIE_BUTTONS = [
   // Prefer declining non-essential cookies where a site offers it.
+  // CookieScript / Cookiebot render their buttons as <div id=...>, not <button>.
+  '#cookiescript_reject',
+  '[id*="cookie"][id*="reject"]',
+  '[id*="cookie"][id*="decline"]',
+  'button:has-text("DECLINE ALL")',
+  'button:has-text("Decline All")',
   'button:has-text("Alle ablehnen")',
   'button:has-text("Ablehnen")',
   'button:has-text("Reject all")',
