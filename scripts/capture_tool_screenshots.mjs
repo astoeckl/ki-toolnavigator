@@ -194,7 +194,7 @@ const TOOLS = [
   { slug: "bewerbunggpt", url: "https://bewerbunggpt.de" },
   { slug: "nebenkostenpro", url: "https://nebenkostenpro.de/" },
   { slug: "klang", url: "https://klang.ai/de", stealth: true },
-  { slug: "vozo", url: "https://www.vozo.ai/", stealth: true },
+  { slug: "vozo", url: "https://www.vozo.ai/de/", stealth: true },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
