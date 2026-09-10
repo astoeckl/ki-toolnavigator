@@ -208,6 +208,11 @@ TOOL_CUES = {
     'dooken': 'A hand-drawn product box on a small ad canvas with a headline bar and a price tag, a thin magenta target-arrow pointing at the product — a complete static ad, not just an image.',
     'schmeckts': 'A hand-drawn fork and knife whose handles curve into a small location-pin shape, with a tiny chat bubble beside it, the pin tip tinted magenta — an AI assistant for finding places to eat.',
     'brandlix': 'A hand-drawn small robot figure at a desk arranging several platform tiles into a weekly row, with a tiny approval checkmark above one tile tinted magenta — an AI employee running social media with sign-off.',
+    'bewerbunggpt': 'A hand-drawn document sheet with neat text lines and a small portrait-photo rectangle clipped to its corner, a single magenta accent on the photo frame — an AI-built job application.',
+    'nebenkostenpro': 'A hand-drawn utility-bill sheet with a column of line items, a thin magnifying glass hovering over one row and a small magenta circle marking that row — checking a service-charge statement.',
+    'klang': 'A hand-drawn microphone at the left whose sound waves resolve into a stack of overlapping conversation cards to the right, each card a few text lines, with a thin magenta search-ring drawn across the whole stack — spoken conversations turned into a searchable archive.',
+    'vozo': 'A hand-drawn film frame showing a speaking face in profile, with three small speech bubbles in different scripts fanning out from the mouth and a tiny slide-with-text icon beside it, one bubble tinted magenta — one video, many languages.',
+    'ki-schulgenie': 'A hand-drawn worksheet sheet with ruled lines and a few blank answer boxes, a small chalkboard behind it and three tiny difficulty-level bars beside it, the middle bar tinted magenta - teaching material prepared at several levels.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 

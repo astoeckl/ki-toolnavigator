@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""Build scripts/pending_tools.json with KI Schulgenie (AI teaching-material platform)."""
+import json
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
+TOOLS = [
+    {
+        'slug': 'ki-schulgenie', 'name': 'KI Schulgenie',
+        'vendor': 'Soul Business Mentors GmbH', 'category': 'produktivitaet',
+        'tagline': 'Deutschsprachige KI-Plattform für Lehrkräfte — über 120 fertige Assistenten für Arbeitsblätter, Lückentexte, Tests, Differenzierung, Stundenentwürfe und Elternbriefe, ohne Prompt-Kenntnisse.',
+        'price': 'Ab 67 € / Jahr · Tarife Standard, Pro und Ultimate · 14 Tage kostenlos testen',
+        'api': False, 'dsgvo': 'bedingt', 'origin': 'Schweiz', 'rating': 4.5, 'reviews': 620,
+        'pros': [
+            'Über 120 didaktisch vorgefertigte Assistenten — kein Prompt-Wissen nötig',
+            'Konsequent auf den D-A-CH-Schulalltag zugeschnitten, Lehrplan-Bezug wählbar',
+            'Datensparsam: Eingaben nicht dauerhaft gespeichert, Ergebnisse standardmäßig 24 Stunden, kein Schülerkonto nötig',
+            'Server und Datenbank in Frankfurt am Main, kein Training mit Nutzerdaten, AV-Vertrag auf Anfrage',
+        ],
+        'cons': [
+            'KI-Erzeugung läuft über OpenAI und fal.ai (US-Anbieter) — laut Anbieter bevorzugt, aber nicht garantiert ausschließlich in der EU',
+            'Oberfläche nur auf Deutsch, keine API',
+            'Ergebnisse standardmäßig nur 24 Stunden verfügbar — Sicherung liegt bei der Lehrkraft',
+            'KI-Material bleibt fachlich prüfbedürftig; Freigabe durch Schule bzw. Schulbehörde vorab klären',
+        ],
+        'usecases': [
+            'Arbeitsblätter, Lückentexte und Tests erstellen',
+            'Aufgaben nach Niveaustufen differenzieren',
+            'Stundenentwürfe und Unterrichtsplanung vorbereiten',
+            'Elternbriefe und Rückmeldungen formulieren',
+        ],
+        'launched': '2023-09-01', 'lastUpdated': '2026-09-10',
+        'website': 'https://kischulgenie.com', 'domain': 'kischulgenie.com',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn worksheet sheet with ruled lines and a few blank answer boxes, a small chalkboard behind it and three tiny difficulty-level bars beside it, the middle bar tinted magenta - teaching material prepared at several levels.',
+        'features': """- **120+ Assistenten** für Arbeitsblätter, Lückentexte, Tests, Korrektur, Feedback, Präsentationen und Elternbriefe.
+- **Differenzierung**: dieselbe Aufgabe für unterschiedliche Niveaustufen erzeugen.
+- **Eingabe ohne Prompt-Wissen**: Thema, Klassenstufe, Fach und Sprache auswählen, optional mit Lehrplan-Bezug (D-A-CH).
+- **KI Material-Baukasten** (im Tarif Ultimate enthalten, auch eigenständig erhältlich): Arbeitsblatt-Editor mit Fokus Grundschule.
+- **Weitere Formate**: Bilder, Ausmalbilder, Comics, Diagramme, Visualisierungen und Mindmaps.
+- **Upload** von PDFs, Bildern und Videos als Materialgrundlage (ab Pro).
+- **Export** als PDF oder Word; Weitergabe an die Klasse per Ausdruck oder QR-Code — **ohne Schülerkonto**.""",
+        'pricing': """- **Einstieg ab 67 € / Jahr** (Anbieterangabe); die Website weist die Tarife wochenweise aus.
+- **Standard** · alle Kern-Tools ohne Mengenbegrenzung, dreifache KI-Prüfung, Favoriten.
+- **Pro** · zusätzlich schnelleres Modell, Export als PDF/Word, Bearbeiten der Ergebnisse, Upload von PDFs/Bildern/Videos, Organisation der Inhalte, VIP-Support.
+- **Ultimate** · zusätzlich modernstes Modell, optisch passende Arbeitsblätter, Diagramme und Visualisierungen, unbegrenzte Bilderstellung sowie der **KI Material-Baukasten**.
+- **14 Tage kostenlos testen**; Zahlung über Stripe oder PayPal.""",
+        'overview': '''**KI Schulgenie** ist eine deutschsprachige KI-Plattform für Lehrkräfte — und im Verzeichnis bislang das erste Werkzeug, das gezielt den Schulalltag adressiert. Der Ansatz unterscheidet sich bewusst von allgemeinen Chat-Assistenten: Statt eines leeren Prompt-Felds gibt es **über 120 vorgefertigte Assistenten**, jeder für eine konkrete Aufgabe aus der Unterrichtsvorbereitung.
+
+Der Ablauf ist entsprechend niedrigschwellig. Man wählt einen Assistenten — Arbeitsblatt, Lückentext, Test, Korrekturhilfe, Stundenentwurf, Elternbrief —, gibt Thema, Klassenstufe, Fach und Sprache ein, optional mit Bezug auf einen Lehrplan aus Deutschland, Österreich oder der Schweiz, und erhält fertiges Material. **Prompt-Kenntnisse sind nicht nötig**, was in der Zielgruppe der entscheidende Punkt ist: Der Engpass im Lehrberuf ist selten die Bereitschaft, KI zu nutzen, sondern die Zeit, sich in Werkzeuge einzuarbeiten.
+
+Praktisch am wertvollsten dürfte die **Differenzierung** sein — dieselbe Aufgabe automatisch in mehreren Niveaustufen zu erzeugen, ist eine der zeitaufwendigsten Routinen im Unterrichtsalltag. Dazu kommen Bilder, Ausmalbilder, Comics, Diagramme und Mindmaps sowie ab dem Pro-Tarif der Upload eigener PDFs, Bilder und Videos als Materialgrundlage. Im Tarif **Ultimate** ist der **KI Material-Baukasten** enthalten, ein Arbeitsblatt-Editor mit Schwerpunkt Grundschule, den es auch eigenständig gibt.
+
+Hinter der Plattform steht die **Soul Business Mentors GmbH** mit Sitz in Eichberg in der Schweiz; gegründet wurde sie von einem ehemaligen Lehrer. Nach Anbieterangaben haben sich über 65.000 Lehrkräfte aus Deutschland, Österreich und der Schweiz registriert — eine Zahl, die sich naturgemäß nicht unabhängig prüfen lässt, die aber zur Sichtbarkeit des Angebots im deutschsprachigen Raum passt.
+
+Beim **Datenschutz** ist die Ausgangslage überdurchschnittlich gut dokumentiert. Die Datenschutzseite listet in klarer Sprache alle Dienstleister auf: **Server und Datenbank stehen in Frankfurt am Main** (Anwendung bei DigitalOcean, Datenbank und Dateispeicher bei Supabase), **Nutzerdaten werden nicht zum Training verwendet**, Eingaben werden nicht dauerhaft gespeichert, **Ergebnisse sind standardmäßig 24 Stunden verfügbar**, und **Schülerinnen und Schüler brauchen kein Konto** — Material wird per Ausdruck oder QR-Code weitergegeben. Für Schulen ist ein **Auftragsverarbeitungsvertrag** auf Anfrage erhältlich. Dass der Anbieter in der Schweiz sitzt, ist dabei unkritisch: Für die Schweiz besteht ein Angemessenheitsbeschluss der EU-Kommission.
+
+Warum der Eintrag dennoch auf **DSGVO „bedingt“** steht: Die eigentliche KI-Erzeugung läuft laut Datenschutzseite über **OpenAI** (Texte) und **fal.ai** (Bilder) — beides US-Anbieter. Der Anbieter formuliert, dass dabei **bevorzugt** in der EU verarbeitet wird und die Dienste die Daten nicht zum Training verwenden dürfen. Das ist eine gute Regelung, aber „bevorzugt“ ist keine Garantie einer ausschließlich europäischen Verarbeitung. Dieses Verzeichnis bewertet den DSGVO-Status nach der tatsächlichen Verarbeitungskette, nicht nach dem Sitz des Anbieters — dieselbe Linie gilt für andere deutschsprachige Tools, die Inhalte an KI-APIs außerhalb der EU weiterreichen. Innerhalb dieser Einstufung gehört KI Schulgenie durch Frankfurter Hosting, kurze Speicherfristen, Trainingsausschluss und AV-Vertrag klar zum stärkeren Ende.
+
+Ein Punkt, der über den reinen Anbietervergleich hinausgeht und für die Zielgruppe wichtiger ist als jedes Feature: **Schulische Nutzung ist geregelt.** Ob und wie KI-Werkzeuge im Unterricht eingesetzt werden dürfen, entscheiden Schulleitung und Schulbehörde — in Deutschland je nach Bundesland unterschiedlich. Für die reine Materialerstellung ohne Personenbezug ist die Hürde niedrig; sobald **personenbezogene Daten von Schülerinnen und Schülern** ins Spiel kommen — Namen, Leistungsstände, Gutachten, Zeugnisformulierungen —, sollte man das vorab klären und solche Angaben im Zweifel weglassen oder anonymisieren. Dass die Plattform ohne Schülerkonten auskommt und Eingaben nicht dauerhaft speichert, hilft dabei, ersetzt die Klärung aber nicht.
+
+Die vom Anbieter selbst genannten **Grenzen** runden das Bild ab: Die Oberfläche gibt es **nur auf Deutsch**, eine **API** existiert nicht — für die Zielgruppe beides verschmerzbar, für Integrationen in Schulsoftware aber relevant. Und die **24-Stunden-Verfügbarkeit** der Ergebnisse ist datenschutzseitig ein Vorzug, im Alltag jedoch eine Stolperfalle: Wer Material behalten will, muss es bewusst sichern oder exportieren. Wie bei allen generativen Werkzeugen gilt zudem, dass erzeugte Inhalte fachlich zu prüfen sind, bevor sie in die Klasse gehen.
+
+Empfohlen für Lehrkräfte im deutschsprachigen Raum, die wiederkehrende Vorbereitungsarbeit — Arbeitsblätter, Differenzierung, Tests, Elternkommunikation — beschleunigen wollen, ohne sich in Prompt-Technik einzuarbeiten. Die 14-tägige Testphase erlaubt eine belastbare eigene Einschätzung; für den Einsatz im Kollegium empfiehlt sich der Weg über den AV-Vertrag und eine kurze Abstimmung mit der Schulleitung.''',
+    },
+]
+
+out = ROOT / 'scripts' / 'pending_tools.json'
+out.write_text(json.dumps(TOOLS, ensure_ascii=False, indent=2))
+print(f'wrote {len(TOOLS)} record(s) to {out.relative_to(ROOT)}')
+for t in TOOLS:
+    print(f'  - {t["slug"]:16} {t["category"]:14} ov={len(t["overview"])}c  dsgvo={t["dsgvo"]}  origin={t["origin"]}')
