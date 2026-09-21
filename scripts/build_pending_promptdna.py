@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""Build scripts/pending_tools.json with Prompt.DNA (evidence-based application writing)."""
+import json
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
+TOOLS = [
+    {
+        'slug': 'prompt-dna', 'name': 'Prompt.DNA',
+        'vendor': 'Nael Sultan', 'category': 'produktivitaet',
+        'tagline': 'Deutsches Bewerbungs-Werkzeug, das nur aus den selbst eingegebenen Belegen schreibt — was die Angaben nicht decken, wird markiert statt still erfunden. Der Prompt entsteht standardmäßig im Browser, der KI-Aufruf in der App ist Opt-in.',
+        'price': 'Kostenlos in der Beta, keine Paywall · Demo ohne Konto',
+        'api': False, 'dsgvo': 'ja', 'origin': 'Deutschland', 'rating': 4.2, 'reviews': 45,
+        'pros': [
+            'Belege-Prinzip: ungedeckte Angaben werden markiert statt erfunden — adressiert die typische Schwäche generischer KI-Texte',
+            'Stimm.DNA mit eigenem Tonfall und Tabu-Wörtern gilt einmal angelegt für alle Vorlagen',
+            'Standardmäßig keine KI-Verarbeitung durch den Dienst: der Prompt entsteht im Browser, die Direkt-Ausführung ist Opt-in je Klick',
+            'Sehr transparente Datenschutzerklärung, kein Verhaltens-Tracking, Demo ohne Konto',
+        ],
+        'cons': [
+            'Privates Beta-Projekt einer Einzelperson ohne eingetragenes Gewerbe — Fortbestand und Support ungewiss',
+            'Im Standardmodus erledigt die eigentliche Texterzeugung der KI-Chat der Nutzerin — dort gelten dann dessen Datenschutzbedingungen',
+            'Prompt-Anweisungen reduzieren Erfindungen, schließen sie im nachgelagerten Modell aber nicht aus',
+            'Bei der Opt-in-Direktausführung geht der vollständige Prompt an Google Gemini (laut Anbieter bis 55 Tage Missbrauchsprüfung)',
+        ],
+        'usecases': [
+            'Anschreiben aus belegbaren Angaben erstellen',
+            'ATS-tauglichen Lebenslauf und Zeugnis-Entwurf vorbereiten',
+            'LinkedIn- und XING-Profil, Kurzbio und Elevator Pitch texten',
+            'Nachfassen nach der Bewerbung und Interview-Vorbereitung',
+        ],
+        'launched': '2026-06-01', 'lastUpdated': '2026-09-21',
+        'website': 'https://prompt-dna.pages.dev/', 'domain': 'prompt-dna.pages.dev',
+        'stealth': False,
+        'cover_cue': 'A hand-drawn double-helix strand whose rungs are short text lines, with three small checkmarks beside covered rungs and one rung left as a dotted outline carrying a tiny magenta warning dot - text built only from verified evidence, gaps marked.',
+        'features': """- **Belege-Prinzip**: Texte entstehen nur aus den selbst eingetragenen Angaben; **ungedeckte Behauptungen werden markiert** statt stillschweigend ergänzt.
+- **Stimm.DNA**: eigener Tonfall, echte Skills und **Tabu-Wörter** (etwa Floskeln wie „teamfähig“) werden einmal angelegt und gelten für alle Vorlagen.
+- **Vorlagen für den gesamten Bewerbungsprozess**: Anschreiben, **ATS-tauglicher Lebenslauf**, Entwurf für das eigene Arbeitszeugnis, Nachfassen nach der Bewerbung und Interview-Vorbereitung.
+- **Selbstdarstellung**: LinkedIn- und XING-Profil, Kurzbio und Elevator Pitch.
+- **Prompt-First-Architektur**: Der fertige Prompt wird **im Browser** gebaut und lässt sich in ein beliebiges KI-Tool kopieren.
+- **Direkt ausführen (Beta)**: optionaler KI-Aufruf in der App, **je Klick zu bestätigen**.
+- **Zweisprachig** (Deutsch, Englisch) und **Demo ohne Konto**.""",
+        'pricing': """- **Kostenlos in der Beta**, ohne Paywall und ohne Zahlungsdaten.
+- **Demo ohne Konto** unter /demo zum Ausprobieren des Anschreiben-Prompts.
+- Ein Bezahlmodell ist bislang nicht ausgewiesen; laut AGB können sich Funktionen in der Beta ändern oder entfallen.""",
+        'overview': '''**Prompt.DNA** ist ein deutsches Werkzeug für Bewerbungsunterlagen, das eine konkrete Schwäche generischer KI-Texte adressiert: **erfundene Fakten**. Wer ein Anschreiben aus einem allgemeinen Chatbot erzeugt, bekommt erfahrungsgemäß oft eine plausible Erfolgszahl, ein Projekt oder einen früheren Arbeitgeber dazugeschrieben, den es nie gab — in einer Bewerbung ist das kein Schönheitsfehler, sondern ein ernstes Problem.
+
+Der Gegenentwurf heißt hier **Belege**: Man trägt ein, was tatsächlich zutrifft — Abschlüsse, Stationen, Projekte, nachweisbare Ergebnisse —, und die Texte entstehen nur daraus. Was die Angaben nicht decken, wird in der Oberfläche als **ungedeckt markiert**, statt stillschweigend ergänzt zu werden. Ergänzt wird das durch die **Stimm.DNA**: Tonfall, echte Fähigkeiten und ausdrücklich unerwünschte Formulierungen — Floskeln wie „teamfähig“ oder „leidenschaftlich“ — legt man einmal an, danach gelten sie für jede Vorlage.
+
+Abgedeckt ist der Bewerbungsprozess ziemlich vollständig: **Anschreiben**, **ATS-tauglicher Lebenslauf**, ein Entwurf für das eigene **Arbeitszeugnis**, **Nachfassen** nach der Bewerbung und **Interview-Vorbereitung**, dazu Profiltexte für **LinkedIn und XING**, Kurzbio und Elevator Pitch. Die Oberfläche gibt es auf Deutsch und Englisch, und unter **/demo** lässt sich der Anschreiben-Prompt ohne Konto ausprobieren.
+
+Technisch interessant — und der eigentliche Grund für die Datenschutz-Einstufung — ist die **Architektur**. Prompt.DNA baut den fertigen, mit allen Angaben gefüllten **Prompt im Browser**; man kopiert ihn und setzt ihn in den KI-Chat der eigenen Wahl ein. **Im Standardbetrieb verarbeitet der Dienst also selbst keine Inhalte mit einer KI.** Optional gibt es eine Direkt-Ausführung in der App, die aber **je Klick ausdrücklich bestätigt** werden muss.
+
+Beim **Datenschutz** ist die Dokumentation ungewöhnlich sorgfältig. Verantwortlich ist eine Person mit Sitz in **Berlin**, Konto- und Inhaltsdaten liegen bei **Supabase mit EU-Hosting**, die Programmierschnittstelle läuft bei **Fly.io in Frankfurt**, ausgeliefert wird über Cloudflare. Es gibt **kein Verhaltens-Tracking**, keine Werbe-Cookies, selbst gehostete Schriften, keine IP-Speicherung in der Reichweitenmessung. Besonders bemerkenswert: Die Datenschutzerklärung **korrigiert die eigene Marketing-Aussage** und stellt klar, dass „Server in Frankfurt“ die eigene API meint und nicht den Verarbeitungsort eines KI-Modells. Diese Art von Selbstkorrektur findet man in Anbietertexten selten.
+
+Deshalb steht der Eintrag auf **DSGVO „ja“**: Der Standardweg schickt die Bewerbungsdaten überhaupt nicht an einen KI-Anbieter, der Drittland-Anteil ist **Opt-in und vermeidbar**. Fairerweise gehört dazu: **Supabase und Cloudflare sind US-Unternehmen** (mit EU-Hosting beziehungsweise Auslieferung), und wer die **Direkt-Ausführung** nutzt, sendet den vollständigen Prompt samt Profil- und Bewerbungsdaten an **Google Gemini** — laut Anbieter werden Prompts von EWR-Nutzern nicht zur Produktverbesserung verwendet, zur Missbrauchserkennung aber bis zu 55 Tage gespeichert. Ein eigenes Modell trainiert der Dienst nicht, weil er keines betreibt.
+
+Zwei Einschränkungen sollte man vor der Nutzung kennen. Erstens ist Prompt.DNA laut Impressum ein **privates Projekt in kostenloser Beta**, betrieben von einer Einzelperson **ohne eingetragenes Gewerbe**, auf einer pages.dev-Subdomain; die AGB halten ausdrücklich fest, dass Funktionen sich ändern oder entfallen können. Wer dort einen vollständigen Lebenslauf hinterlegt, sollte einkalkulieren, dass Fortbestand, Support und Weiterentwicklung eines solchen Projekts ungewiss sind — und eigene Kopien seiner Unterlagen behalten. Zweitens verlagert der Standardmodus den letzten Schritt zur Nutzerin: Die eigentliche Texterzeugung passiert im **eigenen KI-Chat**, und dort gelten dann dessen Datenschutzbedingungen — ein kostenloser ChatGPT-Zugang etwa verarbeitet die eingefügten Daten nach eigenen Regeln.
+
+Und eine nüchterne Einordnung zum Kernversprechen: Das Belege-Prinzip wirkt an zwei Stellen — in der Oberfläche, die Lücken sichtbar macht, und in den Anweisungen des erzeugten Prompts. Beides reduziert erfundene Angaben deutlich, **garantiert aber nicht**, dass das nachgelagerte Sprachmodell nichts hinzudichtet. Die letzte Prüfung vor dem Absenden bleibt Aufgabe der Bewerberin.
+
+Im Verzeichnis steht mit **BewerbungGPT** bereits ein deutsches Bewerbungs-Werkzeug; die beiden lösen aber unterschiedliche Probleme. BewerbungGPT erzeugt die Dokumente selbst, inklusive Lebenslauf-Layouts und Bewerbungsfotos, und ist als fertiges Produkt weiter. Prompt.DNA setzt dagegen auf Faktentreue, Stilkontrolle und Datensparsamkeit — und ist die passendere Wahl für alle, die ihre Unterlagen nicht durch einen fremden KI-Dienst laufen lassen möchten oder denen erfundene Angaben in Bewerbungen ein besonderes Anliegen sind.''',
+    },
+]
+
+out = ROOT / 'scripts' / 'pending_tools.json'
+out.write_text(json.dumps(TOOLS, ensure_ascii=False, indent=2))
+print(f'wrote {len(TOOLS)} record(s) to {out.relative_to(ROOT)}')
+for t in TOOLS:
+    print(f'  - {t["slug"]:12} {t["category"]:14} ov={len(t["overview"])}c  dsgvo={t["dsgvo"]}  url={t["website"]}')

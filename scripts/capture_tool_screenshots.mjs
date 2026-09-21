@@ -196,6 +196,7 @@ const TOOLS = [
   { slug: "klang", url: "https://klang.ai/de", stealth: true },
   { slug: "vozo", url: "https://www.vozo.ai/de/", stealth: true },
   { slug: "ki-schulgenie", url: "https://kischulgenie.com" },
+  { slug: "prompt-dna", url: "https://prompt-dna.pages.dev/" },
   // <<<WEEKLY-DISCOVERY-INSERT>>> — seed_pending_tools.py inserts new { slug, url } entries above this line
 ];
 
@@ -225,6 +226,11 @@ const COOKIE_BUTTONS = [
   'button:has-text("Alle Cookies akzeptieren")',
   'button:has-text("Alle ablehnen")',
   '[aria-label="Accept all"]',
+  // Last resort: purely informational banners that offer no choice
+  // (acknowledge only — decline options above always take priority).
+  'button:has-text("Verstanden")',
+  'button:has-text("OK, got it")',
+
 ];
 
 async function captureOne(browsers, tool) {
@@ -260,21 +266,20 @@ async function captureOne(browsers, tool) {
       referer: tool.stealth ? 'https://www.google.com/' : undefined,
     });
     await page.waitForTimeout(3000);
-    if (tool.stealth) {
-      // Best-effort cookie banner dismissal
-      for (const sel of COOKIE_BUTTONS) {
-        try {
-          const btn = await page.$(sel);
-          if (btn) { await btn.click({ timeout: 2000 }); break; }
-        } catch {}
-      }
-      // Best-effort overlay close (e.g. "Freepik is now Magnific" promo box)
+    // Cookie banners and promo overlays appear on stealth and non-stealth sites
+    // alike, so dismiss them for every capture (best effort, never fatal).
+    for (const sel of COOKIE_BUTTONS) {
       try {
-        const closes = await page.$$('button[aria-label="Close"]');
-        for (const c of closes) { try { await c.click({ timeout: 1000 }); } catch {} }
+        const btn = await page.$(sel);
+        if (btn) { await btn.click({ timeout: 2000 }); break; }
       } catch {}
-      await page.waitForTimeout(2000);
     }
+    // Best-effort overlay close (e.g. "Freepik is now Magnific" promo box)
+    try {
+      const closes = await page.$$('button[aria-label="Close"]');
+      for (const c of closes) { try { await c.click({ timeout: 1000 }); } catch {} }
+    } catch {}
+    await page.waitForTimeout(2000);
     await page.screenshot({ path: out, type: 'jpeg', quality: 88, fullPage: false });
     console.log(`     ✓  saved ${out.split('/').slice(-2).join('/')}`);
     return { ok: true };

@@ -213,6 +213,7 @@ TOOL_CUES = {
     'klang': 'A hand-drawn microphone at the left whose sound waves resolve into a stack of overlapping conversation cards to the right, each card a few text lines, with a thin magenta search-ring drawn across the whole stack — spoken conversations turned into a searchable archive.',
     'vozo': 'A hand-drawn film frame showing a speaking face in profile, with three small speech bubbles in different scripts fanning out from the mouth and a tiny slide-with-text icon beside it, one bubble tinted magenta — one video, many languages.',
     'ki-schulgenie': 'A hand-drawn worksheet sheet with ruled lines and a few blank answer boxes, a small chalkboard behind it and three tiny difficulty-level bars beside it, the middle bar tinted magenta - teaching material prepared at several levels.',
+    'prompt-dna': 'A hand-drawn double-helix strand whose rungs are short text lines, with three small checkmarks beside covered rungs and one rung left as a dotted outline carrying a tiny magenta warning dot - text built only from verified evidence, gaps marked.',
     # <<<WEEKLY-DISCOVERY-INSERT>>> seed_pending_tools.py inserts new cue lines above this line
 }
 
